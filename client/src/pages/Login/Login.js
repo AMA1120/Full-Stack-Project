@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import Navbar from "../../components/Navbar/Navbar";
 import './login.css';
+import Navbar from '../../components/Navbar/Navbar'
 
 // Create a functional component for the login page
 const Login = () => {
@@ -53,6 +54,7 @@ const Login = () => {
     <>
       <Navbar/>
     <div>
+    <Navbar/>
       <h2>Login</h2>
       {error && <p style={{ color: 'red' }}>{error}</p>}
       <form onSubmit={handleSubmit}>
