@@ -1,0 +1,39 @@
+/* home.css */
+
+/* Add styling for the search bar container */
+.search-bar-container {
+  padding: 10px;
+  background-color: #f0f0f0;
+  border-bottom: 1px solid #ccc;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Add more styling for the search input if needed */
+#searchCustomers {
+  padding: 8px;
+  width: 200px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* Other styles remain unchanged */
+.home-container {
+  display: flex;
+}
+
+.home-content {
+  flex: 1;
+  padding: 20px;
+  box-sizing: border-box;
+  overflow-y: auto;
+}
+
+.home-content h1 {
+  color: #333;
+}
+
+.home-content p {
+  color: #555;
+}

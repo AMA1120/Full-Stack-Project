@@ -1,1 +1,21 @@
 
+.food-container {
+    display: flex;
+  }
+  
+  .food-content {
+    flex: 1; /* Take remaining available space */
+    padding: 20px;
+    box-sizing: border-box; /* Include padding in the width calculation */
+    overflow-y: auto; /* Enable vertical scrolling when content exceeds the viewport */
+  }
+  
+  /* Add more styling for your home content as needed */
+  .food-content h1 {
+    color: #333;
+  }
+  
+  .food-content p {
+    color: #555;
+  }
+  
