@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import Navbar from "../../components/Navbar/Navbar";
 import './login.css';
-import Navbar from '../../components/Navbar/Navbar'
+
 
 // Create a functional component for the login page
 const Login = () => {
