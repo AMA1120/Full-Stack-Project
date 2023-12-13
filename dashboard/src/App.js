@@ -1,9 +1,9 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Home from './pages/home/Home';
-import Food from './pages/food/Food';
-import Promotions from './pages/promotions/Promotions';
-import Login from './pages/login/Login';
+import Home from './pages/Home/Home';
+import Food from './pages/Food/Food';
+import Promotions from './pages/Promotions/Promotions';
+import Login from './pages/Login/Login';
 import './App.css';
 
 function App() {
@@ -12,10 +12,10 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route index element={<Home />}></Route>
-          <Route path="/home" element={<Home />}></Route>
-          <Route path="/food" element={<Food />}></Route>
-          <Route path="/promotions" element={<Promotions />}></Route>
-          <Route path="/login" element={<Login />}></Route>
+          <Route path="/Home" element={<Home />}></Route>
+          <Route path="/Food" element={<Food />}></Route>
+          <Route path="/Promotions" element={<Promotions />}></Route>
+          <Route path="/Login" element={<Login />}></Route>
         </Routes>
       </BrowserRouter>
       
