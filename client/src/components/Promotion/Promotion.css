@@ -1,0 +1,23 @@
+/* Promotion.css */
+
+.promotion-container {
+    width: 100%;
+    overflow: hidden;
+  }
+  
+  .promotion-slide {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.5s ease-in-out;
+  }
+  
+  .promotion-image {
+    width: 100%;
+    height: auto;
+    max-height: 400px; /* Adjust the maximum height as needed */
+  }
+  
+  /* You can add additional styles for navigation arrows or other elements if necessary */
+  
