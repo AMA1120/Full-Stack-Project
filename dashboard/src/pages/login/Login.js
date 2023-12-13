@@ -1,11 +1,13 @@
-import React from 'react'
+import React, {useState} from 'react'
 import Navbar from "../../components/navbar/navbar";
 
 function Login() {
       return (
             <>
         <Navbar/>
-                  <div>Login</div>
+                  <div>Login
+                  <h1>LOGIN HERE</h1>
+                  </div>
             </>
   )
 }
