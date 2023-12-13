@@ -1,5 +1,7 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
+import Navbar from "../../components/Navbar/Navbar";
 import './login.css';
+
 
 // Create a functional component for the login page
 const Login = () => {
@@ -49,7 +51,10 @@ const Login = () => {
   };
 
   return (
+    <>
+      <Navbar/>
     <div>
+    <Navbar/>
       <h2>Login</h2>
       {error && <p style={{ color: 'red' }}>{error}</p>}
       <form onSubmit={handleSubmit}>
@@ -73,7 +78,8 @@ const Login = () => {
         <br />
         <button type="submit">Log In</button>
       </form>
-    </div>
+      </div>
+      </>
   );
 };
 
