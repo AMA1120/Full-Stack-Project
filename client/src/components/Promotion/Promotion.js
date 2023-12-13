@@ -7,7 +7,7 @@ function Promotion() {
        <div className="promotion-container">
       <div className="promotion-slide">
         <img
-          src="C:\Users\User\Documents\GitHub\Full-Stack-Project\client\src\Images\herosection.jpeg" // Replace with your image URL
+          src="C:\Users\User\Documents\GitHub\Full-Stack-Project\client\src\Images\pro2.png" // Replace with your image URL
           alt="Promotion 1"
           className="promotion-image"
         />
