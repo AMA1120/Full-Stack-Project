@@ -1,9 +1,13 @@
-// import React, { useState } from 'react'
 
-// function ImageUpload(){
-//     return(
-//         <div className='auth-wrapper'>
+const mongoose = require("mongoose");
 
-//         </div>
-//     )
-// }
+const promotionaddingSchema = new mongoose.Schema(
+    {
+        Image:String
+    },
+    {
+        collection: "ImageDetails",
+    }
+);
+
+mongoose.model("Promotion",promotionaddingSchema);
