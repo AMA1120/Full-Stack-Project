@@ -53,18 +53,18 @@ function Register() {
 
 
 
-  construct(props) {
-    super(props);
-    this.state ={
-      fullName: "",
-    phoneNo: "",
-    City: "",
-    email: "",
-    username: "",
-    password: "",
+  // construct(props) {
+  //   super(props);
+  //   this.state ={
+  //     fullName: "",
+  //   phoneNo: "",
+  //   City: "",
+  //   email: "",
+  //   username: "",
+  //   password: "",
 
-    };
-  }
+  //   };
+  // }
 
   return (
     <>
