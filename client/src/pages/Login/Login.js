@@ -52,7 +52,6 @@ const Login = () => {
 
   return (
     <>
-      <Navbar/>
     <div>
     <Navbar/>
       <h2>Login</h2>
