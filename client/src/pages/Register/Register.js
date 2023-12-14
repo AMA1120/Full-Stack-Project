@@ -1,5 +1,6 @@
-import "./register.css";
+// import "./register.css";
 
+<<<<<<< Updated upstream
 import React, { useState } from "react";
 import Navbar from "../../components/Navbar/Navbar";
 function Register() {
@@ -12,29 +13,45 @@ function Register() {
     password: "",
     agreeToTerms: false
   });
+=======
+// import React, { useState } from "react";
+// import Navbar from "../../components/Navbar/Navbar";
 
-  const [submitted, setSubmitted] = useState(false);
-  const [valid, setValid] = useState(false);
+// function Register() {
+//   const [values, setValues] = useState({
+//     fullName: "",
+//     phoneNo: "",
+//     City: "",
+//     email: "",
+//     username: "",
+//     password: "",
+//     agreeToTerms: false
+//   });
+>>>>>>> Stashed changes
 
-  const handleInputChange = (event) => {
-    const { name, value, type, checked } = event.target;
+//   const [submitted, setSubmitted] = useState(false);
+//   const [valid, setValid] = useState(false);
 
-    if (type === 'checkbox') {
-      setValues((prevValues) => ({
-        ...prevValues,
-        [name]: checked
-      }));
-    } else {
-      setValues((prevValues) => ({
-        ...prevValues,
-        [name]: value
-      }));
-    }
-  };
+//   const handleInputChange = (event) => {
+//     const { name, value, type, checked } = event.target;
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+//     if (type === 'checkbox') {
+//       setValues((prevValues) => ({
+//         ...prevValues,
+//         [name]: checked
+//       }));
+//     } else {
+//       setValues((prevValues) => ({
+//         ...prevValues,
+//         [name]: value
+//       }));
+//     }
+//   };
 
+//   const handleSubmit = async (e) => {
+//     e.preventDefault();
+
+<<<<<<< Updated upstream
     if (
       values.fullName &&
       values.phoneNo &&
@@ -110,80 +127,141 @@ function Register() {
                 {submitted && !values.fullName && (
                   <span id="full-name-error">Please enter your Full name</span>
                 )}
+=======
+//     if (
+//       values.fullName &&
+//       values.phoneNo &&
+//       values.City &&
+//       values.email &&
+//       values.username &&
+//       values.password &&
+//       values.agreeToTerms
+//     ) 
+    
 
-                <input
-                  className="form-field"
-                  type="text"
-                  placeholder="Telephone No"
-                  name="phoneNo"
-                  value={values.phoneNo}
-                  onChange={handleInputChange}
-                />
-                {submitted && !values.phoneNo && (
-                  <span id="phoneNo-error">Please enter your telephone no.</span>
-                )}
+//     setSubmitted(true);
+//   };
 
-                <input
-                  className="form-field"
-                  type="text"
-                  placeholder="City"
-                  name="City"
-                  value={values.City}
-                  onChange={handleInputChange}
-                />
-                {submitted && !values.City && (
-                  <span id="City-error">Please enter your city.</span>
-                )}
 
-                <input
-                  className="form-field"
-                  type="email"
-                  placeholder="Email"
-                  name="email"
-                  value={values.email}
-                  onChange={handleInputChange}
-                />
-                {submitted && !values.email && (
-                  <span id="email-error">Please enter your email address</span>
-                )}
 
-                <input
-                  className="form-field"
-                  type="text"
-                  placeholder="Username"
-                  name="username"
-                  value={values.username}
-                  onChange={handleInputChange}
-                />
-                {submitted && !values.username && (
-                  <span id="username-error">Please enter your username</span>
-                )}
 
-                <input
-                  className="form-field"
-                  type="password"
-                  placeholder="Password"
-                  name="password"
-                  value={values.password}
-                  onChange={handleInputChange}
-                />
-                {submitted && !values.password && (
-                  <span id="password-error">Please enter your password</span>
-                )}
+//   // construct(props) {
+//   //   super(props);
+//   //   this.state ={
+//   //     fullName: "",
+//   //   phoneNo: "",
+//   //   City: "",
+//   //   email: "",
+//   //   username: "",
+//   //   password: "",
 
-                <label>
-                  <input
-                    type="checkbox"
-                    name="agreeToTerms"
-                    checked={values.agreeToTerms}
-                    onChange={handleInputChange}
-                  />
-                  I agree to this website's terms and conditions
-                </label>
-                {submitted && !values.agreeToTerms && (
-                  <span id="terms-error">Please agree to the terms and conditions</span>
-                )}
+//   //   };
+//   // }
 
+//   return (
+//     <>
+//       <Navbar />
+//       <br />
+//       <div>
+//         <div className="form-container">
+//           <div className="h1">Register</div>
+//           <form className="register-form" onSubmit={handleSubmit}>
+//             {submitted && valid && (
+//               <div className="success-message">
+               
+//                 alert(`Welcome ${values.fullName}\nYour registration was successful!`)
+//               </div>
+//             )}
+
+//             {!valid && (
+//               <>
+//                 <input
+//                   className="form-field"
+//                   type="text"
+//                   placeholder="Full Name"
+//                   name="fullName"
+//                   value={values.fullName}
+//                   onChange={e=>this.setState()}
+//                 />
+//                 {submitted && !values.fullName && (
+//                   <span id="full-name-error">Please enter your Full name</span>
+//                 )}
+>>>>>>> Stashed changes
+
+//                 <input
+//                   className="form-field"
+//                   type="text"
+//                   placeholder="Telephone No"
+//                   name="phoneNo"
+//                   value={values.phoneNo}
+//                   onChange={handleInputChange}
+//                 />
+//                 {submitted && !values.phoneNo && (
+//                   <span id="phoneNo-error">Please enter your telephone no.</span>
+//                 )}
+
+//                 <input
+//                   className="form-field"
+//                   type="text"
+//                   placeholder="City"
+//                   name="City"
+//                   value={values.City}
+//                   onChange={handleInputChange}
+//                 />
+//                 {submitted && !values.City && (
+//                   <span id="City-error">Please enter your city.</span>
+//                 )}
+
+//                 <input
+//                   className="form-field"
+//                   type="email"
+//                   placeholder="Email"
+//                   name="email"
+//                   value={values.email}
+//                   onChange={handleInputChange}
+//                 />
+//                 {submitted && !values.email && (
+//                   <span id="email-error">Please enter your email address</span>
+//                 )}
+
+//                 <input
+//                   className="form-field"
+//                   type="text"
+//                   placeholder="Username"
+//                   name="username"
+//                   value={values.username}
+//                   onChange={handleInputChange}
+//                 />
+//                 {submitted && !values.username && (
+//                   <span id="username-error">Please enter your username</span>
+//                 )}
+
+//                 <input
+//                   className="form-field"
+//                   type="password"
+//                   placeholder="Password"
+//                   name="password"
+//                   value={values.password}
+//                   onChange={handleInputChange}
+//                 />
+//                 {submitted && !values.password && (
+//                   <span id="password-error">Please enter your password</span>
+//                 )}
+
+//                 <label>
+//                   <input
+//                     type="checkbox"
+//                     name="agreeToTerms"
+//                     checked={values.agreeToTerms}
+//                     onChange={handleInputChange}
+//                   />
+//                   I agree to this website's terms and conditions
+//                 </label>
+//                 {submitted && !values.agreeToTerms && (
+//                   <span id="terms-error">Please agree to the terms and conditions</span>
+//                 )}
+
+<<<<<<< Updated upstream
                 <button className="form-field" type="submit">
                   Register
                 </button>
@@ -196,6 +274,22 @@ function Register() {
   );
 }
 export default Register; 
+=======
+//                 <button className="form-field" type="submit">
+//                   Register
+//                 </button>
+//               </>
+//             )}
+//           </form>
+//         </div>
+//       </div>
+//     </>
+//   );
+// }
+
+// export default Register;
+
+>>>>>>> Stashed changes
 
 
 

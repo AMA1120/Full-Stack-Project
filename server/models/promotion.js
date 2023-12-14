@@ -1,13 +1,30 @@
-
 const mongoose = require("mongoose");
 
-const promotionaddingSchema = new mongoose.Schema(
-    {
-        Image:String
+const PromotionSchema = new mongoose.Schema(
+  {
+    promotionName: {
+      type: String,
+      required: [true, "Please add a promotion name"],
     },
-    {
-        collection: "ImageDetails",
-    }
+
+    description: {
+      type: String,
+      required: [true, "Please add a description"],
+    },
+
+    category: {
+      type: String,
+      required: [true, "Please add the category"],
+    },
+
+    image: {
+      type: String,
+      required: [true, "Please add image"],
+    },
+  },
+  {
+    collection: "PromotionDetails",
+  }
 );
 
-mongoose.model("Promotion",promotionaddingSchema);
+module.exports = mongoose.model("PromotionDetails", PromotionSchema);
