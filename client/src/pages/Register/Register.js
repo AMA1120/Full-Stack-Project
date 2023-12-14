@@ -2,7 +2,6 @@ import "./register.css";
 
 import React, { useState } from "react";
 import Navbar from "../../components/Navbar/Navbar";
-
 function Register() {
   const [values, setValues] = useState({
     fullName: "",
@@ -44,27 +43,42 @@ function Register() {
       values.username &&
       values.password &&
       values.agreeToTerms
-    ) 
-    
-
+    ) {
+      try {
+        const response = await fetch('http://localhost:4000/register', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            fullName: values.fullName,
+            teleno: values.phoneNo,
+            city: values.City,
+            email: values.email,
+            uname: values.username,
+            password: values.password,
+          }),
+        });
+  
+        if (!response.ok) {
+          alert("Registration failed")
+          throw new Error('Registration failed');
+        }
+  
+        const data = await response.json();
+        setValid(true);
+        setSubmitted(true);
+      } catch (error) {
+        console.error('Error during registration:', error.message);
+        setValid(false);
+        setSubmitted(true);
+      }
+    } else {
+      // Handle validation errors
+    }
     setSubmitted(true);
   };
 
-
-
-
-  // construct(props) {
-  //   super(props);
-  //   this.state ={
-  //     fullName: "",
-  //   phoneNo: "",
-  //   City: "",
-  //   email: "",
-  //   username: "",
-  //   password: "",
-
-  //   };
-  // }
 
   return (
     <>
@@ -76,8 +90,10 @@ function Register() {
           <form className="register-form" onSubmit={handleSubmit}>
             {submitted && valid && (
               <div className="success-message">
-               
-                alert(`Welcome ${values.fullName}\nYour registration was successful!`)
+                <h3>
+                  Welcome {values.fullName} 
+                </h3>
+                <div>Your registration was successful!</div>
               </div>
             )}
 
@@ -89,7 +105,7 @@ function Register() {
                   placeholder="Full Name"
                   name="fullName"
                   value={values.fullName}
-                  onChange={e=>this.setState()}
+                  onChange={handleInputChange}
                 />
                 {submitted && !values.fullName && (
                   <span id="full-name-error">Please enter your Full name</span>
@@ -179,9 +195,7 @@ function Register() {
     </>
   );
 }
-
-export default Register;
-
+export default Register; 
 
 
 

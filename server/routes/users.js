@@ -31,10 +31,10 @@ const User = mongoose.model("Userinfo");
 
 
 router.post("/register", async (req, res) => { 
-  const { fname, teleno, city,email,uname,password } = req.body;
+  const { fullName, teleno, city,email,uname,password } = req.body;
   try {
     await User.create({
-      fullname,
+      fullName,
       teleno,
       city,
       email,
