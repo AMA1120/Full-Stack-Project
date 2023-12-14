@@ -2,6 +2,7 @@ const express = require("express");
 const Users = require("../models/users");
 const mongoose = require("mongoose");
 
+
 const router = express.Router();
 
 //register users
@@ -33,7 +34,7 @@ router.post("/register", async (req, res) => {
   const { fname, teleno, city,email,uname,password } = req.body;
   try {
     await User.create({
-      fname,
+      fullname,
       teleno,
       city,
       email,

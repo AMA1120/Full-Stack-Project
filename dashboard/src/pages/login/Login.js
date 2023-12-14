@@ -1,26 +1,15 @@
-<<<<<<< Updated upstream
-import React, { useState } from 'react';
-import Navbar from "../../components/navbar/navbar";
 
-function Login() {
-      return (
-        <>
-        <Navbar/>
-         <div>Login
-           <h1>LOGIN HERE</h1>
-         </div>
-        </>
-  )
-}
-=======
-// Login.js
 import React, { useState } from 'react';
 import './login.css';
+import Navbar from '../../components/navbar/navbar';
+
+
+
 
 const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
->>>>>>> Stashed changes
+
 
   const mockAuthentication = (username, password) => {
     return new Promise((resolve, reject) => {

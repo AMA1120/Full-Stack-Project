@@ -33,24 +33,38 @@ function Register() {
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (
-      values.firstName &&
-      values.lastName &&
+      values.fullName &&
       values.phoneNo &&
       values.City &&
       values.email &&
       values.username &&
       values.password &&
       values.agreeToTerms
-    ) {
-      setValid(true);
-    }
+    ) 
+    
 
     setSubmitted(true);
   };
+
+
+
+
+  construct(props) {
+    super(props);
+    this.state ={
+      fullName: "",
+    phoneNo: "",
+    City: "",
+    email: "",
+    username: "",
+    password: "",
+
+    };
+  }
 
   return (
     <>
@@ -62,10 +76,8 @@ function Register() {
           <form className="register-form" onSubmit={handleSubmit}>
             {submitted && valid && (
               <div className="success-message">
-                <h3>
-                  Welcome {values.fullName} 
-                </h3>
-                <div>Your registration was successful!</div>
+               
+                alert(`Welcome ${values.fullName}\nYour registration was successful!`)
               </div>
             )}
 
@@ -77,7 +89,7 @@ function Register() {
                   placeholder="Full Name"
                   name="fullName"
                   value={values.fullName}
-                  onChange={handleInputChange}
+                  onChange={e=>this.setState()}
                 />
                 {submitted && !values.fullName && (
                   <span id="full-name-error">Please enter your Full name</span>

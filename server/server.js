@@ -2,11 +2,12 @@ const express = require("express");
 const app = express();
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser')
+const cors = require('cors');
 
 
 //import routes
 const userRoutes = require('./routes/users');
-
+app.use(cors());
 
 //app middleware
 app.use(bodyParser.json());
