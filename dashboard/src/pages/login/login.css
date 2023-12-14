@@ -1,14 +1,15 @@
 /* Login.css */
 
- /* body2 {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    margin: 0;
+ body2 {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
   }
-   */
+  
   .login-container {
+    
     max-width: 400px;
     padding: 20px;
     border: 1px solid #ccc;

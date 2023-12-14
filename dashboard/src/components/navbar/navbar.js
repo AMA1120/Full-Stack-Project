@@ -4,6 +4,7 @@ import './navbar.css';
 
 function Navbar() {
   return (
+    <body1>
     <nav className="navbar">
       <div className="logo">Your Logo</div>
       <ul className="nav-menu">
@@ -30,6 +31,7 @@ function Navbar() {
       </ul>
       
     </nav>
+    </body1>
   );
 }
 
