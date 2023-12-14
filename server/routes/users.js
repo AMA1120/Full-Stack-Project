@@ -29,7 +29,6 @@ const router = express.Router();
 const User = mongoose.model("Userinfo");
 
 
-
 router.post("/register", async (req, res) => { 
   const { fullName, teleno, city,email,uname,password } = req.body;
   try {
