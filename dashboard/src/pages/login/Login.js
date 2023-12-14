@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react';
 import './login.css';
-import Navbar from '../../components/navbar/navbar';
+
 
 
 
@@ -40,6 +40,7 @@ const Login = () => {
   };
 
   return (
+  
     <div className="login-container">
       <h2>Login</h2>
       <form onSubmit={handleSubmit}>
@@ -64,6 +65,7 @@ const Login = () => {
         <button type="submit">Log In</button>
       </form>
     </div>
+    
   );
 };
 
