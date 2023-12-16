@@ -1,7 +1,6 @@
 const mongoose = require("mongoose");
 
 const UserDetailsSchema = new mongoose.Schema(
-<<<<<<< Updated upstream
     {
      fullName : {
         type: String,
@@ -21,10 +20,6 @@ const UserDetailsSchema = new mongoose.Schema(
      },
 
      email : {
-=======
-  {
-    fullname: {
->>>>>>> Stashed changes
       type: String,
       required: true,
     },
