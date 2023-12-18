@@ -2,7 +2,6 @@ import React from 'react';
 import './promotions.css';
 import { Link } from 'react-router-dom';
 import Navbar from '../../components/navbar/navbar';
-import AddPromotions from './AddPromotions';
 
 export default function HomePromotions() {
   return (
