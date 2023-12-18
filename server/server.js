@@ -52,16 +52,26 @@ app.post("/create", async (req, res) => {
   }
 });
 
-// Get all food items
-app.get("/foods", async (req, res) => {
+// Update food item endpoint
+app.put("/update/:id", async (req, res) => {
+  const foodId = req.params.id;
+  const { id, food_item, price, discription, image } = req.body;
+
   try {
-    const foodItems = await FoodcrudModel.find();
-    res.json(foodItems);
+    const updatedFood = await FoodcrudModel.findByIdAndUpdate(
+      foodId,
+      { id, food_item, price, discription, image },
+      { new: true }
+    );
+
+    res.json(updatedFood);
   } catch (error) {
-    console.error("Error fetching food items:", error);
+    console.error("Error updating food item:", error);
     res.status(500).json({ error: "Internal Server Error" });
   }
 });
+
+
 //server.js listening port
 app.listen(4000, () => {
   console.log("Server Started");
