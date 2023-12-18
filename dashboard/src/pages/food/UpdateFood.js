@@ -2,6 +2,45 @@ import React from 'react'
 import Navbar from '../../components/navbar/navbar';
 
 function UpdateFood() {
+
+  const [formData, setFormData] = useState({
+    id: "",
+    food_item: "",
+    price: "",
+    discription: "",
+    image: null, // Assuming you want to upload an image
+  });
+
+  const handleInputChange = (e) => {
+    const { name, value, files } = e.target;
+
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: files ? files[0] : value,
+    }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      // Use formData to update the food item (send a request to your backend)
+      console.log("Form Data:", formData);
+
+      // Reset the form after successful submission
+      setFormData({
+        id: "",
+        food_item: "",
+        price: "",
+        discription: "",
+        image: null,
+      });
+    } catch (error) {
+      console.error("Error updating food item:", error);
+      // Handle error (e.g., show an error message)
+    }
+  };
+
   return (
     <>
       <div className="food-container">
