@@ -21,6 +21,15 @@ function Food() {
     fetchData();
   }, []); // Empty dependency array ensures the effect runs only once when the component mounts
 
+  //Delete data from backend API
+  const handleDelete = async (id) => {
+  try {
+    await axios.delete(`http://localhost:4000/delete/${id}`);
+    setFoods((prevFoods) => prevFoods.filter((food) => food._id !== id));
+  } catch (error) {
+    console.error("Error deleting data:", error);
+  }
+};
   return (
     <>
       <div className="food-container">
@@ -65,12 +74,12 @@ function Food() {
                         >
                           Update
                         </Link>
-                        <Link
-                          to={`/delete/${food._id}`}
+                        <button
+                          onClick={() => handleDelete(food._id)}
                           className="delete-button"
                         >
                           Delete
-                        </Link>
+                        </button>
                       </td>
                     </tr>
                   ))}

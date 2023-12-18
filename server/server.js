@@ -62,6 +62,40 @@ app.get("/foods", async (req, res) => {
     res.status(500).json({ error: "Internal Server Error" });
   }
 });
+
+// Update food item
+app.put("/update/:id", async (req, res) => {
+  const { id } = req.params;
+  const { id: updatedId, food_item, price, discription, image } = req.body;
+
+  try {
+    const updatedFood = await FoodcrudModel.findByIdAndUpdate(
+      id,
+      { id: updatedId, food_item, price, discription, image },
+      { new: true }
+    );
+
+    res.json(updatedFood);
+  } catch (error) {
+    console.error("Error updating food item:", error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+});
+
+// Delete food item
+app.delete("/delete/:id", async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    const deletedFood = await FoodcrudModel.findByIdAndRemove(id);
+
+    res.json(deletedFood);
+  } catch (error) {
+    console.error("Error deleting food item:", error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+});
+
 //server.js listening port
 app.listen(4000, () => {
   console.log("Server Started");
