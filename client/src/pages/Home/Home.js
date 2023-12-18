@@ -58,7 +58,6 @@ function Home() {
                     <Link to={`/order/${food._id}`} className="order-button">
                       Order Now
                     </Link>
-                    
                   </div>
                 </div>
               ))}

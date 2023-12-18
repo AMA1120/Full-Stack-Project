@@ -5,13 +5,13 @@ import axios from "axios";
 import "./food.css";
 
 function Food() {
-
   const [foods, setFoods] = useState([]);
+
   useEffect(() => {
     // Fetch data from the backend API
     const fetchData = async () => {
       try {
-        const response = await axios.get("http://localhost:4000/foods");
+        const response = await axios.get("http://localhost:4000/foods"); // Update the endpoint accordingly
         setFoods(response.data);
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -19,7 +19,7 @@ function Food() {
     };
 
     fetchData();
-  }, []);  // Empty dependency array ensures the effect runs only once when the component mounts
+  }, []); // Empty dependency array ensures the effect runs only once when the component mounts
 
   return (
     <>

@@ -51,7 +51,6 @@ app.post("/create", async (req, res) => {
     res.status(500).json({ error: "Internal Server Error" });
   }
 });
-
 // Get all food items
 app.get("/foods", async (req, res) => {
   try {
