@@ -1,13 +1,22 @@
-import React from 'react';
-import './promotions.css';
-import { Link } from 'react-router-dom';
-import Navbar from '../../components/navbar/navbar';
+import React, { useEffect, useState } from "react";
+import "./promotions.css";
+import { Link } from "react-router-dom";
+import axios from "axios";
+import Navbar from "../../components/navbar/navbar";
 
-export default function HomePromotions() {
+function HomePromotions() {
+  const [promotion, setPromotions] = useState([]);
+  useEffect(() => {
+    axios
+      .get("https://localhost:3001/getPromotions")
+      .then((promotion) => setPromotions(promotion.data))
+      .catch((err) => console.Console.log(err));
+  }, []);
+
   return (
     <>
-      <div className='promo-container'>
-        <Navbar/>
+      <div className="promo-container">
+        <Navbar />
         <div className="promo-content">
           <div className="d-flex justify-content-center align-items-center">
             <div className="custom-container">
@@ -17,39 +26,38 @@ export default function HomePromotions() {
               <table className="custom-table">
                 <thead>
                   <tr className="table-header">
-                    
-                  <th>Image</th>
-                  <th>Promotion</th>
-                  <th>Discription</th>
-                  <th>category</th>
-                  <th>Action</th>
+                    <th>Image</th>
+                    <th>Promotion</th>
+                    <th>Discription</th>
+                    <th>category</th>
+                    <th>Action</th>
                   </tr>
                 </thead>
-                {/* <tbody>
-                  {Promotions.map((food) => (
-                    <tr key={food._id}>
-                      <td>{food.id}</td>
-                      <td>{food.food_item}</td>
-                      <td>{food.price}</td>
-                      <td>{food.discription}</td>
+                <tbody>
+                  {promotion.map((promotion) => (
+                    <tr key={promotion._id}>
+                      <td>{promotion.id}</td>
+                      <td>{promotion.promotionName}</td>
+                      <td>{promotion.description}</td>
+                      <td>{promotion.category}</td>
                       <td>
-                        {Promotions.image && (
+                        {promotion.image && (
                           <img
-                            src={food.image}
-                            alt={`Food: ${food.food_item}`}
+                            src={promotion.image}
+                            alt={`Promotion: ${promotion.promotionName}`}
                             className="food-image"
                           />
                         )}
                       </td>
                       <td>
                         <Link
-                          to={`/update/${food._id}`}
+                          to={`/update/${promotion._id}`}
                           className="edit-button"
                         >
                           Update
                         </Link>
                         <Link
-                          to={`/delete/${food._id}`}
+                          to={`/delete/${promotion._id}`}
                           className="delete-button"
                         >
                           Delete
@@ -57,12 +65,14 @@ export default function HomePromotions() {
                       </td>
                     </tr>
                   ))}
-                </tbody> */}
+                </tbody>
               </table>
             </div>
           </div>
         </div>
       </div>
     </>
-  )
+  );
 }
+
+export default HomePromotions;
