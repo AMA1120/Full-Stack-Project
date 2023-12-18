@@ -1,45 +1,46 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Navbar from '../../components/navbar/navbar';
 
 function UpdateFood() {
+const [id, setID] = useState('')
+  const [food_item, setFood_Item] = useState('');
+  const [price, setPrice] = useState('');
+  const [discription, setDiscription] = useState('');
+  const [image, setImage] = useState('');
 
-  const [formData, setFormData] = useState({
-    id: "",
-    food_item: "",
-    price: "",
-    discription: "",
-    image: null, // Assuming you want to upload an image
-  });
+  const { foodId } = useParams(); /* Get the food item ID from the route params or props */;
+  const convertToBase64 = (e) => {
+    var reader = new FileReader();
+    reader.readAsDataURL(e.target.files[0]);
 
-  const handleInputChange = (e) => {
-    const { name, value, files } = e.target;
+    reader.onload = function () {
+      setImage(reader.result);
+    };
 
-    setFormData((prevData) => ({
-      ...prevData,
-      [name]: files ? files[0] : value,
-    }));
+    reader.onerror = function (error) {
+      console.log("Error: ", error);
+    };
   };
-
-  const handleSubmit = async (e) => {
+  const handleUpdate = async (e) => {
     e.preventDefault();
 
     try {
-      // Use formData to update the food item (send a request to your backend)
-      console.log("Form Data:", formData);
-
-      // Reset the form after successful submission
-      setFormData({
-        id: "",
-        food_item: "",
-        price: "",
-        discription: "",
-        image: null,
+      const response = await axios.put(`http://localhost:4000/update/${foodId}`, {
+        id,
+        food_item,
+        price,
+        discription,
+        image,
       });
+
+      console.log(response.data);
+      // Handle success, e.g., redirect to a different page
     } catch (error) {
-      console.error("Error updating food item:", error);
-      // Handle error (e.g., show an error message)
+      console.error('Error during update:', error);
     }
   };
+
+
 
   return (
     <>
@@ -48,49 +49,58 @@ function UpdateFood() {
         <div className="food-content">
           <div className="d-flex justify-content-center align-items-center">
             <div className="custom-container">
-              <form>
-                <h2>Update Food Items</h2>
+              <form onSubmit={handleUpdate}>
+                <h2>Add Food Items</h2>
                 <div className="mb-2">
-                  <label htmlFor="">ID</label>
+                  <label htmlFor="id">ID</label>
                   <input
                     type="text"
                     placeholder="Enter Food ID"
                     className="form-control"
+                    onChange={(e) => setID(e.target.value)}
                   />
                 </div>
                 <div className="mb-2">
-                  <label htmlFor="">Food Item</label>
+                  <label htmlFor="food_item">Food Item</label>
                   <input
                     type="text"
                     placeholder="Enter Food Item"
                     className="form-control"
+                    onChange={(e) => setFood_Item(e.target.value)}
                   />
                 </div>
                 <div className="mb-2">
-                  <label htmlFor="">Price</label>
+                  <label htmlFor="price">Price</label>
                   <input
                     type="text"
                     placeholder="Enter Price"
                     className="form-control"
+                    onChange={(e) => setPrice(e.target.value)}
                   />
                 </div>
                 <div className="mb-2">
-                  <label htmlFor="">Discription</label>
+                  <label htmlFor="discription">Discription</label>
                   <input
                     type="text"
                     placeholder="Enter Discription"
                     className="form-control"
+                    onChange={(e) => setDiscription(e.target.value)}
                   />
                 </div>
                 <div className="mb-2">
-                  <label htmlFor="">Image</label>
+                  <label htmlFor="image">Image</label>
                   <input
+                    accept="image/*"
                     type="file"
                     placeholder="Choose the Image"
                     className="form-control"
+                    onChange={convertToBase64}
                   />
+                  {image === "" || image == null ? null : (
+                    <img width={100} height={100} src={image} alt="" />
+                  )}
                 </div>
-                <button className="btn btn-success">Update</button>
+                <button type="submit" className="btn btn-success">Submit</button>
               </form>
             </div>
           </div>

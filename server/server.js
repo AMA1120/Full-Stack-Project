@@ -52,21 +52,48 @@ app.post("/create", async (req, res) => {
   }
 });
 
-// Update food item endpoint
+// Update food item by ID
 app.put("/update/:id", async (req, res) => {
   const foodId = req.params.id;
-  const { id, food_item, price, discription, image } = req.body;
+  const { food_item, price, discription, image } = req.body;
 
   try {
     const updatedFood = await FoodcrudModel.findByIdAndUpdate(
       foodId,
-      { id, food_item, price, discription, image },
+      {
+        food_item,
+        price,
+        discription,
+        image,
+      },
       { new: true }
     );
+
+    if (!updatedFood) {
+      return res.status(404).json({ error: "Food item not found" });
+    }
 
     res.json(updatedFood);
   } catch (error) {
     console.error("Error updating food item:", error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+});
+
+// Delete food item by ID
+app.delete("/delete/:id", async (req, res) => {
+  const foodId = req.params.id;
+
+  try {
+    const deletedFood = await FoodcrudModel.findByIdAndDelete(foodId);
+
+    if (!deletedFood) {
+      return res.status(404).json({ error: "Food item not found" });
+    }
+
+    res.json({ message: "Food item deleted successfully" });
+  } catch (error) {
+    console.error("Error deleting food item:", error);
     res.status(500).json({ error: "Internal Server Error" });
   }
 });

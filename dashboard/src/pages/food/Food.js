@@ -20,28 +20,18 @@ function Food() {
 
     fetchData();
   }, []); // Empty dependency array ensures the effect runs only once when the component mounts
-// Add this function to handle updates
-  const UpdateFood = async (foodId) => {
-    try {
-      const UpdatedFood = await axios.put(
-        `http://localhost:4000/update/${foodId}`,
-        {
-          id: "new_id",
-          food_item: "new_food_item",
-          price: "new_price",
-          discription: "new_description",
-          image: "new_image",
-        }
-      );
-
-      // Handle success (e.g., show a success message)
-      console.log("Food item updated:", UpdatedFood.data);
-    } catch (error) {
-      console.error("Error updating food item:", error);
-      // Handle error (e.g., show an error message)
-    }
-  };
-
+const handleDelete = async (foodId) => {
+  try {
+    const response = await axios.delete(
+      `http://localhost:4000/delete/${foodId}`
+    );
+    console.log(response.data);
+    // Update the local state to reflect the deletion
+    setFoods((prevFoods) => prevFoods.filter((food) => food._id !== foodId));
+  } catch (error) {
+    console.error("Error during delete:", error);
+  }
+};
   return (
     <>
       <div className="food-container">
@@ -86,12 +76,12 @@ function Food() {
                         >
                           Update
                         </Link>
-                        <Link
-                          to={`/delete/${food._id}`}
+                        <button
+                          onClick={() => handleDelete(food._id)}
                           className="delete-button"
                         >
                           Delete
-                        </Link>
+                        </button>
                       </td>
                     </tr>
                   ))}
