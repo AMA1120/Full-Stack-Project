@@ -51,6 +51,17 @@ app.post("/create", async (req, res) => {
     res.status(500).json({ error: "Internal Server Error" });
   }
 });
+
+// Get all food items
+app.get("/foods", async (req, res) => {
+  try {
+    const foodItems = await FoodcrudModel.find();
+    res.json(foodItems);
+  } catch (error) {
+    console.error("Error fetching food items:", error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+});
 //server.js listening port
 app.listen(4000, () => {
   console.log("Server Started");
