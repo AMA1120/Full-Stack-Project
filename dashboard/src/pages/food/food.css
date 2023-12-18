@@ -3,19 +3,71 @@
     display: flex;
   }
   
-  .food-content {
-    flex: 1; /* Take remaining available space */
+   .food-content {
+    flex: 1; 
     padding: 20px;
-    box-sizing: border-box; /* Include padding in the width calculation */
-    overflow-y: auto; /* Enable vertical scrolling when content exceeds the viewport */
+    box-sizing: border-box; 
+    overflow-y: auto; 
+  
   }
   
-  /* Add more styling for your home content as needed */
-  .food-content h1 {
-    color: #333;
-  }
   
-  .food-content p {
-    color: #555;
-  }
-  
+.custom-container {
+  width: 100%;
+  background-color: #fff;
+  border-radius: 2px;
+  padding: 10px;
+  margin-top: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.add-button {
+  display: block;
+  margin-bottom: 15px;
+  padding: 10px;
+  background-color: #007bff;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  width: 10%;
+}
+
+.custom-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table-header {
+  background-color: #343a40;
+  color: #fff;
+}
+
+.custom-table td,
+.custom-table th {
+  border: 1px solid #dee2e6;
+  padding: 8px;
+  text-align: left;
+}
+
+.edit-button,
+.delete-button {
+  padding: 10px 10px;
+  margin-right: 5px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.edit-button {
+  background-color: #28a745;
+  color: #fff;
+  width: 30%;
+  height: 10%;
+}
+
+.delete-button {
+  background-color: #dc3545;
+  color: #fff;
+  width: 30%;
+  height: 10%;
+}
