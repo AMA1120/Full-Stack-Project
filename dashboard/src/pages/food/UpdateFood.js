@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import Navbar from '../../components/navbar/navbar';
 import axios from "axios";
-const { foodId } = useParams();
+import { useParams } from "react-router-dom";
 
 
 function UpdateFood() {
