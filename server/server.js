@@ -52,26 +52,15 @@ app.post("/create", async (req, res) => {
   }
 });
 
-// Get all food items
-app.get("/foods", async (req, res) => {
-  try {
-    const foodItems = await FoodcrudModel.find();
-    res.json(foodItems);
-  } catch (error) {
-    console.error("Error fetching food items:", error);
-    res.status(500).json({ error: "Internal Server Error" });
-  }
-});
-
-// Update food item
+// Update food item endpoint
 app.put("/update/:id", async (req, res) => {
-  const { id } = req.params;
-  const { id: updatedId, food_item, price, discription, image } = req.body;
+  const foodId = req.params.id;
+  const { id, food_item, price, discription, image } = req.body;
 
   try {
     const updatedFood = await FoodcrudModel.findByIdAndUpdate(
-      id,
-      { id: updatedId, food_item, price, discription, image },
+      foodId,
+      { id, food_item, price, discription, image },
       { new: true }
     );
 
@@ -82,19 +71,6 @@ app.put("/update/:id", async (req, res) => {
   }
 });
 
-// Delete food item
-app.delete("/delete/:id", async (req, res) => {
-  const { id } = req.params;
-
-  try {
-    const deletedFood = await FoodcrudModel.findByIdAndRemove(id);
-
-    res.json(deletedFood);
-  } catch (error) {
-    console.error("Error deleting food item:", error);
-    res.status(500).json({ error: "Internal Server Error" });
-  }
-});
 
 //server.js listening port
 app.listen(4000, () => {
