@@ -1,47 +1,9 @@
 import React, { useState } from 'react'
 import Navbar from '../../components/navbar/navbar';
-import axios from "axios";
-import { useParams } from "react-router-dom";
+
 
 
 function UpdateFood() {
-const [id, setID] = useState('')
-  const [food_item, setFood_Item] = useState('');
-  const [price, setPrice] = useState('');
-  const [discription, setDiscription] = useState('');
-  const [image, setImage] = useState('');
-
-  const { foodId } = useParams(); /* Get the food item ID from the route params or props */;
-  const convertToBase64 = (e) => {
-    var reader = new FileReader();
-    reader.readAsDataURL(e.target.files[0]);
-
-    reader.onload = function () {
-      setImage(reader.result);
-    };
-
-    reader.onerror = function (error) {
-      console.log("Error: ", error);
-    };
-  };
-  const handleUpdate = async (e) => {
-    e.preventDefault();
-
-    try {
-      const response = await axios.put(`http://localhost:4000/update/${foodId}`, {
-        id,
-        food_item,
-        price,
-        discription,
-        image,
-      });
-
-      console.log(response.data);
-      // Handle success, e.g., redirect to a different page
-    } catch (error) {
-      console.error('Error during update:', error);
-    }
-  };
 
 
 
@@ -52,7 +14,7 @@ const [id, setID] = useState('')
         <div className="food-content">
           <div className="d-flex justify-content-center align-items-center">
             <div className="custom-container">
-              <form onSubmit={handleUpdate}>
+              {/* <form onSubmit={Submit}>
                 <h2>Add Food Items</h2>
                 <div className="mb-2">
                   <label htmlFor="id">ID</label>
@@ -104,7 +66,7 @@ const [id, setID] = useState('')
                   )}
                 </div>
                 <button type="submit" className="btn btn-success">Submit</button>
-              </form>
+              </form> */}
             </div>
           </div>
         </div>

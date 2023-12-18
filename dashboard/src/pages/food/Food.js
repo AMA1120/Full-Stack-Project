@@ -5,13 +5,13 @@ import axios from "axios";
 import "./food.css";
 
 function Food() {
-  const [foods, setFoods] = useState([]);
 
+  const [foods, setFoods] = useState([]);
   useEffect(() => {
     // Fetch data from the backend API
     const fetchData = async () => {
       try {
-        const response = await axios.get("http://localhost:4000/foods"); // Update the endpoint accordingly
+        const response = await axios.get("http://localhost:4000/foods");
         setFoods(response.data);
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -19,19 +19,8 @@ function Food() {
     };
 
     fetchData();
-  }, []); // Empty dependency array ensures the effect runs only once when the component mounts
-const handleDelete = async (foodId) => {
-  try {
-    const response = await axios.delete(
-      `http://localhost:4000/delete/${foodId}`
-    );
-    console.log(response.data);
-    // Update the local state to reflect the deletion
-    setFoods((prevFoods) => prevFoods.filter((food) => food._id !== foodId));
-  } catch (error) {
-    console.error("Error during delete:", error);
-  }
-};
+  }, []);  // Empty dependency array ensures the effect runs only once when the component mounts
+
   return (
     <>
       <div className="food-container">
@@ -76,12 +65,12 @@ const handleDelete = async (foodId) => {
                         >
                           Update
                         </Link>
-                        <button
-                          onClick={() => handleDelete(food._id)}
+                        <Link
+                          to={`/delete/${food._id}`}
                           className="delete-button"
                         >
                           Delete
-                        </button>
+                        </Link>
                       </td>
                     </tr>
                   ))}
