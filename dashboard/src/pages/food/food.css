@@ -1,17 +1,15 @@
 
 .food-container {
-    display: flex;
-  }
-  
-   .food-content {
-    flex: 1; 
-    padding: 20px;
-    box-sizing: border-box; 
-    overflow-y: auto; 
-  
-  }
-  
-  
+  display: flex;
+}
+
+.food-content {
+  flex: 1;
+  padding: 20px;
+  box-sizing: border-box;
+  overflow-y: auto;
+}
+
 .custom-container {
   width: 100%;
   background-color: #fff;
@@ -47,6 +45,13 @@
   border: 1px solid #dee2e6;
   padding: 8px;
   text-align: left;
+}
+
+.food-image {
+  max-width: 100px;
+  /* Adjust the maximum width as needed */
+  max-height: 100px;
+  /* Adjust the maximum height as needed */
 }
 
 .edit-button,
