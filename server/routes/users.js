@@ -7,7 +7,6 @@ const bcrypt = require("bcrypt");
 
 
 
-
 router.post("/register", async (req, res) => { 
   const { fullName, teleno, city, email, uname, password } = req.body;
   const encryptedPassword = await bcrypt.hash(password, 10);
@@ -32,7 +31,28 @@ router.post("/register", async (req, res) => {
   }
 });
 
-//Delete Users
+//get Users
+
+router.route('/getusers').get(async (req, res) => {
+  try {
+    const users = await User.find();
+    res.json(users);
+  } catch (err) {
+    console.error('Error fetching user data:', err);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+});
+
+
+
+
+
+
+
+
+
+
+//login Users
 
 
 module.exports = router;
