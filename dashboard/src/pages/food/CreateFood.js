@@ -35,6 +35,8 @@ function CreateFood() {
         image,
       });
       console.log(response.data);
+      // const navigate = useNavigate();
+      navigate("/food");
     } catch (error) {
       console.error("Error during fetch:", error);
     }

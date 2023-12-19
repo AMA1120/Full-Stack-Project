@@ -1,17 +1,18 @@
 import React, { useState, useEffect } from "react";
 import Navbar from "../../components/navbar/navbar";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom"; // Import useNavigate
 import axios from "axios";
 import "./food.css";
 
 function Food() {
   const [foods, setFoods] = useState([]);
+  const navigate = useNavigate(); // Initialize useNavigate
 
   useEffect(() => {
     // Fetch data from the backend API
     const fetchData = async () => {
       try {
-        const response = await axios.get("http://localhost:4000/foods"); // Update the endpoint accordingly
+        const response = await axios.get("http://localhost:4000/foods");
         setFoods(response.data);
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -19,7 +20,19 @@ function Food() {
     };
 
     fetchData();
-  }, []); // Empty dependency array ensures the effect runs only once when the component mounts
+  }, []);
+
+  const handleDelete = async (foodId) => {
+    try {
+      const response = await axios.delete(
+        `http://localhost:4000/delete/${foodId}`
+      );
+      console.log(response.data);
+      navigate("/food");
+    } catch (error) {
+      console.error("Error during delete:", error);
+    }
+  };
 
   return (
     <>
@@ -65,12 +78,16 @@ function Food() {
                         >
                           Update
                         </Link>
-                        <Link
-                          to={`/delete/${food._id}`}
-                          className="delete-button"
+                        <button
+                          type="button"
+                          className="btn btn-danger"
+                          onClick={() => {
+                            handleDelete(food._id);
+                            window.location.reload();
+                          }}
                         >
                           Delete
-                        </Link>
+                        </button>
                       </td>
                     </tr>
                   ))}
