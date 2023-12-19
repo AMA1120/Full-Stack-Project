@@ -3,7 +3,8 @@ import { useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './pages/home/Home';
 import Food from './pages/food/Food';
-import Promotions from './pages/promotions/Promotions';
+import HomePromotions from './pages/promotions/HomePromotions';
+import AddPromotions from './pages/promotions/AddPromotions';
 import Login from './pages/login/Login';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -19,7 +20,8 @@ function App() {
           <Route index element={<Home />}/>
           <Route path="/home" element={<Home />}/>
           <Route path="/food" element={<Food />}/>
-          <Route path="/promotions" element={<Promotions />}/>
+          <Route path="/homepromotions" element={<HomePromotions />}/>
+          <Route path="/addpromotions" element={<AddPromotions/>}/>
           <Route path="/login" element={<Login />} />
           <Route path="/create" element={<CreateFood />} />
           <Route path="/update/:id" element={<UpdateFood />}/>

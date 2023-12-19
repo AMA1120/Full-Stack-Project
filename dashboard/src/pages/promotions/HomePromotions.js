@@ -10,7 +10,7 @@ function HomePromotions() {
     axios
       .get("https://localhost:3001/getPromotions")
       .then((promotion) => setPromotions(promotion.data))
-      .catch((err) => console.Console.log(err));
+      .catch((err) => console.log(err));
   }, []);
 
   return (
@@ -20,7 +20,7 @@ function HomePromotions() {
         <div className="promo-content">
           <div className="d-flex justify-content-center align-items-center">
             <div className="custom-container">
-              <Link to="/promotions" className="add-button">
+              <Link to="/addpromotions" className="add-button">
                 Add+
               </Link>
               <table className="custom-promo-table">
