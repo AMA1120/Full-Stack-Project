@@ -134,36 +134,14 @@ const Userprofile = () => {
             </ul>
           </div>
 
-{/* Option to change password */}
-          <div>
-            <h3>Change Password</h3>
-            <form onSubmit={handleChangePassword}>
-              <label>
-                New Password:
-                <input
-                  type="password"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                />
-              </label>
-              <br />
-              <label>
-                Confirm Password:
-                <input
-                  type="password"
-                  value={confirmPassword}
-                  onChange={(e) => setConfirmPassword(e.target.value)}
-                />
-              </label>
-              <br />
-              <button type="submit">Change Password</button>
-            </form>
-          </div>
+
           <button onClick={() => setIsEditing(true)}>Edit Profile</button>
+          <br></br> <br></br>
+          <button onClick={() => setIsEditing(true)}>Delete Profile</button>
         </div>
       )}
     </div>
   );
 };
 
-export default Userprofile
+export default Userprofile;
