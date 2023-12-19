@@ -187,7 +187,7 @@ function Register() {
                   <span id="password-error">Please enter your password</span>
                 )}
 
-                <label>
+                <label1>
                   <input
                     type="checkbox"
                     name="agreeToTerms"
@@ -195,7 +195,7 @@ function Register() {
                     onChange={handleInputChange}
                   />
                   I agree to this website's terms and conditions
-                </label>
+                </label1>
                 {submitted && !values.agreeToTerms && (
                   <span id="terms-error">Please agree to the terms and conditions</span>
                 )}
