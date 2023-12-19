@@ -4,15 +4,17 @@ const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 
-const FoodcrudModel = require("./models/Foodcrud");
+const FoodcrudModel = require('./models/Foodcrud')
+const loginmodel = require('./models/loginmodel');
 
 //import routes
 const userRoutes = require("./routes/users");
 const promotionRoutes = require("./routes/promotion");
 const foodcrudRoutes = require("./routes/foodcrud");
-app.use(cors());
-app.use(express.json());
+const loginRoute = require("./routes/loginroute");
 
+app.use(cors());
+app.use(express.json())
 //app middleware
 app.use(bodyParser.json({ limit: "50mb" }));
 
@@ -64,53 +66,53 @@ app.get("/foods", async (req, res) => {
   }
 });
 
+
 // Update food item by ID
-app.put("/update/:id", async (req, res) => {
-  const id = req.params.id;
-  const { food_item, price, discription, image } = req.body;
+// app.put("/update/:id", async (req, res) => {
+//   const foodId = req.params.id;
+//   const { food_item, price, discription, image } = req.body;
 
-  try {
-    const updatedFood = await FoodcrudModel.findByIdAndUpdate(
-      id,
-      {
-        food_item,
-        price,
-        discription,
-        image,
-      },
-      { new: true }
-    );
+//   try {
+//     const updatedFood = await FoodcrudModel.findByIdAndUpdate(
+//       foodId,
+//       {
+//         food_item,
+//         price,
+//         discription,
+//         image,
+//       },
+//       { new: true }
+//     );
 
-    if (!updatedFood) {
-      return res.status(404).json({ error: "Food item not found" });
-    }
+//     if (!updatedFood) {
+//       return res.status(404).json({ error: "Food item not found" });
+//     }
 
-    console.log("Updated Food:", updatedFood);
-    res.json(updatedFood);
-  } catch (error) {
-    console.error("Error updating food item:", error);
-    res.status(500).json({ error: "Internal Server Error" });
-  }
-});
+//     res.json(updatedFood);
+//   } catch (error) {
+//     console.error("Error updating food item:", error);
+//     res.status(500).json({ error: "Internal Server Error" });
+//   }
+// });
 
 // Delete food item by ID
-app.delete("/delete/:id", async (req, res) => {
-  const foodId = req.params.id;
+// app.delete("/delete/:id", async (req, res) => {
+//   const foodId = req.params.id;
 
-  try {
-    const deletedFood = await FoodcrudModel.findByIdAndDelete(foodId);
+//   try {
+//     const deletedFood = await FoodcrudModel.findByIdAndDelete(foodId);
 
-    if (!deletedFood) {
-      return res.status(404).json({ error: "Food item not found" });
-    }
+//     if (!deletedFood) {
+//       return res.status(404).json({ error: "Food item not found" });
+//     }
 
-    console.log("Deleted Food:", deletedFood);
-    res.json({ message: "Food item deleted successfully" });
-  } catch (error) {
-    console.error("Error deleting food item:", error);
-    res.status(500).json({ error: "Internal Server Error" });
-  }
-});
+//     res.json({ message: "Food item deleted successfully" });
+//   } catch (error) {
+//     console.error("Error deleting food item:", error);
+//     res.status(500).json({ error: "Internal Server Error" });
+//   }
+// });
+
 
 //server.js listening port
 app.listen(4000, () => {
