@@ -7,23 +7,6 @@ const UserDetailsSchema = new mongoose.Schema(
         required: true
 
      },
-     
-     teleno  : {
-        type: String,
-        required: true
-
-     },
-     city : {
-        type: String,
-        required: true
-
-     },
-
-     email : {
-      type: String,
-      required: true,
-    },
-
     teleno: {
       type: String,
       required: true,
@@ -41,10 +24,12 @@ const UserDetailsSchema = new mongoose.Schema(
     uname: {
       type: String,
       required: true,
+      unique:true,
     },
     password: {
       type: String,
       required: true,
+      
     },
   },
   {
