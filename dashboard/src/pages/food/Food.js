@@ -1,17 +1,18 @@
 import React, { useState, useEffect } from "react";
 import Navbar from "../../components/navbar/navbar";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom"; // Import useNavigate
 import axios from "axios";
 import "./food.css";
 
 function Food() {
   const [foods, setFoods] = useState([]);
+  const navigate = useNavigate(); // Initialize useNavigate
 
   useEffect(() => {
     // Fetch data from the backend API
     const fetchData = async () => {
       try {
-        const response = await axios.get("http://localhost:4000/foods"); // Update the endpoint accordingly
+        const response = await axios.get("http://localhost:4000/foods");
         setFoods(response.data);
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -19,26 +20,17 @@ function Food() {
     };
 
     fetchData();
-  }, []); // Empty dependency array ensures the effect runs only once when the component mounts
-// Add this function to handle updates
-  const UpdateFood = async (foodId) => {
-    try {
-      const UpdatedFood = await axios.put(
-        `http://localhost:4000/update/${foodId}`,
-        {
-          id: "new_id",
-          food_item: "new_food_item",
-          price: "new_price",
-          discription: "new_description",
-          image: "new_image",
-        }
-      );
+  }, []);
 
-      // Handle success (e.g., show a success message)
-      console.log("Food item updated:", UpdatedFood.data);
+  const handleDelete = async (foodId) => {
+    try {
+      const response = await axios.delete(
+        `http://localhost:4000/delete/${foodId}`
+      );
+      console.log(response.data);
+      navigate("/food");
     } catch (error) {
-      console.error("Error updating food item:", error);
-      // Handle error (e.g., show an error message)
+      console.error("Error during delete:", error);
     }
   };
 
@@ -86,12 +78,16 @@ function Food() {
                         >
                           Update
                         </Link>
-                        <Link
-                          to={`/delete/${food._id}`}
-                          className="delete-button"
+                        <button
+                          type="button"
+                          className="btn btn-danger"
+                          onClick={() => {
+                            handleDelete(food._id);
+                            window.location.reload();
+                          }}
                         >
                           Delete
-                        </Link>
+                        </button>
                       </td>
                     </tr>
                   ))}
