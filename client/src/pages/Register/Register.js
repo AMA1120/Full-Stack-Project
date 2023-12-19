@@ -1,8 +1,12 @@
 import "./register.css";
 
+
 import React, { useState } from "react";
 import Navbar from "../../components/Navbar/Navbar";
+
+
 function Register() {
+  
   const [values, setValues] = useState({
     fullName: "",
     phoneNo: "",
@@ -18,7 +22,7 @@ function Register() {
 
   const handleInputChange = (event) => {
     const { name, value, type, checked } = event.target;
-
+  
     if (type === 'checkbox') {
       setValues((prevValues) => ({
         ...prevValues,
@@ -59,24 +63,39 @@ function Register() {
             password: values.password,
           }),
         });
-  
+      
         if (!response.ok) {
-          alert("Registration failed")
+          alert("Registration failed");
           throw new Error('Registration failed');
         }
-  
-        const data = await response.json();
+      
+        const responseBody = await response.json();
+      
+        if (responseBody.error === 'User Exists') {
+          alert('Username already exists. Please choose a different username.');
+          setValid(false);
+          setSubmitted(true);
+          return;
+        }
+      
         setValid(true);
         setSubmitted(true);
+        alert('Registered successfully!');
+        window.location.href="../Login";
+        
       } catch (error) {
         console.error('Error during registration:', error.message);
         setValid(false);
         setSubmitted(true);
+        alert(error.message);
+        return;
       }
-    } else {
-      // Handle validation errors
+      
     }
-    setSubmitted(true);
+   
+    
+    
+    
   };
 
 
@@ -88,14 +107,11 @@ function Register() {
         <div className="form-container">
           <div className="h1">Register</div>
           <form className="register-form" onSubmit={handleSubmit}>
-            {submitted && valid && (
-              <div className="success-message">
-                <h3>
-                  Welcome {values.fullName} 
-                </h3>
-                <div>Registered successfully!</div>
-              </div>
+            {/* {submitted && valid && (
+              
+                // alert("Registered successfully!")
             )}
+              */}
 
             {!valid && (
               <>
