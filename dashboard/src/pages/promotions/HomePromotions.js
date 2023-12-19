@@ -23,9 +23,9 @@ function HomePromotions() {
               <Link to="/promotions" className="add-button">
                 Add+
               </Link>
-              <table className="custom-table">
+              <table className="custom-promo-table">
                 <thead>
-                  <tr className="table-header">
+                  <tr className="table-promo-header">
                     <th>Image</th>
                     <th>Promotion</th>
                     <th>Discription</th>
@@ -35,8 +35,7 @@ function HomePromotions() {
                 </thead>
                 <tbody>
                   {promotion.map((promotion) => (
-                    <tr key={promotion._id}>
-                      <td>{promotion.id}</td>
+                    <tr key={promotion._promotionName}>
                       <td>{promotion.promotionName}</td>
                       <td>{promotion.description}</td>
                       <td>{promotion.category}</td>
@@ -45,20 +44,20 @@ function HomePromotions() {
                           <img
                             src={promotion.image}
                             alt={`Promotion: ${promotion.promotionName}`}
-                            className="food-image"
+                            className="promo-image"
                           />
                         )}
                       </td>
                       <td>
                         <Link
-                          to={`/update/${promotion._id}`}
-                          className="edit-button"
+                          to={`/update/${promotion._promotionName}`}
+                          className="edit-promo-button"
                         >
                           Update
                         </Link>
                         <Link
-                          to={`/delete/${promotion._id}`}
-                          className="delete-button"
+                          to={`/delete/${promotion._promotionName}`}
+                          className="delete-promo-button"
                         >
                           Delete
                         </Link>
