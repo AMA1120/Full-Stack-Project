@@ -19,7 +19,7 @@ function Navbar() {
           </Link>
         </li>
         <li>
-          <Link to="/promotions">
+          <Link to="/Homepromotions">
             <i className="fas fa-gift"></i> Promotions
           </Link>
         </li>

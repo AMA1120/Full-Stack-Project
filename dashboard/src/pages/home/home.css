@@ -3,10 +3,10 @@
 /* Add styling for the search bar container */
 .search-bar-container {
   padding: 10px;
-  background-color: #f0f0f0;
+  
   border-bottom: 1px solid #ccc;
   display: flex;
-  justify-content: space-between;
+  
   align-items: center;
 }
 
@@ -14,20 +14,24 @@
 #searchCustomers {
   padding: 8px;
   width: 200px;
-  border: 1px solid #ccc;
+  border: 1px solid #121111;
   border-radius: 5px;
 }
 
 /* Other styles remain unchanged */
 .home-container {
   display: flex;
+ 
 }
 
 .home-content {
   flex: 1;
-  padding: 20px;
+  
   box-sizing: border-box;
   overflow-y: auto;
+  overflow-x: hidden;
+
+  /* padding: 20px; */
 }
 
 .home-content h1 {
@@ -36,4 +40,73 @@
 
 .home-content p {
   color: #555;
+}
+
+.tbl-container{
+  width: 100%;
+  background-color: #fff;
+  border-radius: 2px;
+  padding: 10px;
+  margin-top: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Apply styles to the entire table */
+.user-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px; /* Adjust margin as needed */
+}
+
+/* /* Style for table header cells */
+.user-table th {
+  background-color: #343a40;
+  color: #fff;
+  border: 1px solid #dee2e6;
+  padding: 8px;
+  text-align: left;
+  padding: 10px;
+  
+  
+  
+} 
+
+/* Style for table data cells */
+.user-table td {
+  border: 1px solid #4f4e4e;
+  padding: 10px;
+} 
+
+/* Add hover effect to table rows */
+.tr:hover {
+  background-color: #e0e0e0;
+  padding: 5px;
+}
+.dele{
+
+  text-align: center;
+}
+button2 {
+  background-color: #da2626;
+  color: #fff;
+  padding: 4px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .home-container {
+    width: 100%;
+  }
+  .search-bar-container {
+    width: 100%;
+  }
+
+}
+
+@media (max-width: 480px) {
+  .home-content {
+    width: 100%;
+  }
 }
