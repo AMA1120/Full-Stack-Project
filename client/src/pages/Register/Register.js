@@ -94,7 +94,7 @@ function Register() {
     }
    
     
-    
+    setSubmitted(true);
     
   };
 
