@@ -20,27 +20,6 @@ function Food() {
 
     fetchData();
   }, []); // Empty dependency array ensures the effect runs only once when the component mounts
-// Add this function to handle updates
-  const UpdateFood = async (foodId) => {
-    try {
-      const UpdatedFood = await axios.put(
-        `http://localhost:4000/update/${foodId}`,
-        {
-          id: "new_id",
-          food_item: "new_food_item",
-          price: "new_price",
-          discription: "new_description",
-          image: "new_image",
-        }
-      );
-
-      // Handle success (e.g., show a success message)
-      console.log("Food item updated:", UpdatedFood.data);
-    } catch (error) {
-      console.error("Error updating food item:", error);
-      // Handle error (e.g., show an error message)
-    }
-  };
 
   return (
     <>

@@ -3,10 +3,6 @@
 import React, { useState } from 'react';
 import './login.css';
 
-
-
-
-
 const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -64,7 +60,7 @@ const Login = () => {
           />
          
         </label>
-        <button type="submit">Log In</button>
+        <button1 type="submit">Log In</button1>
       </form>
     </div>
     </body2>
