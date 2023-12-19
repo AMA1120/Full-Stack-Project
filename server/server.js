@@ -64,12 +64,12 @@ app.get("/foods", async (req, res) => {
 
 // Update food item by ID
 app.put("/update/:id", async (req, res) => {
-  const foodId = req.params.id;
+  const id = req.params.id;
   const { food_item, price, discription, image } = req.body;
 
   try {
     const updatedFood = await FoodcrudModel.findByIdAndUpdate(
-      foodId,
+      id,
       {
         food_item,
         price,
