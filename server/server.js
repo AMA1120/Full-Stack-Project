@@ -5,12 +5,14 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 
 const FoodcrudModel = require("./models/Foodcrud");
+
 //import routes
 const userRoutes = require("./routes/users");
 const promotionRoutes = require("./routes/promotion");
 const foodcrudRoutes = require("./routes/foodcrud");
 app.use(cors());
 app.use(express.json());
+
 //app middleware
 app.use(bodyParser.json({ limit: "50mb" }));
 

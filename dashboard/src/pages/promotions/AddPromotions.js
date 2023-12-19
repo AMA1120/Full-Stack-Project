@@ -59,7 +59,7 @@ function Promotions() {
               )}
       </div>
                <div className="mb-2">
-                  <label htmlFor="Promotion">Promotion</label>
+                  <label htmlFor="promotionName">Promotion</label>
                   <input
                     type="text"
                     placeholder="Enter Promotion Name"
@@ -79,7 +79,7 @@ function Promotions() {
                   />
                 </div>
                 <div className="mb-2">
-                  <label htmlFor="food_category">category</label>
+                  <label htmlFor="promo_cateogory">category</label>
                   <input
                     type="text"
                     placeholder="Enter promotion category"
