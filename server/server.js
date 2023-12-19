@@ -5,10 +5,14 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 
 const FoodcrudModel = require('./models/Foodcrud')
+const loginmodel = require('./models/loginmodel');
+
 //import routes
 const userRoutes = require("./routes/users");
 const promotionRoutes = require("./routes/promotion");
 const foodcrudRoutes = require("./routes/foodcrud");
+const loginRoute = require("./routes/loginroute");
+
 app.use(cors());
 app.use(express.json())
 //app middleware
