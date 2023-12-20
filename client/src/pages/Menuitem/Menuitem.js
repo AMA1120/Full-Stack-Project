@@ -13,18 +13,22 @@ export default function Menuitem() {
 
       <br></br>
       <br></br>
-      
+
       <h3>Menu Items</h3>
       <br></br>
       <br></br>
 
       <div>
         <Card />
+        <br></br>
+        <br></br>
         <Card />
-        <Card/>
+        <br></br>
+        <br></br>
+        <Card />
       </div>
 
-      <div><Footer/></div>
+      <div><Footer /></div>
     </>
   );
 }
