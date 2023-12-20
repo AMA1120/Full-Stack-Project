@@ -24,8 +24,8 @@ const Userprofile = () => {
   const [editedUser, setEditedUser] = useState({ ...user });
 
 // State for changing password
-  const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
+  // const [password, setPassword] = useState('');
+  // const [confirmPassword, setConfirmPassword] = useState('');
 
 // Function to handle form submission for user details
   const handleSubmit = (e) => {
@@ -43,15 +43,15 @@ const Userprofile = () => {
   };
 
 // Function to handle form submission for changing password
-  const handleChangePassword = (e) => {
-    e.preventDefault();
+  // const handleChangePassword = (e) => {
+    // e.preventDefault();
 // Here, you can add logic to update the password on the server
 // For simplicity, we'll just log the new password to the console
-    console.log('New password:', password);
+    // console.log('New password:', password);
 // Clear the password fields after submission
-    setPassword('');
-    setConfirmPassword('');
-  };
+    // setPassword('');
+    // setConfirmPassword('');
+  // };
 
   return (
     <div>
