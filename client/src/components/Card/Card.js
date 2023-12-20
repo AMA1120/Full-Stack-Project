@@ -10,7 +10,7 @@ export default function Card() {
                     <img src="/images/First.jpg" alt=""  />
 
                     <div className="menu-body">
-                        <h3 className="menu-title">Card title</h3>  
+                        <h3 className="menu-title">Pizza</h3>  
                         <div className='menu-container w-100'>
                             <select className='menu-container1'>
                                 {Array.from(Array(6), (e, i) => {
@@ -23,7 +23,7 @@ export default function Card() {
                                 <option value="half">Half</option>
                                 <option value="half">Full</option>
                             </select>
-                            <div className='d-inline h-100 fs-5'>
+                            <div classNam='menu-container3'>
                                 Total Price
                             </div>
                         </div>
