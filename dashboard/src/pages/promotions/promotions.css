@@ -22,6 +22,12 @@
   }
   
 
+  .promo-image {
+    max-width: 100px;
+    /* Adjust the maximum width as needed */
+    max-height: 100px;
+    /* Adjust the maximum height as needed */
+  }
 
   .custom-container {
     width: 100%;
@@ -69,7 +75,7 @@
     cursor: pointer;
     }
     
-    .edit--promo-button {
+    .edit-promo-button {
     background-color: #28a745;
     color: #fff;
     width: 30%;
