@@ -30,6 +30,7 @@ app.use(
 app.use(userRoutes);
 app.use(promotionRoutes);
 app.use(foodcrudRoutes);
+app.use(loginRoute);
 
 //mongodb atlas connection
 const DB_URL =
