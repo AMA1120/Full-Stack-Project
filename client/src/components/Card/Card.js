@@ -5,7 +5,7 @@ export default function Card() {
     return (
         <div>
             <div>
-                 <div className="menu mt-3" > 
+                 <div className="menu" > 
 
                     <img src="/images/First.jpg" alt=""  />
 
