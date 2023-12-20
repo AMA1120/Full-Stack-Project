@@ -5,6 +5,7 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 
 const FoodcrudModel = require("./models/Foodcrud");
+const PromotionModel = require("./models/promotion");
 
 //import routes
 const userRoutes = require("./routes/users");
@@ -63,6 +64,7 @@ app.get("/foods", async (req, res) => {
     res.status(500).json({ error: "Internal Server Error" });
   }
 });
+
 
 // Update food item by ID
 app.put("/update/:id", async (req, res) => {

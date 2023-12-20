@@ -35,4 +35,16 @@ router.post("/new", async (req, res) => {
   }
 });
 
+// Fetch all promotions
+router.get('/getPromotions', async (req, res) => {
+  try {
+    const promotions = await Promotion.find();
+    res.json(promotions);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Internal Server Error' });
+  }
+});
+
+
 module.exports = router;
