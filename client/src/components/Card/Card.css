@@ -23,12 +23,17 @@
   
   /* Styles for the card body */
   .menu-body {
-    /* Add styles for the card body here */
+    padding: 15px;
+
+      .card-text {
+            margin-bottom: 10px;
+      }
   }
   
   /* Styles for the title */
   .menu-title {
-    /* Add styles for the title here */
+    margin: 0;
+    font-size: 1.2em;
   }
   
   
@@ -36,7 +41,9 @@
   /* Styles for the container with selects and total price */
   .menu-container {
     width: 100%;
-    display: grid;
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between; 
       /* Use grid instead of flex */
       grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
       grid-gap: 20px;
@@ -48,8 +55,8 @@
     margin: 2px;
     height: 100%;
     width: 10%;
-    background-color: #eaf1ec; /* Green background color */
-    border-radius: 0.25rem; /* Rounded corners */
+    background-color: #eaf1ec; 
+    border-radius: 0.25rem; 
   }
   
   /* Styles for the second select */
@@ -57,26 +64,26 @@
     margin: 2px;
     height: 100%;
     width: 20%;
-    background-color: #eaf1ec; /* Green background color */
-    border-radius: 0.25rem; /* Rounded corners */
+    background-color: #eaf1ec; 
+    border-radius: 0.25rem; 
   }
   
   /* Styles for the total price container */
-  .menu-container .fs-5 {
+  .menu-container3{
     display: inline-block;
     height: 100%;
-    font-size: 1.25rem; /* Adjust font size as needed */
-    /* Add any additional styles for the total price here */
+    font-size: 1.25rem; 
+    
   }
 
   /* Responsive styles using media queries */
 @media (max-width: 768px) {
     .menu {
-      width: 100%; /* Adjust width for smaller screens */
+      width: 100%; 
     }
   
     .menu-container select {
-      width: 100%; /* Make selects full-width on smaller screens */
+      width: 100%; 
     }
   }
   
