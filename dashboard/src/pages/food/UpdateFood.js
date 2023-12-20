@@ -26,29 +26,27 @@ function UpdateFood() {
   };
 
   useEffect(() => {
-  // Fetch data from the backend API using the specific foodId
-  const fetchData = async () => {
-    try {
-      const response = await axios.get(
-        `http://localhost:4000/getfoods/${id}`
-      );
-      const existingData = response.data;
+    // Fetch data from the backend API using the specific foodId
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(
+          `http://localhost:4000/getfoods/${id}`
+        );
+        const existingData = response.data;
 
-      // Update the state with existing data
-      setFoodItem(existingData.food_item);
-      setPrice(existingData.price);
-      setDescription(existingData.discription); // Corrected property name
-      setImage(existingData.image);
-    } catch (error) {
-      console.error("Error fetching data:", error);
-    }
-  };
+        // Update the state with existing data
+        setFoodItem(existingData.food_item);
+        setPrice(existingData.price);
+        setDescription(existingData.discription); // Corrected property name
+        setImage(existingData.image);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
 
-  fetchData();
-}, [id]);
+    fetchData();
+  }, [id]);
 
-
-    
   const submit = async (e) => {
     e.preventDefault();
     try {
@@ -75,8 +73,6 @@ function UpdateFood() {
       console.error("Error during fetch:", error);
     }
   };
-
-  
 
   return (
     <>
