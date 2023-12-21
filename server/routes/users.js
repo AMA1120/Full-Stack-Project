@@ -5,7 +5,8 @@ const router = express.Router();
 const User = mongoose.model("Userinfo");
 const bcrypt = require("bcrypt");
 
-
+//client side
+//register users
 
 router.post("/register", async (req, res) => { 
   const { fullName, teleno, city, email, uname, password } = req.body;
@@ -30,23 +31,6 @@ router.post("/register", async (req, res) => {
     res.status(500).send({ status: "error", error: error.message });
   }
 });
-
-//get Users
-
-router.route('/getusers').get(async (req, res) => {
-  try {
-    const users = await User.find();
-    res.json(users);
-  } catch (err) {
-    console.error('Error fetching user data:', err);
-    res.status(500).json({ error: 'Internal Server Error' });
-  }
-});
-
-
-
-
-
 
 
 
@@ -82,7 +66,47 @@ router.post("/login-users", async (req, res) => {
 
 
 
+//admin side 
 
+//get Users
+
+router.route('/getusers').get(async (req, res) => {
+  try {
+    const users = await User.find();
+    res.json(users);
+  } catch (err) {
+    console.error('Error fetching user data:', err);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+});
+
+
+
+
+
+
+//delete users
+
+
+
+router.delete("/deleteusers", async (req, res) => { 
+  const { uname } = req.body;
+  
+  try {
+    const deletedUser = await User.findOneAndDelete({ uname });
+    
+    if (deletedUser) {
+      res.json({ success: true, message: 'User deleted successfully.' });
+    } else {
+      res.json({ error: "User not found or already deleted." });
+    }
+  } catch (error) {
+    console.error("Error deleting user:", error.message);
+    res.status(500).json({ status: "error", error: error.message });
+  }
+});
+
+//
 
 
 
