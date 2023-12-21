@@ -66,7 +66,6 @@ app.get("/foods", async (req, res) => {
   }
 });
 
-
 // Update food item by ID
 app.put("/update/:id", async (req, res) => {
   const id = req.params.id;
