@@ -7,6 +7,10 @@ const bcrypt = require("bcrypt");
 
 
 
+
+//Client side
+//Register users
+
 router.post("/register", async (req, res) => { 
   const { fullName, teleno, city, email, uname, password } = req.body;
   const encryptedPassword = await bcrypt.hash(password, 10);
@@ -31,6 +35,27 @@ router.post("/register", async (req, res) => {
   }
 });
 
+//Login users
+
+//Customer profile update
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//Admin side 
 //get Users
 
 router.route('/getusers').get(async (req, res) => {
@@ -44,15 +69,30 @@ router.route('/getusers').get(async (req, res) => {
 });
 
 
+//delete users
+
+
+
+router.delete("/deleteusers", async (req, res) => { 
+  const { uname } = req.body;
+  
+  try {
+    const deletedUser = await User.findOneAndDelete({ uname });
+    
+    if (deletedUser) {
+      res.json({ success: true, message: 'User deleted successfully.' });
+    } else {
+      res.json({ error: "User not found or already deleted." });
+    }
+  } catch (error) {
+    console.error("Error deleting user:", error.message);
+    res.status(500).json({ status: "error", error: error.message });
+  }
+});
 
 
 
 
-
-
-
-
-//login Users
 
 
 

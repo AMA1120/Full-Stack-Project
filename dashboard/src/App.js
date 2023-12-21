@@ -1,5 +1,5 @@
 import React from 'react';
-import { useState } from 'react';
+// import { useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './pages/home/Home';
 import Food from './pages/food/Food';
@@ -13,7 +13,7 @@ import CreateFood from './pages/food/CreateFood'
 import UpdateFood from './pages/food/UpdateFood'
 
 function App() {
-  const [count, setCount]=useState(0)
+  // const [count, setCount]=useState(0)
   return (
     <div>
       <BrowserRouter>

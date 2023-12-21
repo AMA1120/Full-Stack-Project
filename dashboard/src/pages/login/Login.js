@@ -5,8 +5,6 @@ const Login = () => {
   // State variables
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const [valid, setValid] = useState(false);
-  const [submitted, setSubmitted] = useState(false);
 
   // Handle form submission
   const handleSubmit = async (e) => {
@@ -42,12 +40,8 @@ const Login = () => {
         if (responseBody.error === 'Incorrect Username') {
           // Handle incorrect username
           alert('Incorrect Username. Please check your username');
-          setValid(false);
-          setSubmitted(true);
         } else {
           // Successful login
-          setValid(true);
-          setSubmitted(true);
           alert('Welcome!');
           // Redirect to the Home page, assuming you have a route for it
           window.location.href = '/Home'; // Corrected the path
@@ -55,8 +49,6 @@ const Login = () => {
       } catch (error) {
         // Handle errors
         console.error('Error during login:', error.message);
-        setValid(false);
-        setSubmitted(true);
         alert(error.message);
       }
     } else {
@@ -65,29 +57,26 @@ const Login = () => {
     }
   };
 
- 
   return (
-    
     <div>
       <body className='bodyl'>
-     <div className='login-container1'>
-      <form className='form1' onSubmit={handleSubmit}>
-   
-        <h2>Admin Login</h2>
-        <label className='label1'>
-          Username:
-          <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} />
-        </label>
-        <br />
-        <label className='label1'>
-          Password:
-          <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
-        </label>
-        <br />
-        <button className="button1" type="submit">Login</button>
-      </form>
-    </div>
-    </body>
+        <div className='login-container1'>
+          <form className='form1' onSubmit={handleSubmit}>
+            <h2>Admin Login</h2>
+            <label className='label1'>
+              Username:
+              <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} />
+            </label>
+            <br />
+            <label className='label1'>
+              Password:
+              <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+            </label>
+            <br />
+            <button className="button1" type="submit">Login</button>
+          </form>
+        </div>
+      </body>
     </div>
   );
 };
