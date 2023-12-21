@@ -4,17 +4,16 @@ const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 
-const FoodcrudModel = require('./models/Foodcrud')
-const loginmodel = require('./models/loginmodel');
+const FoodcrudModel = require("./models/Foodcrud");
+const PromotionModel = require("./models/promotion");
 
 //import routes
 const userRoutes = require("./routes/users");
 const promotionRoutes = require("./routes/promotion");
 const foodcrudRoutes = require("./routes/foodcrud");
-const loginRoute = require("./routes/loginroute");
-
 app.use(cors());
-app.use(express.json())
+app.use(express.json());
+
 //app middleware
 app.use(bodyParser.json({ limit: "50mb" }));
 
@@ -30,6 +29,7 @@ app.use(
 app.use(userRoutes);
 app.use(promotionRoutes);
 app.use(foodcrudRoutes);
+app.use(loginRoute);
 
 //mongodb atlas connection
 const DB_URL =
@@ -65,6 +65,7 @@ app.get("/foods", async (req, res) => {
     res.status(500).json({ error: "Internal Server Error" });
   }
 });
+
 
 // Update food item by ID
 app.put("/update/:id", async (req, res) => {
@@ -132,8 +133,6 @@ app.delete("/delete/:id", async (req, res) => {
     res.status(500).json({ error: "Internal Server Error" });
   }
 });
-
-
 
 //server.js listening port
 app.listen(4000, () => {

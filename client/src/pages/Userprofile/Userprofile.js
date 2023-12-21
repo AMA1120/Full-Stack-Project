@@ -23,15 +23,12 @@ const Userprofile = () => {
 // State for form fields
   const [editedUser, setEditedUser] = useState({ ...user });
 
-// State for changing password
-  const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
 
 // Function to handle form submission for user details
   const handleSubmit = (e) => {
     e.preventDefault();
-// Here, you can add logic to update user details on the server
-// For simplicity, we'll just update the local state
+// add logic to update user details on the server
+// For simplicity, update the local state
     setUser({ ...editedUser });
     setIsEditing(false);
   };
@@ -40,17 +37,6 @@ const Userprofile = () => {
   const handleCancelEdit = () => {
     setEditedUser({ ...user });
     setIsEditing(false);
-  };
-
-// Function to handle form submission for changing password
-  const handleChangePassword = (e) => {
-    e.preventDefault();
-// Here, you can add logic to update the password on the server
-// For simplicity, we'll just log the new password to the console
-    console.log('New password:', password);
-// Clear the password fields after submission
-    setPassword('');
-    setConfirmPassword('');
   };
 
   return (
@@ -137,9 +123,9 @@ const Userprofile = () => {
           </div> */}
 
 
-          <button onClick={() => setIsEditing(true)}>Edit Profile</button>
+          <button className="edit-profile-button" onClick={() => setIsEditing(true)}>Edit Profile</button>
           <br></br> <br></br>
-          <button onClick={() => setIsEditing(true)}>Delete Profile</button>   
+          <button className="delete-profile-button" onClick={() => setIsEditing(true)}>Delete Profile</button>   
         </div>
       )}
     </div>

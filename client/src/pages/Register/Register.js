@@ -6,6 +6,25 @@ import Navbar from "../../components/Navbar/Navbar";
 
 
 function Register() {
+
+  /* 
+  constructor (props) {
+    super(props);
+    this.state = {
+      fullname:"",
+      phoneNo:"",
+      email:"",
+      username:"",
+      password:""
+    };
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+  handleSubmit(e) {
+    e.preventDefault();
+    const { fullname, phoneNo, City, email, password } = this.state;
+    console.log(fullname, phoneNo, email, password);
+  }
+  */
   
   const [values, setValues] = useState({
     fullName: "",
@@ -100,6 +119,7 @@ function Register() {
 
 
   return (
+    /*form onSubmit={this.handleSubmit} */
     <>
       <Navbar />
       <br />
@@ -122,6 +142,7 @@ function Register() {
                   name="fullName"
                   value={values.fullName}
                   onChange={handleInputChange}
+                  /*onChange={(e) => this.setState({ fullname: e.target.value })} */
                 />
                 {submitted && !values.fullName && (
                   <span id="full-name-error">Please enter your Full name</span>
@@ -134,6 +155,7 @@ function Register() {
                   name="phoneNo"
                   value={values.phoneNo}
                   onChange={handleInputChange}
+                  /*onChange={(e) => this.setState({ phoneNo: e.target.value })} */
                 />
                 {submitted && !values.phoneNo && (
                   <span id="phoneNo-error">Please enter your telephone no.</span>
@@ -146,6 +168,7 @@ function Register() {
                   name="City"
                   value={values.City}
                   onChange={handleInputChange}
+                  /*onChange={(e) => this.setState({ City: e.target.value })} */
                 />
                 {submitted && !values.City && (
                   <span id="City-error">Please enter your city.</span>
@@ -158,6 +181,7 @@ function Register() {
                   name="email"
                   value={values.email}
                   onChange={handleInputChange}
+                  /*onChange={(e) => this.setState({ email: e.target.value })} */
                 />
                 {submitted && !values.email && (
                   <span id="email-error">Please enter your email address</span>

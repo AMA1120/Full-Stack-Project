@@ -5,12 +5,19 @@ import axios from "axios";
 import Navbar from "../../components/navbar/navbar";
 
 function HomePromotions() {
-  const [promotion, setPromotions] = useState([]);
+  const [promotions, setPromotions] = useState([]);
+
   useEffect(() => {
-    axios
-      .get("https://localhost:3001/getPromotions")
-      .then((promotion) => setPromotions(promotion.data))
-      .catch((err) => console.log(err));
+    const fetchPromotions = async () => {
+      try {
+        const response = await axios.get("http://localhost:4000/getPromotions")
+        setPromotions(response.data);
+      } catch (error) {
+        console.error('Error fetching promotions:', error);
+      }
+    };
+
+    fetchPromotions();
   }, []);
 
   return (
@@ -34,8 +41,8 @@ function HomePromotions() {
                   </tr>
                 </thead>
                 <tbody>
-                  {promotion.map((promotion) => (
-                    <tr key={promotion._promotionName}>
+                  {promotions.map((promotion) => (
+                    <tr key={promotion._id}>
                       <td>{promotion.promotionName}</td>
                       <td>{promotion.description}</td>
                       <td>{promotion.category}</td>
@@ -50,17 +57,20 @@ function HomePromotions() {
                       </td>
                       <td>
                         <Link
-                          to={`/update/${promotion._promotionName}`}
+                          to={`/update/${promotion._id}`}
                           className="edit-promo-button"
                         >
                           Update
                         </Link>
-                        <Link
-                          to={`/delete/${promotion._promotionName}`}
+                        <button
+                          type="button"
                           className="delete-promo-button"
+                          onClick={() => {
+                            window.location.reload();
+                          }}
                         >
                           Delete
-                        </Link>
+                        </button>
                       </td>
                     </tr>
                   ))}
