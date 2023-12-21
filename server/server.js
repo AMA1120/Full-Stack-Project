@@ -7,10 +7,13 @@ const cors = require("cors");
 const FoodcrudModel = require("./models/Foodcrud");
 //import routes
 const userRoutes = require("./routes/users");
+const adminRoutes = require("./routes/admin");
 const promotionRoutes = require("./routes/promotion");
 const foodcrudRoutes = require("./routes/foodcrud");
 app.use(cors());
 app.use(express.json());
+
+
 //app middleware
 app.use(bodyParser.json({ limit: "50mb" }));
 
@@ -26,6 +29,7 @@ app.use(
 app.use(userRoutes);
 app.use(promotionRoutes);
 app.use(foodcrudRoutes);
+app.use(adminRoutes);
 
 //mongodb atlas connection
 const DB_URL =
