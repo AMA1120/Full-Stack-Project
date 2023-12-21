@@ -6,10 +6,6 @@ const cors = require("cors");
 
 const FoodcrudModel = require("./models/Foodcrud");
 
-<<<<<<< Updated upstream
-=======
-
->>>>>>> Stashed changes
 //import routes
 const userRoutes = require("./routes/users");
 const promotionRoutes = require("./routes/promotion");
