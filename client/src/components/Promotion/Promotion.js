@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
+
 function Promotion() {
   //fetch promotion image from backend
   const [promotions, setPromotions] = useState([]);

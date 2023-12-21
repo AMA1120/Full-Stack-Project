@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 import "./home.css";
 import axios from "axios";
 
-
 function Home() {
   const [foods, setFoods] = useState([]);
   useEffect(() => {
@@ -56,7 +55,7 @@ function Home() {
                     )}
                   </div>
                   <div className="card-footer">
-                    <Link to={`/order/${food._id}`} className="order-button">
+                    <Link to={`/menu/${food._id}`} className="order-button">
                       Order Now
                     </Link>
                   </div>
