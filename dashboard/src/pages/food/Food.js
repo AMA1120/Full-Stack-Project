@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom"; // Import useNavigate
 import axios from "axios";
 import "./food.css";
 
+
 function Food() {
   const [foods, setFoods] = useState([]);
   const navigate = useNavigate(); // Initialize useNavigate
@@ -39,6 +40,7 @@ function Food() {
 
   return (
     <>
+     
       <div className="food-container">
         <Navbar />
         <div className="food-content">
