@@ -14,9 +14,11 @@ function Home() {
   }, []);
 
   return (
+    
     <div className='home-container'>
       <Navbar />
       <div className='home-content'>
+        
         <div className='search-bar-container'>
           <label htmlFor='searchCustomers'>Search Customers:</label>
           <input

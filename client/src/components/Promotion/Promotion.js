@@ -1,29 +1,38 @@
 import React from 'react'
-import './Promotion.css';
+import './Promotion.css'
 
 function Promotion() {
   return (
     <div>
-       <div className="promotion-container">
-      <div className="promotion-slide">
-        <img
-          src="C:\Users\User\Documents\GitHub\Full-Stack-Project\client\src\Images\pro2.png" // Replace with your image URL
-          alt="Promotion 1"
-          className="promotion-image"
-        />
-      </div>
-      <div className="promotion-slide">
-        <img
-          src="C:\Users\User\Documents\GitHub\Full-Stack-Project\client\src\Images\images.jpeg"// Replace with your image URL
-          alt="Promotion 2"
-          className="promotion-image"
-        />
-      </div>
-      {/* Add more slides as needed */}
+    <div id="carouselExampleFade" className="carousel slide carousel-fade" data-bs-ride="carousel">
+
+        <div className="carousel-inner" id='carousel'>
+            <div className="carousel-caption">
+            </div>
+            <div className="carousel-item active">
+                <img src="https://source.unsplash.com/random/900x700/?burger" className="d-block w-100 carousel-img" alt="..." />
+            </div>
+            <div className="carousel-item">
+                <img src="https://source.unsplash.com/random/900x700/?pastry" className="d-block w-100 carousel-img" alt="..." />
+            </div>
+            <div className="carousel-item">
+                <img src="https://source.unsplash.com/random/900x700/?pizza" className="d-block w-100 carousel-img" alt="..." />
+            </div>
+        </div>
+        <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+            <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span className="visually-hidden">Previous</span>
+        </button>
+        <button className="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+            <span className="carousel-control-next-icon" aria-hidden="true"></span>
+            <span className="visually-hidden">Next</span>
+        </button>
     </div>
-    </div>
+</div>
+
+
+
   )
 }
 
-export default Promotion
-
+export default Promotion;
