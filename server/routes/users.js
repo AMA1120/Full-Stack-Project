@@ -35,7 +35,14 @@ router.post("/register", async (req, res) => {
   }
 });
 
-//Login users
+
+
+
+
+  
+
+
+
 
 //Customer profile update
 
@@ -68,7 +75,6 @@ router.route('/getusers').get(async (req, res) => {
   }
 });
 
-
 //delete users
 
 
@@ -89,19 +95,6 @@ router.delete("/deleteusers", async (req, res) => {
     res.status(500).json({ status: "error", error: error.message });
   }
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

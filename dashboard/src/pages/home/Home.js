@@ -48,14 +48,7 @@ function Home() {
     <div className="home-container">
       <Navbar />
       <div className="home-content">
-        <div className="search-bar-container">
-          <label htmlFor="searchCustomers">Search Customers:</label>
-          <input
-            type="text"
-            id="searchCustomers"
-            placeholder="Enter customer name"
-          />
-        </div>
+        
         <div className="tbl-container">
           <h1>Registered customers</h1>
           <table className="user-table">

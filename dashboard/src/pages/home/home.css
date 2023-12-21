@@ -1,14 +1,5 @@
 /* home.css */
 
-/* Add styling for the search bar container */
-.search-bar-container {
-  padding: 10px;
-  
-  border-bottom: 1px solid #ccc;
-  display: flex;
-  
-  align-items: center;
-}
 
 /* Add more styling for the search input if needed */
 #searchCustomers {
