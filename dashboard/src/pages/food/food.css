@@ -1,6 +1,8 @@
 
 .food-container {
   display: flex;
+  min-height: 100vh;
+  max-height: max-content;
 }
 
 .food-content {
