@@ -78,14 +78,11 @@
 } 
 
 /* Add hover effect to table rows */
-.tr:hover {
+.user-table tr:hover {
   background-color: #e0e0e0;
   padding: 5px;
 }
-.dele{
 
-  text-align: center;
-}
 button2 {
   background-color: #da2626;
   color: #fff;

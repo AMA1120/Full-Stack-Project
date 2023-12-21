@@ -10,15 +10,26 @@ function HomePromotions() {
   useEffect(() => {
     const fetchPromotions = async () => {
       try {
-        const response = await axios.get("http://localhost:4000/getPromotions")
+        const response = await axios.get("http://localhost:4000/getPromotions");
         setPromotions(response.data);
       } catch (error) {
-        console.error('Error fetching promotions:', error);
+        console.error("Error fetching promotions:", error);
       }
     };
 
     fetchPromotions();
   }, []);
+
+  const deletePromotion = async (id) => {
+    try {
+      const response = await axios.delete(
+        `http://localhost:4000/deletePromotions/${id}`
+      );
+      console.log(response.data);
+    } catch (error) {
+      console.error("Error deleting promotion:", error);
+    }
+  };
 
   return (
     <>
@@ -66,6 +77,7 @@ function HomePromotions() {
                           type="button"
                           className="delete-promo-button"
                           onClick={() => {
+                            deletePromotion(promotion._id);
                             window.location.reload();
                           }}
                         >

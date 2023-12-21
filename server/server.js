@@ -5,14 +5,14 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 
 const FoodcrudModel = require("./models/Foodcrud");
-const PromotionModel = require("./models/promotion");
-
 //import routes
 const userRoutes = require("./routes/users");
+const adminRoutes = require("./routes/admin");
 const promotionRoutes = require("./routes/promotion");
 const foodcrudRoutes = require("./routes/foodcrud");
 app.use(cors());
 app.use(express.json());
+
 
 //app middleware
 app.use(bodyParser.json({ limit: "50mb" }));
@@ -29,7 +29,7 @@ app.use(
 app.use(userRoutes);
 app.use(promotionRoutes);
 app.use(foodcrudRoutes);
-app.use(loginRoute);
+app.use(adminRoutes);
 
 //mongodb atlas connection
 const DB_URL =
@@ -66,15 +66,14 @@ app.get("/foods", async (req, res) => {
   }
 });
 
-
 // Update food item by ID
 app.put("/update/:id", async (req, res) => {
-  const id = req.params.id;
+  const foodId = req.params.id;
   const { food_item, price, discription, image } = req.body;
 
   try {
     const updatedFood = await FoodcrudModel.findByIdAndUpdate(
-      id,
+      foodId,
       {
         food_item,
         price,
@@ -95,25 +94,6 @@ app.put("/update/:id", async (req, res) => {
     res.status(500).json({ error: "Internal Server Error" });
   }
 });
-
-// Fetch food item by ID
-app.get("/getfoods/:id", async (req, res) => {
-  const foodId = req.params.id;
-
-  try {
-    const existingFood = await FoodcrudModel.findById(foodId);
-
-    if (!existingFood) {
-      return res.status(404).json({ error: "Food item not found" });
-    }
-
-    res.json(existingFood);
-  } catch (error) {
-    console.error("Error fetching existing food item:", error);
-    res.status(500).json({ error: "Internal Server Error" });
-  }
-});
-
 
 // Delete food item by ID
 app.delete("/delete/:id", async (req, res) => {
