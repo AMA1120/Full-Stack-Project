@@ -1,37 +1,51 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import './navbar.css';
+// navbar.js
+
+import React from "react";
+import { Link } from "react-router-dom";
+import "./navbar.css";
 
 function Navbar() {
   return (
-    <body1>
-    <nav className="navbar">
-      <div className="logo">Your Logo</div>
-      <ul className="nav-menu">
-        <li>
-          <Link to="/home">
-            <i className="fas fa-users"></i> Users
-          </Link>
-        </li>
-        <li>
-          <Link to="/food">
-            <i className="fas fa-hamburger"></i> Food Items
-          </Link>
-        </li>
-        <li>
-          <Link to="/Homepromotions">
-            <i className="fas fa-gift"></i> Promotions
-          </Link>
-        </li>
-        <li>
-          <Link to="/login">
-            <i className="fas fa-gift"></i> logout
-          </Link>
-        </li>
-      </ul>
+    <div className="admin-dashboard">
+      <div className="sidebar">
+        <div className="logo">Logo</div>
+        <ul className="nav-menu">
+          <li>
+        <Link to="/home">
+          <i className="fas fa-users"></i> Users
+            </Link>
+          </li>
+          <li>
+        <Link to="/food">
+          <i className="fas fa-hamburger"></i> Food Items
+            </Link>
+          </li>
+          <li>
+        <Link to="/homepromotions">
+          <i className="fas fa-gift"></i> Promotions
+            </Link>
+          </li>
+          <li>
+        <Link to="/login">
+          <i className="fas fa-sign-out-alt"></i> Logout
+            </Link>
+          </li>
+          </ul>
+      </div>
       
-    </nav>
-    </body1>
+      {/* Content area for rendering the pages */}
+      <div className="content">
+        {/* You can render the corresponding component based on the route */}
+        {/* For example, using React Router Switch and Route */}
+        {/* <Switch>
+          <Route path="/home" component={UsersComponent} />
+          <Route path="/food" component={FoodItemsComponent} />
+          <Route path="/homepromotions" component={PromotionsComponent} />
+          <Route path="/login" component={LoginComponent} />
+        </Switch> */}
+      
+      </div>
+    </div>
   );
 }
 

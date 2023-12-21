@@ -5,26 +5,26 @@ import Navbar from "../../components/Navbar/Navbar";
 import './login.css';
 
 const Login = () => {
-  const [username, setUsername] = useState('');
+  const [uname, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!username || !password) {
+    if (!uname || !password) {
       setError('Please enter both username and password.');
       return;
     }
 
     try {
-      const response = await fetch('http://localhost:5000/login', {
+      const response = await fetch('http://localhost:4000/login-users', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          username,
+          uname,
           password,
         }),
       });
@@ -56,7 +56,7 @@ const Login = () => {
             Username:
             <input
               type="text"
-              value={username}
+              value={uname}
               onChange={(e) => setUsername(e.target.value)}
             />
           </label>

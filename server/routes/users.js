@@ -5,11 +5,8 @@ const router = express.Router();
 const User = mongoose.model("Userinfo");
 const bcrypt = require("bcrypt");
 
-
-
-
-//Client side
-//Register users
+//client side
+//register users
 
 router.post("/register", async (req, res) => { 
   const { fullName, teleno, city, email, uname, password } = req.body;
@@ -35,27 +32,42 @@ router.post("/register", async (req, res) => {
   }
 });
 
-//Login users
-
-//Customer profile update
 
 
 
 
+//user login
+
+
+
+router.post("/login-users", async (req, res) => { 
+  try {
+    const { uname, password } = req.body;  // Corrected the destructuring syntax
+    const user = await User.findOne({ uname });  // Corrected the method name
+
+    if (!user) {
+      return res.json({ error: "User Not found" });  // Return a JSON response
+    }
+
+    const passwordMatch = await bcrypt.compare(password, user.password);
+
+    if (passwordMatch) {
+      // If you want to handle the case without JWT, just return a success message
+      return res.json({ status: "ok", data: "Successfully logged in" });
+    } else {
+      return res.json({ status: "error", error: "Invalid Password" });
+    }
+  } catch (error) {
+    console.error(error);
+    return res.status(500).json({ error: "Internal Server Error" });  // Handle server error
+  }
+});
 
 
 
 
+//admin side 
 
-
-
-
-
-
-
-
-
-//Admin side 
 //get Users
 
 router.route('/getusers').get(async (req, res) => {
@@ -67,6 +79,10 @@ router.route('/getusers').get(async (req, res) => {
     res.status(500).json({ error: 'Internal Server Error' });
   }
 });
+
+
+
+
 
 
 //delete users
@@ -90,14 +106,7 @@ router.delete("/deleteusers", async (req, res) => {
   }
 });
 
-
-
-
-
-
-
-
-
+//
 
 
 

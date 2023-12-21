@@ -1,23 +1,36 @@
-/* Promotion.css */
+/* Carousal.css */
+.carousel-inner {
+  position: relative;
+}
 
-.promotion-container {
-    width: 100%;
-    overflow: hidden;
-  }
-  
-  .promotion-slide {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: transform 0.5s ease-in-out;
-  }
-  
-  .promotion-image {
-    width: 100%;
-    height: auto;
-    max-height: 400px; /* Adjust the maximum height as needed */
-  }
-  
-  /* You can add additional styles for navigation arrows or other elements if necessary */
-  
+.carousel-caption {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
+  text-align: center;
+  z-index: 10;
+}
+
+.carousel-item img {
+  object-fit: cover;
+  filter: brightness(100%);
+  max-height: 500px; 
+
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-color:black; 
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+  width: auto;
+
+}
+
+.carousel-img {
+  width: 100%;
+  max-height: 500px; /* Adjust the height as needed */
+}

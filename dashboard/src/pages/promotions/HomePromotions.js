@@ -68,7 +68,7 @@ function HomePromotions() {
                       </td>
                       <td>
                         <Link
-                          to={`/update/${promotion._id}`}
+                          to={`/updatePromotions/${promotion._id}`}
                           className="edit-promo-button"
                         >
                           Update
