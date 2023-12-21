@@ -1,38 +1,40 @@
-import React from 'react'
-import './Promotion.css'
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 
 function Promotion() {
+  //fetch promotion image from backend
+  const [promotions, setPromotions] = useState([]);
+  useEffect(() => {
+    const fetchPromotions = async () => {
+      try {
+        const response = await axios.get("http://localhost:4000/getPromotions");
+        setPromotions(response.data);
+      } catch (error) {
+        console.error("Error fetching promotions:", error);
+      }
+    };
+
+    fetchPromotions();
+  }, []);
+
   return (
     <div>
-    <div id="carouselExampleFade" className="carousel slide carousel-fade" data-bs-ride="carousel">
-
-        <div className="carousel-inner" id='carousel'>
-            <div className="carousel-caption">
-            </div>
-            <div className="carousel-item active">
-                <img src="https://source.unsplash.com/random/900x700/?burger" className="d-block w-100 carousel-img" alt="..." />
-            </div>
-            <div className="carousel-item">
-                <img src="https://source.unsplash.com/random/900x700/?pastry" className="d-block w-100 carousel-img" alt="..." />
-            </div>
-            <div className="carousel-item">
-                <img src="https://source.unsplash.com/random/900x700/?pizza" className="d-block w-100 carousel-img" alt="..." />
-            </div>
+      {promotions.map((promotion) => (
+        <div key={promotion._id} className="card">
+          <div className="card-header"></div>
+          <div className="card-body">
+            {promotion.image && (
+              <img
+                src={promotion.image}
+                alt={`Food: ${promotion.food_item}`}
+                className="promo-image"
+              />
+            )}
+          </div>
         </div>
-        <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
-            <span className="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span className="visually-hidden">Previous</span>
-        </button>
-        <button className="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
-            <span className="carousel-control-next-icon" aria-hidden="true"></span>
-            <span className="visually-hidden">Next</span>
-        </button>
+      ))}
     </div>
-</div>
-
-
-
-  )
+  );
 }
 
 export default Promotion;

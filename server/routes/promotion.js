@@ -73,6 +73,24 @@ router.put("/updatePromotions/:id", async (req, res) => {
   }
 });
 
+// Fetch Promotion by ID
+router.get("/getPromotions/:id", async (req, res) => {
+  const id = req.params.id;
+  try {
+    const existingPromotion = await Promotion.findById(id);
+
+    if (!existingPromotion) {
+      return res.status(404).json({ error: "Promotion not found" });
+    }
+
+    console.log("Promotion:", existingPromotion);
+    res.json(existingPromotion);
+  } catch (error) {
+    console.error("Error fetching Promotion:", error);
+    res.status(500).json({ message: "Internal Server Error" });
+  }
+});
+
 // Delete Promotion by ID
 router.delete("/deletePromotions/:id", async (req, res) => {
   const id = req.params.id;
