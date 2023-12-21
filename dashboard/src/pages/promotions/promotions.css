@@ -22,6 +22,12 @@
   }
   
 
+  .promo-image {
+    max-width: 100px;
+    /* Adjust the maximum width as needed */
+    max-height: 100px;
+    /* Adjust the maximum height as needed */
+  }
 
   .custom-container {
     width: 100%;
@@ -43,25 +49,25 @@
     width: 10%;
     }
     
-    .custom-table {
+    .custom-promo-table {
     width: 100%;
     border-collapse: collapse;
     }
     
-    .table-header {
+    .table-promo-header {
     background-color: #343a40;
     color: #fff;
     }
     
-    .custom-table td,
-    .custom-table th {
+    .custom-promo-table td,
+    .custom-promo-table th {
     border: 1px solid #dee2e6;
     padding: 8px;
     text-align: left;
     }
     
-    .edit-button,
-    .delete-button {
+    .edit-promo-button,
+    .delete-promo-button {
     padding: 10px 10px;
     margin-right: 5px;
     border: none;
@@ -69,14 +75,14 @@
     cursor: pointer;
     }
     
-    .edit-button {
+    .edit-promo-button {
     background-color: #28a745;
     color: #fff;
     width: 30%;
     height: 10%;
     }
     
-    .delete-button {
+    .delete-promo-button {
     background-color: #dc3545;
     color: #fff;
     width: 30%;

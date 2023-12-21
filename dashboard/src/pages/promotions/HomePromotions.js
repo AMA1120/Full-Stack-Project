@@ -1,68 +1,99 @@
-import React from 'react';
-import './promotions.css';
-import { Link } from 'react-router-dom';
-import Navbar from '../../components/navbar/navbar';
+import React, { useEffect, useState } from "react";
+import "./promotions.css";
+import { Link } from "react-router-dom";
+import axios from "axios";
+import Navbar from "../../components/navbar/navbar";
 
-export default function HomePromotions() {
+function HomePromotions() {
+  const [promotions, setPromotions] = useState([]);
+
+  useEffect(() => {
+    const fetchPromotions = async () => {
+      try {
+        const response = await axios.get("http://localhost:4000/getPromotions");
+        setPromotions(response.data);
+      } catch (error) {
+        console.error("Error fetching promotions:", error);
+      }
+    };
+
+    fetchPromotions();
+  }, []);
+
+  const deletePromotion = async (id) => {
+    try {
+      const response = await axios.delete(
+        `http://localhost:4000/deletePromotions/${id}`
+      );
+      console.log(response.data);
+    } catch (error) {
+      console.error("Error deleting promotion:", error);
+    }
+  };
+
   return (
     <>
-      <div className='promo-container'>
-        <Navbar/>
+      <div className="promo-container">
+        <Navbar />
         <div className="promo-content">
           <div className="d-flex justify-content-center align-items-center">
             <div className="custom-container">
-              <Link to="/promotions" className="add-button">
+              <Link to="/addpromotions" className="add-button">
                 Add+
               </Link>
-              <table className="custom-table">
+              <table className="custom-promo-table">
                 <thead>
-                  <tr className="table-header">
-                    
-                  <th>Image</th>
-                  <th>Promotion</th>
-                  <th>Discription</th>
-                  <th>category</th>
-                  <th>Action</th>
+                  <tr className="table-promo-header">
+                    <th>Image</th>
+                    <th>Promotion</th>
+                    <th>Discription</th>
+                    <th>category</th>
+                    <th>Action</th>
                   </tr>
                 </thead>
-                {/* <tbody>
-                  {Promotions.map((food) => (
-                    <tr key={food._id}>
-                      <td>{food.id}</td>
-                      <td>{food.food_item}</td>
-                      <td>{food.price}</td>
-                      <td>{food.discription}</td>
+                <tbody>
+                  {promotions.map((promotion) => (
+                    <tr key={promotion._id}>
+                      <td>{promotion.promotionName}</td>
+                      <td>{promotion.description}</td>
+                      <td>{promotion.category}</td>
                       <td>
-                        {Promotions.image && (
+                        {promotion.image && (
                           <img
-                            src={food.image}
-                            alt={`Food: ${food.food_item}`}
-                            className="food-image"
+                            src={promotion.image}
+                            alt={`Promotion: ${promotion.promotionName}`}
+                            className="promo-image"
                           />
                         )}
                       </td>
                       <td>
                         <Link
-                          to={`/update/${food._id}`}
-                          className="edit-button"
+                          to={`/update/${promotion._id}`}
+                          className="edit-promo-button"
                         >
                           Update
                         </Link>
-                        <Link
-                          to={`/delete/${food._id}`}
-                          className="delete-button"
+                        <button
+                          type="button"
+                          className="delete-promo-button"
+                          onClick={() => {
+                            deletePromotion(promotion._id);
+                            window.location.reload();
+                          }}
                         >
                           Delete
-                        </Link>
+                        </button>
                       </td>
                     </tr>
                   ))}
-                </tbody> */}
+                </tbody>
               </table>
             </div>
           </div>
         </div>
       </div>
     </>
-  )
+  );
 }
+
+export default HomePromotions;

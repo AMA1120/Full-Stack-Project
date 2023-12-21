@@ -28,11 +28,14 @@ function Food() {
         `http://localhost:4000/delete/${foodId}`
       );
       console.log(response.data);
-      navigate("/food");
+
+      // Update local state to remove the deleted item
+      setFoods((prevFoods) => prevFoods.filter((food) => food._id !== foodId));
     } catch (error) {
       console.error("Error during delete:", error);
     }
   };
+
 
   return (
     <>
@@ -78,6 +81,7 @@ function Food() {
                         >
                           Update
                         </Link>
+
                         <button
                           type="button"
                           className="btn btn-danger"

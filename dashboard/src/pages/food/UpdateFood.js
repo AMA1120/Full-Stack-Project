@@ -122,9 +122,9 @@ function UpdateFood() {
                     className="form-control"
                     onChange={convertToBase64}
                   />
-                  {image === "" || image == null ? null : (
-                    <img width={100} height={100} src={image} alt="" />
-                  )}
+                  {image && (
+    <img width={100} height={100} src={image} alt="" />
+  )}
                 </div>
                 <button type="submit" className="btn btn-success">
                   Update

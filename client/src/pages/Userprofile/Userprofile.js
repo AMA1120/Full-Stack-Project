@@ -23,15 +23,12 @@ const Userprofile = () => {
 // State for form fields
   const [editedUser, setEditedUser] = useState({ ...user });
 
-// State for changing password
-  const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
 
 // Function to handle form submission for user details
   const handleSubmit = (e) => {
     e.preventDefault();
-// Here, you can add logic to update user details on the server
-// For simplicity, we'll just update the local state
+// add logic to update user details on the server
+// For simplicity, update the local state
     setUser({ ...editedUser });
     setIsEditing(false);
   };
@@ -42,20 +39,9 @@ const Userprofile = () => {
     setIsEditing(false);
   };
 
-// Function to handle form submission for changing password
-  const handleChangePassword = (e) => {
-    e.preventDefault();
-// Here, you can add logic to update the password on the server
-// For simplicity, we'll just log the new password to the console
-    console.log('New password:', password);
-// Clear the password fields after submission
-    setPassword('');
-    setConfirmPassword('');
-  };
-
   return (
     <div>
-    <Navbar/>
+    <Navbar/><br></br>
       <h2>User Profile</h2>
       {isEditing ? (
 // Display the form for editing user details
@@ -101,9 +87,11 @@ const Userprofile = () => {
 {/* Add more form fields for additional user details */}
           <br />
           <button type="submit">Save Changes</button>
+          <br></br>
           <button type="button" onClick={handleCancelEdit}>
             Cancel
           </button>
+          <br></br>
         </form>
       ) : (
 
@@ -123,7 +111,7 @@ const Userprofile = () => {
           </p>
           
 {/* Display the order history */}
-          <div>
+          {/* <div>
             <h3>Order History</h3>
             <ul>
               {user.orders.map((order) => (
@@ -132,38 +120,16 @@ const Userprofile = () => {
                 </li>
               ))}
             </ul>
-          </div>
+          </div> */}
 
-{/* Option to change password */}
-          <div>
-            <h3>Change Password</h3>
-            <form onSubmit={handleChangePassword}>
-              <label>
-                New Password:
-                <input
-                  type="password"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                />
-              </label>
-              <br />
-              <label>
-                Confirm Password:
-                <input
-                  type="password"
-                  value={confirmPassword}
-                  onChange={(e) => setConfirmPassword(e.target.value)}
-                />
-              </label>
-              <br />
-              <button type="submit">Change Password</button>
-            </form>
-          </div>
-          <button onClick={() => setIsEditing(true)}>Edit Profile</button>
+
+          <button className="edit-profile-button" onClick={() => setIsEditing(true)}>Edit Profile</button>
+          <br></br> <br></br>
+          <button className="delete-profile-button" onClick={() => setIsEditing(true)}>Delete Profile</button>   
         </div>
       )}
     </div>
   );
 };
 
-export default Userprofile
+export default Userprofile;
