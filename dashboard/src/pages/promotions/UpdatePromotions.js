@@ -30,7 +30,7 @@ function UpdatePromotions() {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:4000/getpromotions/${id}`
+          `http://localhost:4000/getPromotions/${id}`
         );
         const existingData = response.data;
 
@@ -58,7 +58,7 @@ function UpdatePromotions() {
       });
 
       const response = await axios.put(
-        `http://localhost:4000/updatepromotions/${id}`,
+        `http://localhost:4000/updatePromotions/${id}`,
         {
           promotionName: promotionName,
           description: description,
@@ -129,7 +129,7 @@ function UpdatePromotions() {
                     onChange={(e) => setCategory(e.target.value)}
                   />
                 </div>
-                <button type="submit" className="edit-promo-button">
+                <button type="submit" className="btn btn-success" >
                   Update
                 </button>
               </form>
