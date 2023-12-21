@@ -7,6 +7,9 @@ import Userprofile from './pages/Userprofile/Userprofile';
 import Cart from './pages/Cart/Cart';
 import Register from './pages/Register/Register';
 import Login from './pages/Login/Login';
+import '../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js';
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import '../node_modules/bootstrap/dist/js/bootstrap.bundle';
 import './App.css';
 
 
