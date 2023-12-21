@@ -1,14 +1,5 @@
 /* home.css */
 
-/* Add styling for the search bar container */
-.search-bar-container {
-  padding: 10px;
-  
-  border-bottom: 1px solid #ccc;
-  display: flex;
-  
-  align-items: center;
-}
 
 /* Add more styling for the search input if needed */
 #searchCustomers {
@@ -83,13 +74,17 @@
   padding: 5px;
 }
 
-button2 {
-  background-color: #da2626;
+.button2 {
+  background-color: #cf1919;
   color: #fff;
   padding: 4px;
   border: none;
   border-radius: 4px;
   cursor: pointer;
+}
+
+.button2:hover{
+  background-color: #bb5050;
 }
 
 @media (max-width: 768px) {
