@@ -1,87 +1,91 @@
-/* body {
-    font-family: 'Arial', sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f4;
-  } */
-  
-  /* h2 {
-    color: #333;
-  }
-  
-  form {
-    display: flex;
-    flex-direction: column;
-    max-width: 300px;
-    margin: 0 auto;
-  }
-  
-  label {
-    margin-bottom: 10px;
-  }
-  
-  input {
-    padding: 8px;
-    margin-bottom: 15px;
-    width: 100%;
-    box-sizing: border-box;
-  }
-  
-  button {
-    padding: 10px;
-    background-color: #4caf50;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-    font-size: 16px;
-    margin-right: 10px;
-  }
-  
-  button:hover {
-    background-color: #45a049;
-  }
-  
-  div {
-    max-width: 600px;
-    margin: 0 auto;
-  }
-  
-  p {
-    margin-bottom: 10px;
-  }
-  
-  strong {
-    font-weight: bold;
-  }
-  
-  ul {
-    list-style-type: none;
-    padding: 0;
-  }
-  
-  li {
-    margin-bottom: 8px;
-  }
-  
-  .edit-profile-button,
-  .delete-profile-button {
-    background-color: #3498db;
-    color: #fff;
-    border: none;
-    padding: 10px;
-    cursor: pointer;
-    font-size: 16px;
-    margin-right: 10px;
-  }
-  
-  .delete-profile-button {
-    background-color: #e74c3c;
-  }
-  
-  .edit-profile-button:hover,
-  .delete-profile-button:hover {
-    background-color: #2980b9;
-  } */
-  
-  /* Add more styles as needed */
-  
+/* userprofile.css */
+
+/* Container styling */
+/* div {
+  font-family: 'Arial', sans-serif;
+  margin: 20px;
+} */
+
+/* Header styling */
+h2 {
+  color: #333;
+  text-align: center;
+}
+
+/* Form styling */
+/* form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+} */
+
+label {
+  margin: 10px 0;
+  color: #333;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0;
+  box-sizing: border-box;
+}
+
+/* button {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #45a049;
+}  */
+
+/* Display styling */
+/* .user-profile-display {
+  text-align: center;
+} */
+
+p {
+  margin: 10px 0;
+  color: #333;
+}
+
+strong {
+  font-weight: bold;
+}
+
+/* "Edit Profile" and "Delete Profile" button styling */
+button {
+  background-color: #4285f4;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #357ae8;
+}
+
+/* Specific styling for the "Edit Profile" button */
+.edit-profile-button {
+  background-color: #e1d018;
+}
+
+.edit-profile-button:hover {
+  background-color: #92790c;
+}
+
+/* Specific styling for the "Delete Profile" button */
+.delete-profile-button {
+  background-color: #ff4d4d;
+}
+
+.delete-profile-button:hover {
+  background-color: #a60303;
+}
