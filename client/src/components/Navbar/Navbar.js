@@ -10,7 +10,7 @@ function Navbar() {
           <Link to="/">Home</Link>
         </li>
         <li>
-          <Link to="/menu">Menu Items</Link>
+          <Link to="/menu/:foodID">Menu Items</Link>
         </li>
         <li>
           <Link to="/cart">Cart</Link>

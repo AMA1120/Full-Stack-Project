@@ -33,6 +33,26 @@ const Userprofile = () => {
     setIsEditing(false);
   };
 
+// Function to handle deleting the user profile
+  // const handleDeleteProfile = async () => {
+  //   try {
+  //     const response = await fetch(`/api/users/${userId}`, {
+  //       method: 'DELETE',
+  //     });
+
+  //     if (response.ok) {
+  //       // Handle success, e.g., redirect to another page
+  //       console.log('User deleted successfully');
+  //     } else {
+  //       // Handle error
+  //       console.error('Failed to delete user');
+  //     }
+  //   } catch (error) {
+  //     console.error(error);
+  //   }
+  // };
+
+
 // Function to handle canceling the edit
   const handleCancelEdit = () => {
     setEditedUser({ ...user });
