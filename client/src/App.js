@@ -7,6 +7,10 @@ import Userprofile from './pages/Userprofile/Userprofile';
 import Cart from './pages/Cart/Cart';
 import Register from './pages/Register/Register';
 import Login from './pages/Login/Login';
+
+import '../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js';
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import '../node_modules/bootstrap/dist/js/bootstrap.bundle';
 import './App.css';
 
 
@@ -17,15 +21,15 @@ function App() {
         <Routes>
           <Route index element={<Home />}></Route>
           <Route path="/home" element={<Home />}></Route>
-          <Route path="/menu" element={<Menuitem />}></Route>
+          <Route path="/menu/:foodID" element={<Menuitem />}></Route>
           <Route path="/cart" element={<Cart />}></Route>
           <Route path="/login" element={<Login />}></Route>
           <Route path="/register" element={<Register />}></Route>
           <Route path="/payment" element={<Payment />}></Route>
           <Route path="/userprofile" element={<Userprofile />}></Route>
+          
         </Routes>
       </BrowserRouter>
-      
     </div>
   );
 }
