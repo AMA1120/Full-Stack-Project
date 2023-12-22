@@ -4,6 +4,8 @@ const mongoose = require("mongoose");
 const router = express.Router();
 const User = mongoose.model("Userinfo");
 const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
+const JWT_SECRET ="kfjvd6574393hrerfhjnn?hyhhe[]bhen ";
 
 //client side
 //register users
@@ -52,8 +54,11 @@ router.post("/login-users", async (req, res) => {
     const passwordMatch = await bcrypt.compare(password, user.password);
 
     if (passwordMatch) {
-      // If you want to handle the case without JWT, just return a success message
-      return res.json({ status: "ok", data: "Successfully logged in" });
+
+      //generate JWT token
+      const token = jwt.sign({}, JWT_SECRET);
+      
+      return res.json({ status: "ok", data: "Successfully logged in",token});
     } else {
       return res.json({ status: "error", error: "Invalid Password" });
     }
