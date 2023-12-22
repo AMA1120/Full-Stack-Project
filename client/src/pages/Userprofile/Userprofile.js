@@ -6,10 +6,10 @@ import Navbar from "../../components/Navbar/Navbar";
 const Userprofile = () => {
 // Example user data
   const [user, setUser] = useState({
-    username: 'JohnDoe',
-    email: 'john.doe@example.com',
-    mobilenumber:'071-4563857',
-    city:'Colombo',
+    username: '',
+    email: '',
+    mobilenumber:'',
+    city:'',
     orders: [
       { id: 1, date: '2023-01-15', total: 25.0 },
       { id: 2, date: '2023-02-03', total: 18.5 },
@@ -34,23 +34,66 @@ const Userprofile = () => {
   };
 
 // Function to handle deleting the user profile
-  // const handleDeleteProfile = async () => {
-  //   try {
-  //     const response = await fetch(`/api/users/${userId}`, {
-  //       method: 'DELETE',
-  //     });
+// const UserProfile = () => {
+//   const [user, setUser] = useState({
+//     // Initialize with default user data
+//     username: '',
+//     email: '',
+//     mobilenumber: '',
+//     city: '',
+//   });
 
-  //     if (response.ok) {
-  //       // Handle success, e.g., redirect to another page
-  //       console.log('User deleted successfully');
-  //     } else {
-  //       // Handle error
-  //       console.error('Failed to delete user');
-  //     }
-  //   } catch (error) {
-  //     console.error(error);
-  //   }
-  // };
+//   const [token, setToken] = useState(''); // Token received after login
+// const fetchUserProfile = async () => {
+//   try {
+//     const response = await fetch('/userprofile', {
+//       method: 'POST',
+//       headers: {
+//         'Content-Type': 'application/json',
+//       },
+//       body: JSON.stringify({ token }),
+//     });
+
+//     if (response.ok) {
+//       const result = await response.json();
+//       if (result.status === 'ok') {
+//         setUser(result.data);
+//       } else {
+//         console.error('Error fetching user profile:', result.data);
+//       }
+//     } else {
+//       console.error('Failed to fetch user profile');
+//     }
+//   } catch (error) {
+//     console.error('Error fetching user profile:', error.message);
+//   }
+// };
+
+// const handleDeleteProfile = async () => {
+//   try {
+//     const response = await fetch('/deleteuser', {
+//       method: 'DELETE',
+//       headers: {
+//         'Content-Type': 'application/json',
+//       },
+//       body: JSON.stringify({ token }),
+//     });
+
+//     if (response.ok) {
+//       const result = await response.json();
+//       if (result.status === 'ok') {
+//         console.log(result.message);
+//         // Optionally, you can perform additional actions after deletion
+//       } else {
+//         console.error('Error deleting user profile:', result.data);
+//       }
+//     } else {
+//       console.error('Failed to delete user profile');
+//     }
+//   } catch (error) {
+//     console.error('Error deleting user profile:', error.message);
+//   }
+// };
 
 
 // Function to handle canceling the edit
