@@ -48,8 +48,8 @@ function Home() {
     <div className="home-container">
       <Navbar />
       <div className="home-content">
-        
-        
+
+
         <div className="tbl-container">
           <h1>Registered customers</h1>
           <table className="user-table">
@@ -84,7 +84,6 @@ function Home() {
             </tbody>
           </table>
         </div>
-        <p>This is the main content of your home page.</p>
       </div>
     </div>
   );
