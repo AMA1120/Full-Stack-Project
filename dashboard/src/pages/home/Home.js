@@ -49,7 +49,7 @@ function Home() {
       <Navbar />
       <div className="home-content">
         
-        </div>
+        
         <div className="tbl-container">
           <h1>Registered customers</h1>
           <table className="user-table">
