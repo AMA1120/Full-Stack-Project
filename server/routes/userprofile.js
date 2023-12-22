@@ -3,6 +3,11 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const app = express();
 
+const router = express.Router();
+
+const userprofileRouter = require('./routes/userprofile');
+app.use('/api', userprofileRouter);
+
 // // Define a mongoose schema for the user
 // const userSchema = new mongoose.Schema({
 //     username: String,
