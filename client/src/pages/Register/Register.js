@@ -125,13 +125,9 @@ function Register() {
       <br />
       <div>
         <div className="form-container">
-          <div className="h1">Register</div>
+          <div className="h">Register</div>
           <form className="register-form" onSubmit={handleSubmit}>
-            {/* {submitted && valid && (
-              
-                // alert("Registered successfully!")
-            )}
-              */}
+           
 
             {!valid && (
               <>
@@ -168,7 +164,7 @@ function Register() {
                   name="City"
                   value={values.City}
                   onChange={handleInputChange}
-                  /*onChange={(e) => this.setState({ City: e.target.value })} */
+                  
                 />
                 {submitted && !values.City && (
                   <span id="City-error">Please enter your city.</span>
@@ -181,7 +177,7 @@ function Register() {
                   name="email"
                   value={values.email}
                   onChange={handleInputChange}
-                  /*onChange={(e) => this.setState({ email: e.target.value })} */
+                  
                 />
                 {submitted && !values.email && (
                   <span id="email-error">Please enter your email address</span>
@@ -211,7 +207,7 @@ function Register() {
                   <span id="password-error">Please enter your password</span>
                 )}
 
-                <label1>
+                <label className="lbl">
                   <input
                     type="checkbox"
                     name="agreeToTerms"
@@ -219,7 +215,7 @@ function Register() {
                     onChange={handleInputChange}
                   />
                   I agree to this website's terms and conditions
-                </label1>
+                </label>
                 {submitted && !values.agreeToTerms && (
                   <span id="terms-error">Please agree to the terms and conditions</span>
                 )}
