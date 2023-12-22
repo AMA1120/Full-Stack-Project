@@ -1,12 +1,16 @@
 import React, { useState } from "react";
 import "./promotions.css";
 import Navbar from "../../components/navbar/navbar";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
+
 
 function Promotions() {
   const [promotionName, setpromotionName] = useState("");
   const [description, setDescription] = useState("");
   const [category, setCategory] = useState("");
   const [image, setImage] = useState("");
+  const navigate = useNavigate();
 
   const convertToBase64 = (e) => {
     console.log(e);
@@ -23,18 +27,22 @@ function Promotions() {
     };
   };
 
-  const uploadImage = async () => {
-    fetch("http://localhost:4000/new", {
-      method: "POST",
-      crossDomain: true,
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      },
-      body: JSON.stringify({ promotionName, description, category, image }),
-    }).then((res) => {
-      console.log(res);
+ const uploadImage = async (e) => {
+  e.preventDefault();
+  try {
+    const response = await axios.post("http://localhost:4000/new", {
+      promotionName, 
+      description, 
+      category, 
+      image,
     });
+    console.log(response.data);
+    // const navigate = useNavigate();
+    navigate("/homepromotions");
+  } catch (error) {
+    console.error("Error during fetch:", error);
+  }
+
   };
 
   return (

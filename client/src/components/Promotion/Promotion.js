@@ -1,29 +1,40 @@
-import React from 'react'
-import './Promotion.css';
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+
 
 function Promotion() {
+  //fetch promotion image from backend
+  const [promotions, setPromotions] = useState([]);
+  useEffect(() => {
+    const fetchPromotions = async () => {
+      try {
+        const response = await axios.get("http://localhost:4000/getPromotions");
+        setPromotions(response.data);
+      } catch (error) {
+        console.error("Error fetching promotions:", error);
+      }
+    };
+
+    fetchPromotions();
+  }, []);
+
   return (
     <div>
-       <div className="promotion-container">
-      <div className="promotion-slide">
-        <img
-          src="C:\Users\User\Documents\GitHub\Full-Stack-Project\client\src\Images\pro2.png" // Replace with your image URL
-          alt="Promotion 1"
-          className="promotion-image"
-        />
-      </div>
-      <div className="promotion-slide">
-        <img
-          src="C:\Users\User\Documents\GitHub\Full-Stack-Project\client\src\Images\images.jpeg"// Replace with your image URL
-          alt="Promotion 2"
-          className="promotion-image"
-        />
-      </div>
-      {/* Add more slides as needed */}
+      {promotions.map((promotion) => (
+        <div key={promotion._id} className="promo-card">
+          <div className="promo-card-body">
+            {promotion.image && (
+              <img
+                src={promotion.image}
+                alt={`Food: ${promotion.food_item}`}
+                className="promo-image"
+              />
+            )}
+          </div>
+        </div>
+      ))}
     </div>
-    </div>
-  )
+  );
 }
 
-export default Promotion
-
+export default Promotion;

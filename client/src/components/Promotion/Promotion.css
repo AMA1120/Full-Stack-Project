@@ -1,23 +1,57 @@
-/* Promotion.css */
+/* Carousal.css
+.carousel-inner {
+  position: relative;
+}
 
-.promotion-container {
-    width: 100%;
-    overflow: hidden;
+.carousel-caption {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
+  text-align: center;
+  z-index: 10;
+}
+
+.carousel-item img {
+  object-fit: cover;
+  filter: brightness(100%);
+  max-height: 500px; 
+
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-color:black; 
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+  width: auto;
+
+}
+
+.carousel-img {
+  width: 100%;
+  max-height: 500px; /* Adjust the height as needed 
+} 
+*/
+.promo-card {
+      width: 350px;
+      /* Adjust the width as needed */
+      margin: 10px;
+      /* Other existing styles for .card go here */
+}
+
+.promo-card-body {
+  padding: 15px;
+}
+  /* .card-text {
+        margin-bottom: 10px;
+  } */
+
+  .promo-image {
+        width: 100%;
+        border-radius: 4px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
-  
-  .promotion-slide {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: transform 0.5s ease-in-out;
-  }
-  
-  .promotion-image {
-    width: 100%;
-    height: auto;
-    max-height: 400px; /* Adjust the maximum height as needed */
-  }
-  
-  /* You can add additional styles for navigation arrows or other elements if necessary */
-  
+
