@@ -35,8 +35,6 @@ const DB_URL =
   "mongodb+srv://pkkimansha27:resturant123@resturant.c1gnqtq.mongodb.net/?retryWrites=true&w=majority";
 
 
-
-
 //server.js listening port
 app.listen(4000, () => {
   console.log("Server Started");
