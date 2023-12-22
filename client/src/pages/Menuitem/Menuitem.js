@@ -1,36 +1,70 @@
-import React from 'react';
-import Navbar from '../../components/Navbar/Navbar';
-import Card from '../../components/Card/Card';
-import Footer from '../../components/Footer/Footer';
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import Navbar from "../../components/Navbar/Navbar"; // Update the path to your Navbar component
+import Card from "../../components/Card/Card"; // Update the path to your Card component
 import './menuitem.css';
 
-export default function Menuitem() {
+function Menuitem() {
+  const [foodItems, setFoodItems] = useState([]);
+  const [foodCategory, setfoodCategory] = useState([]);
+
+  useEffect(() => {
+    // Fetch data from the server
+    const fetchData = async () => {
+      try {
+        const responseFoodItems = await axios.get("http://localhost:4000/foodData");
+
+
+        setFoodItems(responseFoodItems.data.foodItems);
+        setfoodCategory(responseFoodItems.data.foodCategory);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
   return (
-    <>
+    <div>
       <Navbar />
-      
-      <div><h2>Menu page</h2></div>
-
-      <br></br>
-      <br></br>
-
-      <h3>Menu Items</h3>
-      <br></br>
-      <br></br>
 
       <div>
-        <Card />
-        <br></br>
-        <br></br>
-        <Card />
-        <br></br>
-        <br></br>
-        <Card />
+        <h1>Food Items</h1>
+        
       </div>
 
-      <div><Footer /></div>
-    </>
+      <div className='container1'>
+        {
+          foodCategory != ""
+            ? foodCategory.map((data) => {
+              return (<div className='row m-3'>
+                <div key={data._id} className='fs-3 m-3'>
+                  {data.CategoryName}
+                </div>
+                <hr />
+                {foodItems != ""
+                  ?
+                  foodItems.filter((item) => item.CategoryName === data.CategoryName)
+                    .map(filterItems => {
+                      return (
+                        <div key={filterItems._id} >
+                          <div>
+                          <Card></Card>
+                          </div>
+                        </div>
+                      )
+                    }
+                    ) : <div> No such data found </div>}
+              </div>
+              )
+            })
+            : <div>"""""""""""</div>
+        }
+      </div>
+      
+    </div>
   );
-}
+};
 
-
+export default Menuitem;
