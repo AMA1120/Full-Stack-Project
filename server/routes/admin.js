@@ -6,13 +6,12 @@ const Admin = mongoose.model("admininfo");
 
 
 
-const jwt = require("jsonwebtoken");
-const JWT_SECRET ="kfjvd6574393hrerfhjnn?hyhhe[]bhen ";
+
 
 
 //admin login
 
-router.post("/login-admin", async (req, res) => { 
+router.post("/admin", async (req, res) => { 
 const {uname,password} = req.body;
 const admin = await Admin.findOne({uname});
 if(!admin){
@@ -20,14 +19,12 @@ if(!admin){
 }
 
 if (password === admin.password) {
-    const token = jwt.sign({}, JWT_SECRET);
-    return res.status(201).json({ status: "ok", data: token });
+  
+    return res.status(201).json({ status: "ok" });
   } else {
     return res.status(401).json({ error: "Incorrect Password" });
   }
 });
-
-
 
 
 
