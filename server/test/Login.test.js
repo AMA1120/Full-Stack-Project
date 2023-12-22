@@ -35,6 +35,6 @@ describe('Login Component', () => {
 
     expect(response).to.have.status(401);
 
-    // You can add more assertions based on your API response
+    // Add more assertions based on your API response
   });
 });
