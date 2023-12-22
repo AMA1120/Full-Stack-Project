@@ -21,9 +21,8 @@ function Promotion() {
   return (
     <div>
       {promotions.map((promotion) => (
-        <div key={promotion._id} className="card">
-          <div className="card-header"></div>
-          <div className="card-body">
+        <div key={promotion._id} className="promo-card">
+          <div className="promo-card-body">
             {promotion.image && (
               <img
                 src={promotion.image}

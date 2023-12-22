@@ -1,4 +1,4 @@
-/* Carousal.css */
+/* Carousal.css
 .carousel-inner {
   position: relative;
 }
@@ -32,5 +32,26 @@
 
 .carousel-img {
   width: 100%;
-  max-height: 500px; /* Adjust the height as needed */
+  max-height: 500px; /* Adjust the height as needed 
+} 
+*/
+.promo-card {
+      width: 350px;
+      /* Adjust the width as needed */
+      margin: 10px;
+      /* Other existing styles for .card go here */
 }
+
+.promo-card-body {
+  padding: 15px;
+}
+  /* .card-text {
+        margin-bottom: 10px;
+  } */
+
+  .promo-image {
+        width: 100%;
+        border-radius: 4px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
