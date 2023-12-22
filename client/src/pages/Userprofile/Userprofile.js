@@ -167,7 +167,7 @@ const Userprofile = () => {
             <strong>Email:</strong> {user.email}
           </p>
           <p>
-            <strong>Mobilenumber:</strong> {user.mobilenumber}
+            <strong>Mobile number:</strong> {user.mobilenumber}
           </p>
           <p>
             <strong>City:</strong> {user.city}
