@@ -5,11 +5,11 @@ body {
     font-family: 'Arial', sans-serif;
   }
   
-  .container {
+  /*.container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
-  }
+  }*/
   
   h2 {
     color: #080808;
@@ -19,7 +19,7 @@ body {
     color: #555;
   }
   
-  .menu-container {
+  .menu-container1 {
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
