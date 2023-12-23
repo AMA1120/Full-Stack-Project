@@ -12,7 +12,7 @@ export default function Card(props) {
             <div>
                  <div className="menu" > 
 
-                    <img src="/images/First.jpg" alt=""  />
+                <img src={props.imgSrc} alt=""  />
 
                     <div className="menu-body">
                         <h3 className="menu-title">{props.foodName}</h3>  
