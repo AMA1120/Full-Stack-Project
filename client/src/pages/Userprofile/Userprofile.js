@@ -27,9 +27,7 @@ const Userprofile = () => {
           headers: {
             'Content-Type': 'application/json',
           },
-          body: JSON.stringify({ token:window.localStorage.getItem("token") }),
-          
-          
+          body: JSON.stringify({ token: window.localStorage.getItem('token') }),
         });
 
         if (response.ok) {
@@ -64,6 +62,30 @@ const Userprofile = () => {
     setIsEditing(false);
   };
 
+  const handleDeleteUser = async () => {
+    try {
+      // Add logic to make an API call for deleting the user
+      const response = await fetch('http://localhost:4000/deleteUser', {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ token: window.localStorage.getItem('token') }),
+      });
+
+      if (response.ok) {
+        // Handle successful deletion, e.g., redirect to login page
+        console.log('User deleted successfully');
+      } else {
+        const result = await response.json();
+        setError(result.error || 'Failed to delete user');
+      }
+    } catch (error) {
+      console.error('Error deleting user:', error);
+      setError('Failed to delete user');
+    }
+  };
+
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setEditedUser((prevUser) => ({
@@ -87,11 +109,11 @@ const Userprofile = () => {
             <input
               type="text"
               name="username"
-              value={editedUser.uname}
+              value={editedUser.username}
               onChange={handleInputChange}
             />
           ) : (
-            <span>{user.uname}</span>
+            <span>{user.username}</span>
           )}
         </label>
 
@@ -121,9 +143,14 @@ const Userprofile = () => {
             </button>
           </>
         ) : (
-          <button type="button" onClick={handleEditClick}>
-            Edit
-          </button>
+          <>
+            <button type="button" onClick={handleEditClick}>
+              Edit
+            </button>
+            <button type="button" onClick={handleDeleteUser}>
+              Delete
+            </button>
+          </>
         )}
       </form>
     </div>
