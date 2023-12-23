@@ -25,7 +25,7 @@ function App() {
           <Route index element={<Home />}></Route>
           <Route path="/home" element={<Home />}></Route>
           <Route path="/menu/:foodID" element={<Menuitem />}></Route>
-          <Route path="/cart" element={<Cart />}></Route>
+          {/* <Route path="/cart" element={<Cart />}></Route> */}
           <Route path="/login" element={<Login />}></Route>
           <Route path="/register" element={<Register />}></Route>
           <Route path="/payment" element={<Payment />}></Route>
