@@ -4,7 +4,7 @@ import Home from './pages/Home/Home';
 import Menuitem from './pages/Menuitem/Menuitem';
 import Payment from './pages/Payment/Payment';
 import Userprofile from './pages/Userprofile/Userprofile';
-import Cart from './pages/Cart/Cart';
+//import Cart from './pages/Cart/Cart';
 import Register from './pages/Register/Register';
 import Login from './pages/Login/Login';
 import Logout from './components/Logout/Logout.js';
