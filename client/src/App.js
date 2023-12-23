@@ -13,11 +13,13 @@ import '../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import '../node_modules/bootstrap/dist/js/bootstrap.bundle';
 import './App.css';
+import { CartProvider } from './components/ContextReducer.js';
 
 
 function App() {
   return (
     <div>
+      <CartProvider>
       <BrowserRouter>
         <Routes>
           <Route index element={<Home />}></Route>
@@ -32,6 +34,7 @@ function App() {
           
         </Routes>
       </BrowserRouter>
+      </CartProvider>
     </div>
   );
 }
