@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './login.css';
+import { Link } from "react-router-dom";
 
 const Login = () => {
   // State variables
@@ -13,7 +14,7 @@ const Login = () => {
     if (username && password) {
       try {
         // Make the API request
-        const response = await fetch('http://localhost:4000/login-admin', {
+        const response = await fetch('http://localhost:4000/admin', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -44,7 +45,8 @@ const Login = () => {
           // Successful login
           alert('Welcome!');
           // Redirect to the Home page, assuming you have a route for it
-          window.location.href = '/Home'; // Corrected the path
+           window.location.href = '/Home'; 
+        
         }
       } catch (error) {
         // Handle errors
