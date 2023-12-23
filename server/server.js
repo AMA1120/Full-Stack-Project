@@ -11,6 +11,7 @@ const userRoutes = require("./routes/users");
 const promotionRoutes = require("./routes/promotion");
 const foodcrudRoutes = require("./routes/foodcrud");
 const menuRoutes = require("./routes/menuroute");
+
 app.use(cors());
 app.use(express.json());
 
