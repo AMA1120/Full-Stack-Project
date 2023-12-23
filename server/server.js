@@ -11,7 +11,7 @@ const userRoutes = require("./routes/users");
 const promotionRoutes = require("./routes/promotion");
 const foodcrudRoutes = require("./routes/foodcrud");
 const adminRoutes = require("./routes/admin");
-const userprofileRoutes = require("./routes/userprofile")
+//const userprofileRoutes = require("./routes/userprofile");
 app.use(cors());
 app.use(express.json());
 
@@ -31,7 +31,7 @@ app.use(userRoutes);
 app.use(promotionRoutes);
 app.use(foodcrudRoutes);
 app.use(adminRoutes);
-app.use(userprofileRoutes)
+//app.use(userprofileRoutes);
 
 
 //mongodb atlas connection
