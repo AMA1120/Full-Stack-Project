@@ -30,7 +30,7 @@ function Menuitem() {
       <Navbar />
 
       <div>
-        <h1>Food Items</h1>
+        <h1>  Menu Items</h1>
         
       </div>
 
@@ -50,7 +50,10 @@ function Menuitem() {
                       return (
                         <div key={filterItems._id} >
                           <div>
-                          <Card></Card>
+                          <Card foodName={filterItems.name}
+                                options={filterItems.options[0]}
+                                imgSrc={filterItems.img}
+                          ></Card>
                           </div>
                         </div>
                       )
