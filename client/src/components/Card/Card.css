@@ -20,6 +20,7 @@
   .menu img {
     width: 350px;
     max-height: 360px;
+    object-fit: fill;
   }
   
   /* Styles for the card body */
