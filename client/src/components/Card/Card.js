@@ -47,7 +47,7 @@ useEffect(() => {
                                 <option value="half">Full</option> */}
                             </select>
                             <div className='menu-container3'>
-                                Total Price: Rs{finalPrice}/-
+                                Price: Rs{finalPrice}/-
                             </div>
                         </div>
                         <hr>
