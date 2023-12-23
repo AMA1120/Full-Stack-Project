@@ -5,7 +5,7 @@ const router = express.Router();
 const User = mongoose.model("Userinfo");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-const JWT_SECRET ="kfjvd6574393hrerfhjnn?hyhhe[]bhen ";
+const JWT_SECRET ="kfjvd6574393hrerfhjnn?hyhhe[]bhen";
 
 //client side
 //register users
@@ -56,9 +56,9 @@ router.post("/login-users", async (req, res) => {
     if (passwordMatch) {
 
       //generate JWT token
-      const token = jwt.sign({}, JWT_SECRET);
+      const token = jwt.sign({ uname: user.uname}, JWT_SECRET);
       
-      return res.json({ status: "ok", data: "Successfully logged in",token});
+      return res.json({ status: "ok", data: { token } });
     } else {
       return res.json({ status: "error", error: "Invalid Password" });
     }
@@ -91,7 +91,7 @@ router.route('/getusers').get(async (req, res) => {
 
 
 
-//delete users
+//admin-delete users
 
 
 router.delete("/deleteusers", async (req, res) => { 
@@ -111,77 +111,61 @@ router.delete("/deleteusers", async (req, res) => {
   }
 });
 
-//
 
 
+
+// Post user details in userprofile
 router.post("/userprofile", async (req, res) => {
-    // const { token } = req.body;
-    // console.log("Received token:", token);
-  
-    // try {
-    //   const user = jwt.verify(token, JWT_SECRET); // Use JWT_SECRET here
-    //   console.log("Decoded user:", user);
-  
-    //   const foundUser = await users.findOne({ uname: user.uname });
-  
-    //   if (foundUser) {
-    //     res.send({ status: "ok", data: foundUser });
-    //   } else {
-    //     res.send({ status: "error", data: "User not found" });
-    //   }
-    // } catch (error) {
-    //   console.error(error);
-    //   res.send({ status: "error", data: error.message });
-    // }
-
-    try {
-      const { token } = req.body;
-      console.log("Received token:", token);
-  
-      // Verify the token using the JWT_SECRET
-      const user = jwt.verify(token, JWT_SECRET);
-      console.log("Decoded user:", user);
-  
-      // Assuming you have a 'users' collection or model
-      const foundUser = await users.findOne({ uname: user.uname });
-  
-      if (foundUser) {
-        res.send({ status: "ok", data: foundUser });
-      } else {
-        res.send({ status: "error", data: "User not found" });
-      }
-    } catch (error) {
-      console.error(error);
-  
-      // Return a proper JSON response with an error message
-      res.status(500).json({ status: "error", data: error.message });
-    }
-  });
-  
-  // Endpoint for deleting user details
-  router.delete("/deleteuser", async (req, res) => {
+  try {
     const { token } = req.body;
     console.log("Received token:", token);
-  
-    try {
-      const user = jwt.verify(token, JWT_SECRET); // Use JWT_SECRET here
-      console.log("Decoded user:", user);
-  
-      const deletedUser = await users.findOneAndDelete({ uname: user.uname });
-  
-      if (deletedUser) {
-        res.send({ status: "ok", message: "User deleted successfully" });
-      } else {
-        res.send({ status: "error", data: "User not found" });
-      }
-    } catch (error) {
-      console.error(error);
-      res.send({ status: "error", data: error.message });
+
+    // Verify the token using the JWT_SECRET
+    const decodedUser = jwt.verify(token, JWT_SECRET);
+    console.log("Decoded user:", decodedUser);
+
+    // Assuming you have a 'users' collection or model
+    const foundUser = await User.findOne({ uname: decodedUser.uname });
+
+    if (foundUser) {
+      return res.json({ status: "ok", data: foundUser });
+     
+    } else {
+      return res.status(404).json({ status: "error", error: "User not found" });
     }
-  });
-  
+  } catch (error) {
+    console.error(error);
+    return res.status(500).json({ status: "error", error: error.message });
+  }
+});
 
 
+
+  // deleting user details from the profile page
+router.delete("/deleteuser", async (req, res) => {
+  const { token } = req.body;
+  console.log("Received token:", token);
+
+  try {
+    // Verify the token using the JWT_SECRET
+    const decodedUser = jwt.verify(token, JWT_SECRET);
+    console.log("Decoded user:", decodedUser);
+
+    // Assuming you have a 'users' collection or model
+    const deletedUser = await User.findOneAndDelete({ uname: decodedUser.uname });
+
+    if (deletedUser) {
+      res.json({ status: "ok", message: "User deleted successfully" });
+    } else {
+      res.json({ status: "error", data: "User not found" });
+    }
+  } catch (error) {
+    console.error(error);
+
+    // Return a proper JSON response with an error message
+    res.status(500).json({ status: "error", data: error.message });
+  }
+});
 
 
 

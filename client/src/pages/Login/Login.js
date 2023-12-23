@@ -32,16 +32,17 @@ const Login = () => {
 
       if (response.ok) {
         const data = await response.json();
-        const token = data.data;
+        const token = data.data.token;
         
 
         localStorage.setItem('token', token);
 
         alert('Login successful!');
          // Redirect to user details page and getting the JWT token
-        window.localStorage.setItem("token",data.data);
-        console.log(data);
-        //window.location.href = '/Userprofile';
+        //window.localStorage.setItem("token",data.data);
+        console.log(data.data.token);
+        
+        window.location.href = '/Userprofile';
        
       } else {
         setError('Invalid credentials. Please try again.');
