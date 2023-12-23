@@ -1,7 +1,12 @@
 import React from 'react'
 import './Card.css';
 
-export default function Card() {
+export default function Card(props) {
+
+    let options = props.options;
+    let priceOptions = Object.keys(options);
+
+
     return (
         <div>
             <div>
@@ -10,7 +15,7 @@ export default function Card() {
                     <img src="/images/First.jpg" alt=""  />
 
                     <div className="menu-body">
-                        <h3 className="menu-title">Pizza</h3>  
+                        <h3 className="menu-title">{props.foodName}</h3>  
                         <div className='menu-container w-100'>
                             <select className='menu-container1'>
                                 {Array.from(Array(6), (e, i) => {
@@ -20,8 +25,11 @@ export default function Card() {
                                 })}
                             </select>
                             <select className='menu-container2'>
-                                <option value="half">Half</option>
-                                <option value="half">Full</option>
+                                {priceOptions.map((data) =>{ 
+                                    return <option key={data} value={data}>{data}</option>
+                                })
+                                /* <option value="half">Half</option>
+                                <option value="half">Full</option> */}
                             </select>
                             <div classNam='menu-container3'>
                                 Total Price
