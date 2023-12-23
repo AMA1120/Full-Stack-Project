@@ -114,6 +114,73 @@ router.delete("/deleteusers", async (req, res) => {
 //
 
 
+router.post("/userprofile", async (req, res) => {
+    // const { token } = req.body;
+    // console.log("Received token:", token);
+  
+    // try {
+    //   const user = jwt.verify(token, JWT_SECRET); // Use JWT_SECRET here
+    //   console.log("Decoded user:", user);
+  
+    //   const foundUser = await users.findOne({ uname: user.uname });
+  
+    //   if (foundUser) {
+    //     res.send({ status: "ok", data: foundUser });
+    //   } else {
+    //     res.send({ status: "error", data: "User not found" });
+    //   }
+    // } catch (error) {
+    //   console.error(error);
+    //   res.send({ status: "error", data: error.message });
+    // }
+
+    try {
+      const { token } = req.body;
+      console.log("Received token:", token);
+  
+      // Verify the token using the JWT_SECRET
+      const user = jwt.verify(token, JWT_SECRET);
+      console.log("Decoded user:", user);
+  
+      // Assuming you have a 'users' collection or model
+      const foundUser = await users.findOne({ uname: user.uname });
+  
+      if (foundUser) {
+        res.send({ status: "ok", data: foundUser });
+      } else {
+        res.send({ status: "error", data: "User not found" });
+      }
+    } catch (error) {
+      console.error(error);
+  
+      // Return a proper JSON response with an error message
+      res.status(500).json({ status: "error", data: error.message });
+    }
+  });
+  
+  // Endpoint for deleting user details
+  router.delete("/deleteuser", async (req, res) => {
+    const { token } = req.body;
+    console.log("Received token:", token);
+  
+    try {
+      const user = jwt.verify(token, JWT_SECRET); // Use JWT_SECRET here
+      console.log("Decoded user:", user);
+  
+      const deletedUser = await users.findOneAndDelete({ uname: user.uname });
+  
+      if (deletedUser) {
+        res.send({ status: "ok", message: "User deleted successfully" });
+      } else {
+        res.send({ status: "error", data: "User not found" });
+      }
+    } catch (error) {
+      console.error(error);
+      res.send({ status: "error", data: error.message });
+    }
+  });
+  
+
 
 
 

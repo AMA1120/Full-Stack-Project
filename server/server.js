@@ -10,7 +10,8 @@ const FoodcrudModel = require("./models/Foodcrud");
 const userRoutes = require("./routes/users");
 const promotionRoutes = require("./routes/promotion");
 const foodcrudRoutes = require("./routes/foodcrud");
-const menuRoutes = require("./routes/menuroute");
+const adminRoutes = require("./routes/admin");
+//const userprofileRoutes = require("./routes/userprofile");
 app.use(cors());
 app.use(express.json());
 
@@ -29,13 +30,15 @@ app.use(
 app.use(userRoutes);
 app.use(promotionRoutes);
 app.use(foodcrudRoutes);
-app.use(menuRoutes);
+app.use(adminRoutes);
+//app.use(userprofileRoutes);
 
- 
 
 //mongodb atlas connection
 const DB_URL =
   "mongodb+srv://pkkimansha27:resturant123@resturant.c1gnqtq.mongodb.net/?retryWrites=true&w=majority";
+
+
 
 
 //server.js listening port
