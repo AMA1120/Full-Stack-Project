@@ -13,7 +13,7 @@ const foodcrudRoutes = require("./routes/foodcrud");
 const menuRoutes = require("./routes/menuroute");
 
 app.use(cors());
-// app.use(express.json());
+app.use(express.json());
 
 //app middleware
 app.use(bodyParser.json({ limit: "50mb" }));
