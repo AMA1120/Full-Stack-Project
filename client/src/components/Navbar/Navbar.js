@@ -1,8 +1,12 @@
-import React from "react";
+import React, {useState} from "react";
 import "./navbar.css";
 import { Link, useNavigate } from "react-router-dom";
 import { FaShoppingCart } from "react-icons/fa";
 import logoImage from "../../Images/logo2.jpeg"; // Import your logo image
+import { Badge } from "react-bootstrap";
+import Modal from "../../Modal";
+import Cart from "../../pages/Cart/Cart";
+import { useCart } from "../../components/ContextReducer"
 
 const Navbar = () => {
   const token = localStorage.getItem("token");
@@ -12,7 +16,8 @@ const Navbar = () => {
     localStorage.removeItem("token");
     navigate("/login");
   };
-
+  const [cartView, setCartView] = useState(false)
+  let data = useCart();
   return (
     <nav>
       <div className="logo-container">
@@ -34,9 +39,14 @@ const Navbar = () => {
             <Link to="/userprofile">Userprofile</Link>
           </li>
           <li>
-            <Link to="/cart">
-              <FaShoppingCart />
-            </Link>
+            <div onClick={() => { setCartView(true) }}>
+              <li><Link to="">{""}
+              <Badge pill bg="danger"> {data.length} 
+                <FaShoppingCart />
+                </Badge>
+              </Link> </li>
+            </div>
+            {cartView ? <Modal onClose={() => setCartView(false)}><Cart></Cart></Modal> : ""}
           </li>
           <li>
             <div className="logout-link" onClick={logout}>
@@ -62,7 +72,7 @@ const Navbar = () => {
               Login
             </Link>
           </li>
-          
+
         </ul>
       )}
     </nav>
