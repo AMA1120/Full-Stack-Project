@@ -1,0 +1,87 @@
+/* Footer.css */
+
+
+.Footer {
+      background-color: #333;
+      padding: 20px;
+      height: 50vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+}
+
+.Footer h3 {
+      color: #fff;
+}
+
+.Footer p {
+      color: white;
+}
+
+.footer-icons {
+      margin-top: 15px;
+}
+
+.icon {
+      margin-right: 10px;
+      /* Adjust the margin to add space between icons */
+      color: yellow;
+}
+
+/* Quick Links Styles */
+.ft-2 h5 {
+      color: #ffcc00;
+}
+
+.ft-2 ul {
+      list-style-type: none;
+      padding: 0;
+}
+
+.ft-2 li a {
+      text-decoration: none;
+      color: white;
+}
+
+/* Contact Info Styles */
+.ft-3 h5 {
+      color: #ffcc00;
+}
+
+.ft-3 p {
+      color: white;
+}
+
+.ft-3 i {
+      margin-right: 5px;
+      color: white;
+}
+
+/* Last-footer Styles */
+.Last-footer {
+      background-color: #ffcc00;
+      padding: 10px;
+      text-align: center;
+      font-weight: bold;
+      color: #333;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+      .Footer {
+            height: auto;
+      }
+
+      .Footer .row {
+            flex-direction: column;
+            align-items: center;
+      }
+
+      .Footer .col-md-6,
+      .Footer .col-lg-3,
+      .Footer .col-lg-4 {
+            width: 100%;
+            margin-bottom: 20px;
+      }
+}
