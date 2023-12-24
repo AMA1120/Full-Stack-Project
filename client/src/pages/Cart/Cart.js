@@ -1,6 +1,6 @@
 import React from 'react'
 //import trash from "../trash.svg"
-import DeleteIcon from '@mui/icons-material/Delete';
+import { FaTrash } from 'react-icons/fa';
 // import Navbar from "../../components/Navbar/Navbar";
 import './cart.css';
 import { useCart, useDispatchCart } from '../../components/ContextReducer';
@@ -42,7 +42,7 @@ function Cart() {
                 <td> {food.size}</td>
                 <td> {food.price}</td>
                 <td ><button type="button" className="btn p-0">
-                      <DeleteIcon alt="delete" onClick={() => { dispatch({ type: "REMOVE", index: index }) }} />
+                      <FaTrash alt="delete" onClick={() => { dispatch({ type: "REMOVE", index: index }) }} />
                     </button></td>
                 </tr>
               ))} 
