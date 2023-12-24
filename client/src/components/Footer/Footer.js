@@ -24,9 +24,11 @@ function Footer() {
                 <img src={logoImage} alt="Logo" className="logo" />
               </h3>
               <p>
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                Laborum ea quo ex ullam laboriosam magni totam, facere eos iure
-                voluptate.
+                Welcome to Urban Kitchen,your go-to
+                destination for hassle-free, delicious meals delivered straight
+                to your door. Discover a world of flavors with a simple click,
+                and let us make dining-in a breeze. Enjoy convenience, variety,
+                and culinary excellence, all in one place.
               </p>
               <div className="footer-icons">
                 <FaFacebook className="icon" />
@@ -36,7 +38,9 @@ function Footer() {
               </div>
             </div>
             <div className="col-md-6 col-lg-3 col-12 ft-2">
-              <h5><u>Quick Links</u></h5>
+              <h5>
+                <u>Quick Links</u>
+              </h5>
               <ul>
                 <li className="nav-item">
                   <a className="" href="/">
@@ -66,7 +70,9 @@ function Footer() {
               </ul>
             </div>
             <div className="col-md-6 col-lg-4 col-12 ft-3">
-              <h5><u>Contact Us</u></h5>
+              <h5>
+                <u>Contact Us</u>
+              </h5>
               <p>
                 <FaPhoneVolume style={iconStyle} /> +94 345627892
               </p>
@@ -81,7 +87,7 @@ function Footer() {
         </div>
       </div>
       <div className="Last-footer">
-        <p>copyright@2023:Design by Group 34</p>
+        <p>Copyright@2023:Design by Group 34</p>
       </div>
     </>
   );
