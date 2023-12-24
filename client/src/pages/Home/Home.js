@@ -38,15 +38,35 @@ function Home() {
                     alt={`Food: ${food.food_item}`}
                     className="food-image"
                   />
-                  <div className="card-body">
-                    <h5 className="card-title">{food.food_item}</h5>
+                  {/* <div className="card-body">
+                    <h5 className="card-title">
+                      {food.food_item}{" "}
+                      <strong style={{ color: "#ffcc00", fontSize: "small" }}>
+                        {food.price}
+                      </strong>
+                    </h5>
                     <p className="card-text">
-                      <strong>Price:</strong> {food.price}
+                      <strong></strong> {food.discription}
                     </p>
+                  </div> */}
+                  <div className="card-body">
+                    <h5 className="card-title">
+                      {food.food_item}{" "}
+                      <strong
+                        style={{
+                          color: "#ffcc00",
+                          fontSize: "small",
+                          float: "right",
+                        }}
+                      >
+                        {food.price}
+                      </strong>
+                    </h5>
                     <p className="card-text">
-                      <strong>Description:</strong> {food.discription}
+                      <strong></strong> {food.discription}
                     </p>
                   </div>
+
                   <div className="card-footer">
                     <Link to={`/menu/${food._id}`} className="order-button">
                       Order Now
