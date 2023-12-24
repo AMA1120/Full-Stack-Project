@@ -1,7 +1,7 @@
 .promo-card-container {
   display: flex;
   height: 100%;
-  width: fit-content;
+  width: 100%;
   align-items: flex-start;
   flex-wrap: wrap;
   justify-content: space-around;
@@ -10,21 +10,18 @@
 .promo-card {
   width: 100%;
   height: auto;
-  margin: 10px;
+  margin: 4px;
   border-radius: 4px;
   overflow: hidden; /* Ensure the image doesn't overflow the card */
-  transition: transform 0.3s ease; /* Add a smooth transition on hover */
-  
+  transition: transform 0.2s ease; /* Add a smooth transition on hover */
 }
 
 .promo-card:hover {
-  transform: scale(1.05); /* Enlarge the card on hover */
-  
-  
+  transform: scale(1.02); /* Enlarge the card on hover */
 }
 
 .promo-card-body {
-  padding: 15px;
+  padding: 0px;
   object-fit: cover; /* Ensure the image doesn't shrink */
 }
 
@@ -33,14 +30,22 @@
   height: 60vh; /* Set the desired height for the image */
   border-radius: 4px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  object-fit: fill; /* Ensure the image covers the entire container */
+  object-fit:fill; /* Ensure the image covers the entire container */
+}
+
+.promo-image-container {
+  position: relative;
 }
 
 .promo-card-footer {
   display: flex;
   justify-content: space-between;
   padding: 10px;
-  border-top: 1px solid #ddd;
+  border-top: 1px solid black;
+  position: absolute;
+    bottom: 0;
+    left: 0;
+    background: black;
 }
 
 /* Additional styling for card footer elements, if needed */

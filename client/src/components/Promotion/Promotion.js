@@ -26,18 +26,22 @@ function Promotion() {
           <div key={promotion._id} className="promo-card">
             <div className="promo-card-body">
               {promotion.image && (
-                <img
-                  src={promotion.image}
-                  alt={`promotion: ${promotion.promotion_name}`}
-                  className="promo-client-image"
-                />
+                <div className="promo-image-container">
+                  <img
+                    src={promotion.image}
+                    alt={`promotion: ${promotion.promotion_name}`}
+                    className="promo-client-image"
+                  />
+                  <div className="promo-card-footer">
+                    <Link
+                      to={`/menu/${promotion._id}`}
+                      className="order-button"
+                    >
+                      Order Now
+                    </Link>
+                  </div>
+                </div>
               )}
-
-              <div className="promo-card-footer">
-                <Link to={`/menu/${promotion._id}`} className="order-button">
-                  Order Now
-                </Link>
-              </div>
             </div>
           </div>
         ))}
