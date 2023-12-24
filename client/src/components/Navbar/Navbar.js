@@ -28,15 +28,15 @@ const Navbar = () => {
             <Link to="/menu/:foodID">Menu Items</Link>
           </li>
           <li>
-            <Link to="/cart">
-              <FaShoppingCart />
-            </Link>
-          </li>
-          <li>
             <Link to="/cart">My Orders</Link>
           </li>
           <li>
             <Link to="/userprofile">Userprofile</Link>
+          </li>
+          <li>
+            <Link to="/cart">
+              <FaShoppingCart />
+            </Link>
           </li>
           <li>
             <div className="logout-link" onClick={logout}>
@@ -62,6 +62,7 @@ const Navbar = () => {
               Login
             </Link>
           </li>
+          
         </ul>
       )}
     </nav>
