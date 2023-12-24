@@ -27,6 +27,13 @@ function Home() {
     <>
       <Navbar />
       <Promotion />
+      <div className="features" id="features">
+        <h1 className="heading">
+          our
+          <span>Menu</span>
+        </h1>
+      </div>
+
       <div className="food-content">
         <div className="d-flex justify-content-center align-items-center">
           <div className="custom-container">
