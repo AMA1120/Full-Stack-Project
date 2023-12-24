@@ -52,12 +52,15 @@ const Login = () => {
     <>
       <div>
         <Navbar />
-        <h2>Login</h2>
+        <br/><br/><br/>
+        <div className="login-container">
+        <div className="h">Login</div>
         {error && <p style={{ color: 'red' }}>{error}</p>}
-        <form onSubmit={handleSubmit}>
+        <form className='login-form' onSubmit={handleSubmit}>
           <label>
             Username:
             <input
+              className='form-field'
               type="text"
               value={uname}
               onChange={(e) => setUsername(e.target.value)}
@@ -65,8 +68,9 @@ const Login = () => {
           </label>
           <br />
           <label>
-            Password:
+            Password:  
             <input
+              className='form-field'
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
@@ -74,8 +78,9 @@ const Login = () => {
           </label>
           <br />
           <button type="submit">Log In</button>
+          <p>Not a member yet? <Link to="/register">Register with us</Link>.</p>
         </form>
-        <p>Not a member yet? <Link to="/register">Register with us</Link>.</p>
+      </div>
       </div>
     </>
   );
