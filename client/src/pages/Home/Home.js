@@ -54,8 +54,8 @@ function Home() {
                       {food.food_item}{" "}
                       <strong
                         style={{
-                          color: "#7b6406",
-                          fontSize: "medium",
+                          color: "#ffcc00",
+                          fontSize: "17px",
                           float: "right",
                         }}
                       >
