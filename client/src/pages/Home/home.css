@@ -29,178 +29,121 @@ body {
       border-radius: 1.2em;
 }
 
-.home-content {
-      background: #fff;
-      margin: 1rem;
-}
-
-.img {
-      background: center/cover;
-      width: 100%;
-      height: 265px;
-      border-radius: 1.2em 1.2em 0 0;
-}
-
-.review-container {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 6em;
-}
-
-.stars i {
-      color: rgb(255, 238, 0);
-      font-size: .8em;
-}
-
-.stars span,
-.description p {
-      font-size: .85em;
-      color: rgb(35, 36, 36);
-}
-
-.name,
-.price {
-      font-size: 1.3em;
-      color: #000;
-}
-
-.description {
-      margin: .6rem 0;
-}
-
-.button-container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      color: #fff;
-      margin-top: 1.5em;
-}
-
-.card-button {
-      display: flex;
-      align-items: center;
-      background: #ffcc00;
-      padding: .5em;
-      border-radius: .5em;
-      cursor: pointer;
-}
-
-.cart-icon,
-.like-button {
-      width: 44px;
-      height: 44px;
-      text-align: center;
-      cursor: pointer;
-      border-radius: 2em;
-      line-height: 1.9em;
-      background: #ffcc00;
-}
-
-.cart-icon,
-.card-button p,
-.like-button {
-      padding: .5em .8em;
-}
-
-/* Responsive Styles */
-
-@media screen and (min-width: 500px) {
-      .home-card {
-            width: 350px;
-            margin: 0 auto;
-      }
-}
-
 /* Other existing styles go here */
+
 .food-content {
       padding: 20px;
-}
-
-.custom-container {
+    }
+    
+    .custom-container {
       display: flex;
       justify-content: center;
       align-items: center;
-}
-
-.card-container {
+    }
+    
+    .card-container {
       display: flex;
       flex-wrap: wrap;
       justify-content: space-around;
-}
-
-.card {
+    }
+    
+    .card {
       width: 250px;
       margin: 10px;
-}
-
-.card-header {
+      background-color: #fff;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease-in-out;
+      outline: 2px solid transparent;
+      
+    }
+    
+    .card:hover {
+      transform: scale(1.05);
+      outline: 2px solid #ffcc00;
+      background-color: rgb(143, 140, 119);
+    }
+    
+    .card-header {
       background-color: #f0f0f0;
       padding: 10px;
       text-align: center;
       border-bottom: 1px solid #ddd;
-}
-
-.card-title {
+    }
+    
+    .card-title {
       margin: 0;
-      font-size: 1.2em;
-}
-
-.card-body {
+      font-size: 1.4em;
+      color: #333;
+    }
+    
+    .card-body {
       padding: 15px;
-}
-
-.card-text {
+    }
+    
+    .card-text {
       margin-bottom: 10px;
-}
-
-.food-image {
+      font-size: 0.9em;
+      color: black;
+    }
+    
+    .food-image {
       width: 100%;
-      border-radius: 4px;
+      height: 250px;
+      object-fit:contain;
+      border-radius: 10px 10px 0 0;
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.card-footer {
+    }
+    
+    .card-footer {
       display: flex;
       justify-content: space-between;
       align-items: center;
       padding: 10px;
       border-top: 1px solid #ddd;
-}
-
-.order-button,
-.details-button {
+    }
+    
+    .order-button,
+    .details-button {
       display: inline-block;
-      padding: 8px 12px;
-      border-radius: 4px;
+      padding: 10px 15px;
+      border-radius: 5px;
       font-weight: bold;
       color: #fff;
       cursor: pointer;
       text-decoration: none;
-}
-
-.order-button {
-      background-color: #3498db;
-}
-
-.details-button {
-      background-color: #e74c3c;
-}
-
-@media (max-width: 1200px) {
+      transition: background-color 0.3s ease-in-out;
+    }
+    
+    .order-button {
+      background-color: #ffcc00; /* Green */
+    }
+    
+    .details-button {
+      background-color: #ff9800; /* Orange */
+    }
+    
+    .order-button:hover,
+    .details-button:hover {
+      background-color: black; /* Darker Green */
+    }
+    
+    @media (max-width: 1200px) {
       .card {
-            width: calc(33.33% - 20px);
+        width: calc(33.33% - 20px);
       }
-}
-
-@media (max-width: 768px) {
+    }
+    
+    @media (max-width: 768px) {
       .card {
-            width: calc(50% - 20px);
+        width: calc(50% - 20px);
       }
-}
-
-@media (max-width: 480px) {
+    }
+    
+    @media (max-width: 480px) {
       .card {
-            width: 100%;
+        width: 100%;
       }
-}
+    }
+    
