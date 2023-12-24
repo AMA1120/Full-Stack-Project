@@ -55,7 +55,7 @@ function Home() {
                       <strong
                         style={{
                           color: "#ffcc00",
-                          fontSize: "small",
+                          fontSize: "17px",
                           float: "right",
                         }}
                       >
