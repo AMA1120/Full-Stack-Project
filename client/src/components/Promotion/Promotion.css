@@ -14,10 +14,13 @@
   border-radius: 4px;
   overflow: hidden; /* Ensure the image doesn't overflow the card */
   transition: transform 0.3s ease; /* Add a smooth transition on hover */
+  
 }
 
 .promo-card:hover {
   transform: scale(1.05); /* Enlarge the card on hover */
+  
+  
 }
 
 .promo-card-body {
