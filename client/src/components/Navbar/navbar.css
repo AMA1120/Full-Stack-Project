@@ -67,6 +67,23 @@ nav ul li a:hover,
   background-color: black;
 }
 
+.logout-button {
+  background-color: #ffcc00;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 5px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin-right: 20px;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.logout-button:hover {
+  background-color: black;
+}
+
 /* Style the cart icon */
 .cart-icon {
   font-size: 20px;
