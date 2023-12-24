@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import "./navbar.css";
 import { Link, useNavigate } from "react-router-dom";
 import { FaShoppingCart } from "react-icons/fa";
+import { IoPerson } from "react-icons/io5";
 import logoImage from "../../Images/logo2.jpeg"; // Import your logo image
 import { Badge } from "react-bootstrap";
 import Modal from "../../Modal";
@@ -36,22 +37,39 @@ const Navbar = () => {
             <Link to="/cart">My Orders</Link>
           </li>
           <li>
-            <Link to="/userprofile">Userprofile</Link>
+            <Link to="/userprofile">
+              <IoPerson />
+            </Link>
           </li>
           <li>
-            <div onClick={() => { setCartView(true) }}>
-              <li><Link to="">{""}
-              <Badge pill bg="danger"> {data.length} 
-                <FaShoppingCart />
-                </Badge>
-              </Link> </li>
+            <div
+              onClick={() => {
+                setCartView(true);
+              }}
+            >
+              <li>
+                <Link to="">
+                  {""}
+                  <Badge pill bg="warning">
+                    {" "}
+                    {data.length}
+                    <FaShoppingCart />
+                  </Badge>
+                </Link>{" "}
+              </li>
             </div>
-            {cartView ? <Modal onClose={() => setCartView(false)}><Cart></Cart></Modal> : ""}
+            {cartView ? (
+              <Modal onClose={() => setCartView(false)}>
+                <Cart></Cart>
+              </Modal>
+            ) : (
+              ""
+            )}
           </li>
           <li>
-            <div className="logout-link" onClick={logout}>
+            <button className="logout-button" onClick={logout}>
               Logout
-            </div>
+            </button>
           </li>
         </ul>
       ) : (
@@ -72,7 +90,6 @@ const Navbar = () => {
               Login
             </Link>
           </li>
-
         </ul>
       )}
     </nav>
