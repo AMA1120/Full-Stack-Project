@@ -11,9 +11,9 @@
       transition: transform 0.2s ease-in-out;
       margin-bottom: 20px;
 
-      &:hover {
+      /* &:hover {
             transform: scale(1.05);
-      }
+      } */
   }
   
   /* Styles for the image */
