@@ -34,8 +34,6 @@ app.use(foodcrudRoutes);
 app.use(menuRoutes);
 
 
- 
-
 //mongodb atlas connection
 const DB_URL =
   "mongodb+srv://pkkimansha27:resturant123@resturant.c1gnqtq.mongodb.net/?retryWrites=true&w=majority";
