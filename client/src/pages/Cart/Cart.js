@@ -1,4 +1,5 @@
 import React from 'react'
+//import axios from 'axios';
 //import trash from "../trash.svg"
 import { FaTrash } from 'react-icons/fa';
 // import Navbar from "../../components/Navbar/Navbar";
@@ -15,6 +16,31 @@ function Cart() {
       </div>
     )
   }
+  // const handleCheckOut = async () => {
+  //   try {
+  //     let username = localStorage.getItem("uname");
+  
+  //     const response = await axios.post("http://localhost:4000/orderData", {
+  //       order_data: data,
+  //       uname: username,
+  //       order_date: new Date().toDateString()
+  //     }, {
+  //       headers: {
+  //         'Content-Type': 'application/json'
+  //       }
+  //     });
+  
+  //     console.log("Order Response:", response);
+  
+  //     if (response.status === 200) {
+  //       dispatch({ type: "DROP" });
+  //     }
+  //   } catch (error) {
+  //     console.error("Error:", error);
+  //   }
+  // };
+  
+
   let totalPrice = data.reduce((total, food) => total + food.price, 0)
   return (
     <>
@@ -34,24 +60,24 @@ function Cart() {
               </tr>
             </thead>
             <tbody>
-                {data.map((food, index) => (
+              {data.map((food, index) => (
                 <tr>
-                <th scope='row' >{index +1}</th>
-                <td> {food.name}</td>
-                <td> {food.qty}</td>
-                <td> {food.size}</td>
-                <td> {food.price}</td>
-                <td ><button type="button" className="btn p-0">
-                      <FaTrash alt="delete" onClick={() => { dispatch({ type: "REMOVE", index: index }) }} />
-                    </button></td>
+                  <th scope='row' >{index + 1}</th>
+                  <td> {food.name}</td>
+                  <td> {food.qty}</td>
+                  <td> {food.size}</td>
+                  <td> {food.price}</td>
+                  <td ><button type="button" className="btn p-0">
+                    <FaTrash alt="delete" onClick={() => { dispatch({ type: "REMOVE", index: index }) }} />
+                  </button></td>
                 </tr>
-              ))} 
+              ))}
             </tbody>
           </table>
           <div><h1 className='fs-2'>Total Price: {totalPrice}/-</h1></div>
         </div>
         <div>
-          <button className='btn bg-success mt-5 '  > Check Out </button>
+          <button className='btn bg-success mt-5 ' > Check Out </button>
         </div>
       </div>
     </>

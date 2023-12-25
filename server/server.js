@@ -12,6 +12,7 @@ const promotionRoutes = require("./routes/promotion");
 const foodcrudRoutes = require("./routes/foodcrud");
 const menuRoutes = require("./routes/menuroute");
 
+
 app.use(cors());
 app.use(express.json());
 
@@ -31,6 +32,7 @@ app.use(userRoutes);
 app.use(promotionRoutes);
 app.use(foodcrudRoutes);
 app.use(menuRoutes);
+
 
 //mongodb atlas connection
 const DB_URL =
