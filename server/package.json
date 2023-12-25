@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "nodemon server.js",
     "start": "node server.js",
-    "test": "jest --testEnvironment=node --testRegex='(/__tests__/.*|(\\.|/)(test|spec))\\.js$'"
+    "test": "jest"
   },
   "author": "",
   "license": "ISC",
