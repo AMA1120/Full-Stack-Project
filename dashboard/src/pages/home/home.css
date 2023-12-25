@@ -5,16 +5,15 @@
 /* Other styles remain unchanged */
 .home-container {
   display: flex;
- 
+  min-height: 100vh;
+  max-height: max-content;
 }
 
 .home-content {
-  flex: 1;
-  
-  box-sizing: border-box;
-  overflow-y: auto;
-  overflow-x: hidden;
-
+  flex: 1; /* Take remaining available space */
+  padding: 20px;
+  box-sizing: border-box; /* Include padding in the width calculation */
+  overflow-y: auto; /* Enable vertical scrolling when content exceeds the viewport */
   /* padding: 20px; */
 }
 
