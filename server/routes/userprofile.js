@@ -78,6 +78,47 @@ router.delete("/deleteuser", async (req, res) => {
   }
 });
 
+//
+// Update
+// router.put("/updateuser", async (req, res) => {
+//   const { token, updatedUserDetails } = req.body;
+//   console.log("Received token:", token);
+//   console.log("Updated user details:", updatedUserDetails);
+
+//   try {
+//   //   JWT Screct key
+//     const decodedUser = jwt.verify(token, JWT_SECRET);
+//     console.log("Decoded user:", decodedUser);
+
+//     // user collection model
+//     const updatedUser = await User.findOneAndUpdate(
+//       { uname: decodedUser.uname },
+//       {
+//         $set: {
+//           fullName: updatedUserDetails.fullName,
+//           teleno: updatedUserDetails.teleno,
+//           city: updatedUserDetails.city,
+//           email: updatedUserDetails.email,
+//           uname: updatedUserDetails.newUname 
+//         }
+//       },
+//       { new: true } 
+//     );
+
+//     if (updatedUser) {
+//       res.json({ status: "ok", message: "User Profile updated successfully", data: updatedUser });
+//     } else {
+//       res.json({ status: "error", data: "User not found" });
+//     }
+//   } catch (error) {
+//     console.error(error);
+
+  
+//     res.status(500).json({ status: "error", data: error.message });
+//   }
+// });
+//
+
 
   // Start the server
 const PORT = process.env.PORT || 3001;
