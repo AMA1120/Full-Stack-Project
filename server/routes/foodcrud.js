@@ -40,7 +40,7 @@ router.post("/create", async (req, res) => {
     console.log(foodDetails);
     res.json(foodDetails);
   } catch (error) {
-    console.error("Error creating food item:", error);
+    //console.error("Error creating food item:", error);
     res.status(500).json({ error: "Internal Server Error" });
   }
 });
@@ -50,7 +50,7 @@ router.get("/foods", async (req, res) => {
     const foodItems = await FoodcrudModel.find();
     res.json(foodItems);
   } catch (error) {
-    console.error("Error fetching food items:", error);
+    //console.error("Error fetching food items:", error);
     res.status(500).json({ error: "Internal Server Error" });
   }
 });
@@ -80,7 +80,7 @@ router.put("/update/:id", async (req, res) => {
     console.log("Updated Food:", updatedFood);
     res.json(updatedFood);
   } catch (error) {
-    console.error("Error updating food item:", error);
+    //console.error("Error updating food item:", error);
     res.status(500).json({ error: "Internal Server Error" });
   }
 });
@@ -98,7 +98,7 @@ router.get("/getfoods/:id", async (req, res) => {
 
     res.json(existingFood);
   } catch (error) {
-    console.error("Error fetching existing food item:", error);
+    //console.error("Error fetching existing food item:", error);
     res.status(500).json({ error: "Internal Server Error" });
   }
 });
@@ -118,9 +118,12 @@ router.delete("/delete/:id", async (req, res) => {
     console.log("Deleted Food:", deletedFood);
     res.json({ message: "Food item deleted successfully" });
   } catch (error) {
-    console.error("Error deleting food item:", error);
+    // console.error("Error deleting food item:", error);
     res.status(500).json({ error: "Internal Server Error" });
-  }
+    }
+    
+    
+
 });
 
 

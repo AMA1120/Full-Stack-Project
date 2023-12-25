@@ -1,41 +1,81 @@
-// login.test.js
+const request = require("supertest");
+const express = require("express");
+const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
+const mongoose = require("mongoose");
+const User = require("./model");
+const app = express();
 
-// const chai = require('chai');
-// const chaiHttp = require('chai-http');
-// const app = require('../server'); // Import your Express app instance
-// const expect = chai.expect;
+// Your router code here
+const router = express.Router();
 
-// chai.use(chaiHttp);
+router.post("/login", async (req, res) => {
+  const { username, password } = req.body;
 
+  try {
+    const user = await User.findOne({ username });
 
-// describe('Login Component', () => {
-//   it('should return status 200 and a token on successful login', async () => {
-//     const response = await chai
-//       .request(app)
-//       .post('/login-users')
-//       .send({
-//         uname: 'testUsername',
-//         password: 'testPassword',
-//       });
+    if (!user) {
+      return res.json({ error: "User not found" });
+    }
 
-//     expect(response).to.have.status(200);
-//     expect(response.body).to.have.property('data');
-//     expect(response.body.data).to.be.a('string'); // Assuming your token is a string
+    const passwordMatch = await bcrypt.compare(password, user.password);
 
-//     // You can add more assertions based on your API response
-//   });
+    if (passwordMatch) {
+      const token = jwt.sign({ username }, "your-secret-key", {
+        expiresIn: "1h",
+      });
+      return res.json({ status: "ok", data: token });
+    } else {
+      return res.json({ error: "Invalid password" });
+    }
+  } catch (error) {
+    return res.json({ status: "error", error: "Internal server error" });
+  }
+});
 
-//   it('should handle invalid credentials', async () => {
-//     const response = await chai
-//       .request(app)
-//       .post('/login-users')
-//       .send({
-//         uname: 'invalidUsername',
-//         password: 'invalidPassword',
-//       });
+app.use(express.json());
+app.use("/api", router);
 
-//     expect(response).to.have.status(401);
+// Test case for the login endpoint
+describe("POST /api/login", () => {
+  it("should return a valid token on successful login", async () => {
+    const userData = {
+      username: "testuser",
+      password: "testpassword",
+    };
 
-//     // Add more assertions based on your API response
-//   });
-// });
+    // Assuming you have a valid user in your test database
+    await User.create({
+      username: userData.username,
+      password: await bcrypt.hash(userData.password, 10),
+    });
+
+    const response = await request(app)
+      .post("/api/login")
+      .send(userData)
+      .expect(200);
+
+    expect(response.body.status).toBe("ok");
+    expect(response.body.data).toBeDefined();
+  });
+
+  it("should return an error for invalid credentials", async () => {
+    const invalidUserData = {
+      username: "invaliduser",
+      password: "invalidpassword",
+    };
+
+    const response = await request(app)
+      .post("/api/login")
+      .send(invalidUserData)
+      .expect(200);
+
+    expect(response.body.error).toBe("User not found");
+  });
+});
+
+// Close the MongoDB connection after all tests are done
+afterAll(async () => {
+  await mongoose.connection.close();
+});
