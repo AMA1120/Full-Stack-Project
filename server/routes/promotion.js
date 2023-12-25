@@ -68,7 +68,7 @@ router.put("/updatePromotions/:id", async (req, res) => {
     console.log("Updated Promotion:", updatedPromotion);
     res.json(updatedPromotion);
   } catch (error) {
-    console.error("Error updating Promotion:", error);
+    //console.error("Error updating Promotion:", error);
     res.status(500).json({ message: "Internal Server Error" });
   }
 });
@@ -86,7 +86,7 @@ router.get("/getPromotions/:id", async (req, res) => {
     console.log("Promotion:", existingPromotion);
     res.json(existingPromotion);
   } catch (error) {
-    console.error("Error fetching Promotion:", error);
+    //console.error("Error fetching Promotion:", error);
     res.status(500).json({ message: "Internal Server Error" });
   }
 });
@@ -104,7 +104,7 @@ router.delete("/deletePromotions/:id", async (req, res) => {
     console.log("Deleted Promotion:", deletedPromotion);
     res.json({ message: "Promotion deleted successfully" });
   } catch (error) {
-    console.error("Error deleting Promotion:", error);
+    //console.error("Error deleting Promotion:", error);
     res.status(500).json({ message: "Internal Server Error" });
   }
 });
