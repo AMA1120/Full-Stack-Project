@@ -34,24 +34,25 @@ app.use(foodcrudRoutes);
 app.use(menuRoutes);
 
 
- 
-
 //mongodb atlas connection
 const DB_URL =
   "mongodb+srv://pkkimansha27:resturant123@resturant.c1gnqtq.mongodb.net/?retryWrites=true&w=majority";
 
+const createConnection = async () => {
+  try {
+    await mongoose.connect(DB_URL, {
+      dbName: "test",
+      //dbName: "takeout",
+    });
+    console.log("Database Connected");
+  } catch (error) {
+    console.log(error);
+  }
+};
 
 //server.js listening port
-app.listen(4000, () => {
+app.listen(4000, async () => {
+  await createConnection();
   console.log("Server Started");
 });
 
-mongoose
-  .connect(DB_URL)
-  .then(() => {
-    console.log("DB Connected", {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    });
-  })
-  .catch((err) => console.log("DB connection error,err"));
