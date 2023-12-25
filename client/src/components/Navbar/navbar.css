@@ -1,52 +1,112 @@
 /* navbar.css */
 
 nav {
-      background-color: #333;
-      padding: 10px;
-      display: flex;
-      justify-content: space-between;
-    }
-    
-    nav ul {
-      list-style-type: none;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      align-items: center; /* Center items vertically */
-    }
-    
-    li {
-      margin-right: 20px;
-    }
-    
-    a, .logout-link {
-      text-decoration: none;
-      color: blue;
-      font-weight: bold;
-      transition: color 0.3s ease-in-out;
-    }
-    
-    a:hover, .logout-link:hover {
-      color: #ffcc00;
-      /* Change color on hover as desired */
-    }
-    
-    /* Responsive styles */
-    @media screen and (max-width: 768px) {
-      nav {
-        flex-direction: column;
-        align-items: flex-end;
-      }
-    
-      li {
-        margin: 10px 0;
-        margin-left: 0; /* Reset left margin for stacked items */
-      }
-    }
-    
-    /* Make the logout link look like other links */
-    .logout-link {
-      display: inline-block;
-      margin-right: 20px; /* Adjust spacing to match other links */
-    }
-    
+  background-color: #333;
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-transform: capitalize; /* Capitalize text */
+  transition: all 0.2s linear;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  width: 100px;
+  height: 60px;
+  margin-right: 30px;
+  font-size: 2.5rem;
+}
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  margin-left: auto; /* Push the nav links to the right */
+}
+
+nav ul li {
+  margin-left: 20px;
+  text-align: left;
+}
+
+nav ul li a,
+.logout-link {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  transition: color 0.3s ease-in-out;
+}
+
+nav ul li a:hover,
+.logout-link:hover {
+  color: yellow;
+}
+
+/* Style the login button */
+.login-button {
+  background-color: #ffcc00;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 5px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin-right: 20px;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.login-button:hover {
+  background-color: black;
+}
+
+.logout-button {
+  background-color: #ffcc00;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 5px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin-right: 20px;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.logout-button:hover {
+  background-color: black;
+}
+
+/* Style the cart icon */
+.cart-icon {
+  font-size: 20px;
+  margin-right: 5px;
+  color: white;
+}
+
+/* Responsive styles */
+@media screen and (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  nav ul {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  nav ul li {
+    margin: 10px 0;
+    margin-left: 0;
+    text-align: center;
+  }
+}

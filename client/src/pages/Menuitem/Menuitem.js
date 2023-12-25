@@ -36,23 +36,22 @@ function Menuitem() {
 
       <div className='container1'>
         {
-          foodCategory != ""
+          foodCategory !== ""
             ? foodCategory.map((data) => {
               return (<div className='row m-3'>
                 <div key={data._id} className='fs-3 m-3'>
                   {data.CategoryName}
                 </div>
                 <hr />
-                {foodItems != ""
+                {foodItems !== ""
                   ?
                   foodItems.filter((item) => item.CategoryName === data.CategoryName)
                     .map(filterItems => {
                       return (
                         <div key={filterItems._id} >
                           <div>
-                          <Card foodName={filterItems.name}
+                          <Card foodItem={filterItems}
                                 options={filterItems.options[0]}
-                                imgSrc={filterItems.img}
                           ></Card>
                           </div>
                         </div>

@@ -1,47 +1,112 @@
-import React from 'react'
+import React, { useEffect, useState, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './Card.css';
+import { useDispatchCart, useCart } from '../ContextReducer';
 
 export default function Card(props) {
+  const data = useCart();
+  const navigate = useNavigate();
+  const [qty, setQty] = useState(1);
+  const [size, setSize] = useState("");
+  const priceRef = useRef();
+  const dispatch = useDispatchCart();
 
-    let options = props.options;
-    let priceOptions = Object.keys(options);
+  const handleClick = () => {
+    if (!localStorage.getItem("token")) {
+      navigate("/login");
+    }
+  }
 
+  const handleQty = (e) => {
+    setQty(e.target.value);
+  }
 
-    return (
-        <div>
-            <div>
-                 <div className="menu" > 
+  const handleOptions = (e) => {
+    setSize(e.target.value);
+  }
 
-                <img 
-                src={props.imgSrc} 
-                alt=""  />
+  const handleAddToCart = async () => {
+    let food = null;
 
-                    <div className="menu-body">
-                        <h3 className="menu-title">{props.foodName}</h3>  
-                        <div className='menu-container w-100'>
-                            <select className='menu-container1'>
-                                {Array.from(Array(6), (e, i) => {
-                                    return (
-                                        <option key={i + 1} value={i + 1}> {i + 1} </option>
-                                    )
-                                })}
-                            </select>
-                            <select className='menu-container2'>
-                                {priceOptions.map((data) =>{ 
-                                    return <option key={data} value={data}>{data}</option>
-                                })
-                                /* <option value="half">Half</option>
-                                <option value="half">Full</option> */}
-                            </select>
-                            <div classNam='menu-container3'>
-                                Total Price
-                            </div>
-                        </div>
-                    </div>
-                   
-                </div>
+    if (props.foodItem && props.foodItem._id) {
+      for (const item of data) {
+        if (item.id === props.foodItem._id) {
+          food = item;
+          break;
+        }
+      }
+    } else {
+      console.error('foodItem or _id property is undefined.');
+      return;
+    }
+
+    console.log(food);
+    console.log(new Date());
+
+    if (food !== null) {
+      if (food.size === size) {
+        await dispatch({ type: "UPDATE", id: props.foodItem._id, price: finalPrice, qty: qty });
+        return;
+      } else if (food.size !== size) {
+        await dispatch({
+          type: "ADD",
+          id: props.foodItem._id,
+          name: props.foodItem.name,
+          price: finalPrice,
+          qty: qty,
+          size: size,
+          img: props.ImgSrc,
+        });
+        console.log("Size different, so simply ADD one more to the list");
+        return;
+      }
+    }
+
+    await dispatch({
+      type: "ADD",
+      id: props.foodItem._id,
+      name: props.foodItem.name,
+      price: finalPrice,
+      qty: qty,
+      size: size,
+      img: props.ImgSrc,
+    });
+  }
+
+  useEffect(() => {
+    setSize(priceRef.current.value);
+  }, [])
+
+  let finalPrice = qty * parseInt(props.options[size], 10);
+
+  return (
+    <div>
+      <div>
+        <div className="menu" >
+          <img src={props.foodItem.img} alt="" />
+          <div className="menu-body">
+            <h3 className="menu-title">{props.foodItem.name}</h3>
+            <hr></hr>
+            <div className='menu-container w-100'>
+              <select className='menu-container1' onChange={handleQty} onClick={handleClick}>
+                {Array.from(Array(6), (e, i) => (
+                  <option key={i + 1} value={i + 1}> {i + 1} </option>
+                ))}
+              </select>
+              <select className='menu-container2' ref={priceRef} onChange={handleOptions}>
+                {Object.keys(props.options).map((i) => (
+                  <option key={i} value={i}>{i}</option>
+                ))}
+              </select>
+              <div className='menu-container3'>
+                Price: Rs{finalPrice}/-
+              </div>
             </div>
+            <hr></hr>
+            <button className={'btn btn-success justify-center ms-2'} onClick={handleAddToCart}>Add to Cart</button>
+          </div>
         </div>
-
-    )
+      </div>
+    </div>
+  );
 }
