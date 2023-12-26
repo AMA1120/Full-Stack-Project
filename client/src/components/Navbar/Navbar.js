@@ -35,9 +35,6 @@ const Navbar = () => {
             <Link to="/menu/:foodID">Menu Items</Link>
           </li>
           <li>
-            <Link to="/cart">My Orders</Link>
-          </li>
-          <li>
             <Link to="/userprofile">
               <IoPerson />
             </Link>
