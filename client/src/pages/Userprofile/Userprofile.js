@@ -69,19 +69,18 @@ const Userprofile = () => {
         }),
       });
   
-      if (response.ok) {
-        const result = await response.json();
-        if (result.status === 'ok') {
+       if (response.ok) {
+         const result = await response.json();
+         if (result.status === 'ok') {
           // Update the user state with the updated details
           setUser(result.data);
           setIsEditing(false);
-        } else {
-          setError(result.message || 'Failed to update user details');
-        }
-      } else {
-        const result = await response.json();
-        setError(result.error || 'Failed to update user details');
-      }
+         } else {
+        setError(result.message || 'Failed to update user details');
+        alert("failed to Edit")
+         }
+       } 
+    
     } catch (error) {
       console.error('Error updating user details:', error);
       setError('Failed to update user details');
