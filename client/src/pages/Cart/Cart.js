@@ -10,7 +10,7 @@ function Cart() {
   if (data.length === 0) {
     return (
       <div>
-        <div className='m-5 w-100 text-center fs-3'>The Cart is Empty!</div>
+        <div className='m-5 w-100 text-center fs-3 text-white'>The Cart is Empty!</div>
       </div>
     );
   }
