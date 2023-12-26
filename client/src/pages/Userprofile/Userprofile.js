@@ -4,14 +4,11 @@ import Navbar from '../../components/Navbar/Navbar';
 
 const Userprofile = () => {
   const [user, setUser] = useState({
-    username: '',
+    fullName: '',
     email: '',
-    mobilenumber: '',
+    teleno: '',
     city: '',
-    orders: [
-      { id: 1, date: '2023-01-15', total: 25.0 },
-      { id: 2, date: '2023-02-03', total: 18.5 },
-    ],
+   
   });
 
   const [isEditing, setIsEditing] = useState(false);
@@ -50,19 +47,58 @@ const Userprofile = () => {
 
   const handleEditClick = () => {
     setIsEditing(true);
+    setEditedUser({ ...user });
   };
+  
 
   const handleCancelEdit = () => {
     setIsEditing(false);
     setEditedUser({ ...user });
   };
 
-  const handleSaveEdit = () => {
+  const handleSaveEdit = async () => {
+    try {
+      const response = await fetch(`http://localhost:4000/updateuser/${user._id}`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          token: window.localStorage.getItem('token'),
+          updatedUserDetails: editedUser,
+        }),
+      });
+  
+      if (response.ok) {
+        const result = await response.json();
+        if (result.status === 'ok') {
+          // Update the user state with the updated details
+          setUser(result.data);
+          setIsEditing(false);
+        } else {
+          setError(result.message || 'Failed to update user details');
+        }
+      } else {
+        const result = await response.json();
+        setError(result.error || 'Failed to update user details');
+      }
+    } catch (error) {
+      console.error('Error updating user details:', error);
+      setError('Failed to update user details');
+    }
+  };
+
+
+
+
+
+
+  //const handleSaveEdit = () => {
     // Add logic to save edited user details (e.g., make an API call)
     // Once saved, update the user state and exit edit mode
-    setUser(editedUser);
-    setIsEditing(false);
-  };
+   // setUser(editedUser);
+   // setIsEditing(false);
+  //};
 
   const handleDeleteUser = async () => {
     try {
@@ -110,16 +146,16 @@ const Userprofile = () => {
 
       <form>
         <label>
-          Username:
+        fullName:
           {isEditing ? (
             <input 
               type="text"
-              name="username"
-              value={editedUser.uname}
+              name="fullName"
+              value={editedUser.fullName}
               onChange={handleInputChange}
             />
           ) : (
-            <span>{user.uname}</span>
+            <span>{user.fullName}</span>
           )}
         </label>
 
@@ -142,8 +178,8 @@ const Userprofile = () => {
           {isEditing ? (
             <input
               type="text"
-              name="mobilenumber"
-              value={editedUser.mobilenumber}
+              name="teleno"
+              value={editedUser.teleno}
               onChange={handleInputChange}
             />
           ) : (

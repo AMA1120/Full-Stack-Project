@@ -34,7 +34,13 @@ router.post("/register", async (req, res) => {
   }
 });
 
+
+
+
+
 //user login
+
+
 
 router.post("/login-users", async (req, res) => { 
   try {
@@ -161,55 +167,43 @@ router.delete("/deleteuser", async (req, res) => {
   }
 });
 
-// Update
-router.put("/updateuser", async (req, res) => {
+
+//update
+
+router.put("/updateuser/:userId", async (req, res) => {
   const { token, updatedUserDetails } = req.body;
-  console.log("Received token:", token);
-  console.log("Updated user details:", updatedUserDetails);
+  const userId = req.params.userId;
 
   try {
-  //   JWT Screct key
+    // Verify the token using the JWT_SECRET
     const decodedUser = jwt.verify(token, JWT_SECRET);
     console.log("Decoded user:", decodedUser);
 
-    // user collection model
+    // Assuming you have a 'users' collection or model
     const updatedUser = await User.findOneAndUpdate(
-      { uname: decodedUser.uname },
+      { _id: userId, uname: decodedUser.uname }, // Ensure both user ID and username match
       {
         $set: {
           fullName: updatedUserDetails.fullName,
           teleno: updatedUserDetails.teleno,
           city: updatedUserDetails.city,
           email: updatedUserDetails.email,
-          uname: updatedUserDetails.newUname 
+          uname: updatedUserDetails.newUname || decodedUser.uname
         }
       },
-      { new: true } 
+      { new: true } // Return the updated document
     );
 
     if (updatedUser) {
-      res.json({ status: "ok", message: "User Profile updated successfully", data: updatedUser });
+      res.json({ status: "ok", message: "User updated successfully", data: updatedUser });
     } else {
-      res.json({ status: "error", data: "User not found" });
+      res.json({ status: "error", data: "User not found or unauthorized" });
     }
   } catch (error) {
     console.error(error);
-
-  
     res.status(500).json({ status: "error", data: error.message });
   }
 });
-
-//get usersa
-// router.get("/getusersa", verifyToken, async (req, res) => {
-//   try {
-//     const users = await User.find();
-//     res.json({ status: "ok", data: users });
-//   } catch (error) {
-//     console.error(error);
-//     res.status(500).json({ status: "error", data: error.message });
-//   }
-// });
 
 
 
