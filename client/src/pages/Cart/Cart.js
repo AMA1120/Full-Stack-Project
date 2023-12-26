@@ -17,6 +17,14 @@ function Cart() {
 
   let totalPrice = data.reduce((total, food) => total + food.price, 0);
 
+  const handleCheckOut = () => {
+    // Display an alert
+    alert('Payment is done!');
+
+    // Redirect to the home page after clicking "Okay" in the alert
+    window.location.href = 'http://localhost:3000/'; // Replace '/' with the actual URL of your home page
+  };
+
   return (
     <>
       <div>Cart page</div>
@@ -62,9 +70,7 @@ function Cart() {
           {/* Add onClick event handler to the Check Out button */}
           <button
             className='btn bg-success mt-5'
-            onClick={() => {
-              alert('Payment is done!');
-            }}
+            onClick={handleCheckOut}
           >
             Check Out
           </button>
