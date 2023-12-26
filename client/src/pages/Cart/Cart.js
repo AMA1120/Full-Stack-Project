@@ -59,7 +59,15 @@ function Cart() {
           {/* <div><h1 className='fs-2'>Total Price: {totalPrice}/-</h1></div> */}
         </div>
         <div>
-          <button className='btn bg-success mt-5' > Check Out </button>
+          {/* Add onClick event handler to the Check Out button */}
+          <button
+            className='btn bg-success mt-5'
+            onClick={() => {
+              alert('Payment is done!');
+            }}
+          >
+            Check Out
+          </button>
         </div>
       </div>
     </>
