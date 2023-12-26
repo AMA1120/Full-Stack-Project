@@ -3,6 +3,8 @@
 .container2 {
     max-width: 1000px; /* Adjust the maximum width of the container */
     margin: auto;
+    margin-top: 5px;
+    font-size: 1rem;
   }
   
   .table {
@@ -32,17 +34,17 @@
     color: #fff;
   }
   
-  .m-auto {
+  /* .m-auto {
     margin: auto;
-  }
+  } */
   
-  .mt-5 {
+  /* .mt-5 {
     margin-top: 5px;
-  }
+  } */
   
-  .fs-2 {
+  /* .fs-2 {
     font-size: 1.5rem;
-  }
+  } */
   
   /* Responsive styling */
   @media (max-width: 576px) {
