@@ -1,8 +1,8 @@
-version: '3'
-services: 
+version: "3"
+services:
   client-frontend:
     image: client:local
-    build: 
+    build:
       context: ./client
       dockerfile: Dockerfile
     ports:
@@ -13,7 +13,7 @@ services:
 
   dashboard-frontend:
     image: dashboard:local
-    build: 
+    build:
       context: ./dashboard
       dockerfile: Dockerfile
     ports:
@@ -21,10 +21,10 @@ services:
     container_name: dashboard-container
     networks:
       - my_network
-    
+
   server-backend:
     image: server:local
-    build: 
+    build:
       context: ./server
       dockerfile: Dockerfile
     ports:
@@ -33,6 +33,6 @@ services:
     networks:
       - my_network
 
-networks: 
+networks:
   my_network:
     driver: bridge
