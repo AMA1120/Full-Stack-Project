@@ -8,7 +8,6 @@ const Userprofile = () => {
     email: '',
     teleno: '',
     city: '',
-   
   });
 
   const [isEditing, setIsEditing] = useState(false);
@@ -18,15 +17,12 @@ const Userprofile = () => {
   useEffect(() => {
     const fetchUserProfile = async () => {
       try {
-        // API call to fetch user details
         const response = await fetch('http://localhost:4000/userprofile', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
           },
-          body: JSON.stringify({ token:window.localStorage.getItem("token") }),
-          
-          
+          body: JSON.stringify({ token: window.localStorage.getItem('token') }),
         });
 
         if (response.ok) {
@@ -43,13 +39,12 @@ const Userprofile = () => {
     };
 
     fetchUserProfile();
-  }, []); // Empty dependency array ensures the effect runs only once, similar to componentDidMount
+  }, []);
 
   const handleEditClick = () => {
     setIsEditing(true);
     setEditedUser({ ...user });
   };
-  
 
   const handleCancelEdit = () => {
     setIsEditing(false);
@@ -68,40 +63,27 @@ const Userprofile = () => {
           updatedUserDetails: editedUser,
         }),
       });
-  
-       if (response.ok) {
-         const result = await response.json();
-         if (result.status === 'ok') {
-          // Update the user state with the updated details
+
+      if (response.ok) {
+        const result = await response.json();
+        if (result.status === 'ok') {
           setUser(result.data);
           setIsEditing(false);
-         } else {
-        setError(result.message || 'Failed to update user details');
-        alert("failed to Edit")
-         }
-       } 
-    
+        } else {
+          setError(result.message || 'Failed to update user details');
+        }
+      } else {
+        const result = await response.json();
+        setError(result.error || 'Failed to update user details');
+      }
     } catch (error) {
       console.error('Error updating user details:', error);
       setError('Failed to update user details');
     }
   };
 
-
-
-
-
-
-  //const handleSaveEdit = () => {
-    // Add logic to save edited user details (e.g., make an API call)
-    // Once saved, update the user state and exit edit mode
-   // setUser(editedUser);
-   // setIsEditing(false);
-  //};
-
   const handleDeleteUser = async () => {
     try {
-      // Add logic to make an API call for deleting the user
       const response = await fetch('http://localhost:4000/deleteUser', {
         method: 'DELETE',
         headers: {
@@ -111,7 +93,6 @@ const Userprofile = () => {
       });
 
       if (response.ok) {
-        // Handle successful deletion, e.g., redirect to login page
         console.log('User deleted successfully');
       } else {
         const result = await response.json();
@@ -122,10 +103,6 @@ const Userprofile = () => {
       setError('Failed to delete user');
     }
   };
-
-
-
-
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -145,9 +122,9 @@ const Userprofile = () => {
 
       <form>
         <label>
-        fullName:
+          Full Name:
           {isEditing ? (
-            <input 
+            <input
               type="text"
               name="fullName"
               value={editedUser.fullName}
@@ -199,8 +176,6 @@ const Userprofile = () => {
             <span>{user.city}</span>
           )}
         </label>
-
-        {/* Add similar sections for other user details like mobilenumber, city, etc. */}
 
         {isEditing ? (
           <>
