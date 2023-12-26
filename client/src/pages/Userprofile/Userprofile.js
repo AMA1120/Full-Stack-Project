@@ -21,13 +21,15 @@ const Userprofile = () => {
   useEffect(() => {
     const fetchUserProfile = async () => {
       try {
-        // Make an API call to fetch user details
+        // API call to fetch user details
         const response = await fetch('http://localhost:4000/userprofile', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
           },
-          body: JSON.stringify({ token: window.localStorage.getItem('token') }),
+          body: JSON.stringify({ token:window.localStorage.getItem("token") }),
+          
+          
         });
 
         if (response.ok) {
@@ -86,6 +88,10 @@ const Userprofile = () => {
     }
   };
 
+
+
+
+
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setEditedUser((prevUser) => ({
@@ -106,14 +112,14 @@ const Userprofile = () => {
         <label>
           Username:
           {isEditing ? (
-            <input
+            <input 
               type="text"
               name="username"
-              value={editedUser.username}
+              value={editedUser.uname}
               onChange={handleInputChange}
             />
           ) : (
-            <span>{user.username}</span>
+            <span>{user.uname}</span>
           )}
         </label>
 
@@ -128,6 +134,34 @@ const Userprofile = () => {
             />
           ) : (
             <span>{user.email}</span>
+          )}
+        </label>
+
+        <label>
+          Mobile Number:
+          {isEditing ? (
+            <input
+              type="text"
+              name="mobilenumber"
+              value={editedUser.mobilenumber}
+              onChange={handleInputChange}
+            />
+          ) : (
+            <span>{user.teleno}</span>
+          )}
+        </label>
+
+        <label>
+          City:
+          {isEditing ? (
+            <input
+              type="text"
+              name="city"
+              value={editedUser.city}
+              onChange={handleInputChange}
+            />
+          ) : (
+            <span>{user.city}</span>
           )}
         </label>
 

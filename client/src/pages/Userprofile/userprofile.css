@@ -21,7 +21,7 @@ h2 {
 
 label {
   margin: 10px 0;
-  color: #333;
+  color: #000000;
 }
 
 input {
@@ -59,6 +59,8 @@ strong {
   font-weight: bold;
 }
 
+
+
 /* "Edit Profile" and "Delete Profile" button styling */
 button {
   background-color: #4285f4;
@@ -69,12 +71,12 @@ button {
   cursor: pointer;
 }
 
-button:hover {
+/* button:hover {
   background-color: #357ae8;
 }
 
 /* Specific styling for the "Edit Profile" button */
-.edit-profile-button {
+/* .edit-profile-button {
   background-color: #e1d018;
 }
 
@@ -83,10 +85,10 @@ button:hover {
 }
 
 /* Specific styling for the "Delete Profile" button */
-.delete-profile-button {
+/* .delete-profile-button {
   background-color: #ff4d4d;
-}
+} */
 
-.delete-profile-button:hover {
+/* .delete-profile-button:hover {
   background-color: #a60303;
-}
+} */ 
