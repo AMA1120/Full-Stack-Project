@@ -1,94 +1,76 @@
 /* userprofile.css */
 
-/* Container styling */
-/* div {
-  font-family: 'Arial', sans-serif;
-  margin: 20px;
-} */
+.user-container {
+  max-width: 800px; /* Increase the maximum width */
+  margin: auto;
+  background-color: #f9f9f9; /* Light background color */
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.1), 0 8px 8px 0 rgba(0, 0, 0, 0.12);
+}
 
-/* Header styling */
 h2 {
   color: #333;
   text-align: center;
+  margin-bottom: 20px; /* Add some space below the heading */
 }
 
-/* Form styling */
-/* form {
+.user-form {
   display: flex;
   flex-direction: column;
-  align-items: center;
-} */
+}
+
+.label-container {
+  display: flex;
+  flex-direction: column;
+  margin: 10px 0;
+}
 
 label {
-  margin: 10px 0;
-  color: #000000;
+  color: #333; /* Change label color */
+  margin-bottom: 8px; /* Adjust margin */
+  font-weight: bold; /* Make label text bold */
+}
+
+.input-container {
+  position: relative;
+  width: 100%;
 }
 
 input {
-  /*meh width eka register page eke input tag  ekata wadinawa :( eka class ekak widiyata danawada ?*/
-  /* width: 100%; */  
-  padding: 10px;
-  margin: 5px 0;
+
+  padding: 12px; /* Increase padding for better input spacing */
+  margin: 8px 0; /* Adjust margin */
   box-sizing: border-box;
+  border: 1px solid #ddd;
+  border-radius: 8px; /* Slightly round the input corners */
+  transition: border-color 0.3s ease-in-out; /* Smooth transition for border color */
 }
 
-/* button {
-  background-color: #4caf50;
-  color: white;
+input:focus {
+  border-color: #ffcc00; /* Change border color on focus */
+}
+
+/* Additional styling for the "Edit Profile" and "Delete Profile" buttons */
+.button-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 30px; /* Adjust margin */
+}
+
+button {
+  flex: 1;
+  margin: 0 5px;
+  padding: 12px;
   border: none;
-  padding: 10px 20px;
-  margin-top: 10px;
   cursor: pointer;
+  border-radius: 10px;
+  font-weight: bold;
+  transition: background-color 0.3s ease-in-out;
+  width: 100%;
 }
 
 button:hover {
-  background-color: #45a049;
-}  */
-
-/* Display styling */
-/* .user-profile-display {
-  text-align: center;
-} */
-
-p {
-  margin: 10px 0;
-  color: #333;
+  background-color: #ffcc00;
 }
-
-strong {
-  font-weight: bold;
-}
-
-
-
-/* "Edit Profile" and "Delete Profile" button styling */
-button {
-  background-color: #4285f4;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  margin-top: 20px;
-  cursor: pointer;
-}
-
-/* button:hover {
-  background-color: #357ae8;
-}
-
-/* Specific styling for the "Edit Profile" button */
-/* .edit-profile-button {
-  background-color: #e1d018;
-}
-
-.edit-profile-button:hover {
-  background-color: #92790c;
-}
-
-/* Specific styling for the "Delete Profile" button */
-/* .delete-profile-button {
-  background-color: #ff4d4d;
-} */
-
-/* .delete-profile-button:hover {
-  background-color: #a60303;
-} */ 
