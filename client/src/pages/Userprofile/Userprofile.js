@@ -116,87 +116,55 @@ const Userprofile = () => {
     <div>
       <Navbar />
       <br />
+      <div className="user-container">
       <h2>User Profile</h2>
 
       {error && <p className="error-message">{error}</p>}
 
-      <form>
-        <label>
-          Full Name:
-          {isEditing ? (
-            <input
-              type="text"
-              name="fullName"
-              value={editedUser.fullName}
-              onChange={handleInputChange}
-            />
-          ) : (
-            <span>{user.fullName}</span>
-          )}
-        </label>
-
-        <label>
-          Email:
-          {isEditing ? (
-            <input
-              type="text"
-              name="email"
-              value={editedUser.email}
-              onChange={handleInputChange}
-            />
-          ) : (
-            <span>{user.email}</span>
-          )}
-        </label>
-
-        <label>
-          Mobile Number:
-          {isEditing ? (
-            <input
-              type="text"
-              name="teleno"
-              value={editedUser.teleno}
-              onChange={handleInputChange}
-            />
-          ) : (
-            <span>{user.teleno}</span>
-          )}
-        </label>
-
-        <label>
-          City:
-          {isEditing ? (
-            <input
-              type="text"
-              name="city"
-              value={editedUser.city}
-              onChange={handleInputChange}
-            />
-          ) : (
-            <span>{user.city}</span>
-          )}
-        </label>
-
+      <table className="user-details-table">
+          <tbody>
+            <tr>
+              <td>Full Name:</td>
+              <td>{isEditing ? <input type="text" name="fullName" value={editedUser.fullName} onChange={handleInputChange} /> : user.fullName}</td>
+            </tr>
+            <tr>
+              <td>Email:</td>
+              <td>{isEditing ? <input type="text" name="email" value={editedUser.email} onChange={handleInputChange} /> : user.email}</td>
+            </tr>
+            <tr>
+              <td>Mobile Number:</td>
+              <td>{isEditing ? <input type="text" name="teleno" value={editedUser.teleno} onChange={handleInputChange} /> : user.teleno}</td>
+            </tr>
+            <tr>
+              <td>City:</td>
+              <td>{isEditing ? <input type="text" name="city" value={editedUser.city} onChange={handleInputChange} /> : user.city}</td>
+            </tr>
+          </tbody>
+        </table>
         {isEditing ? (
-          <>
+          <> <br/>
             <button type="button" onClick={handleSaveEdit}>
               Save
-            </button>
+            </button> 
+            <br/><br/>
             <button type="button" onClick={handleCancelEdit}>
               Cancel
             </button>
           </>
         ) : (
           <>
+          <br/>
             <button type="button" onClick={handleEditClick}>
               Edit
-            </button>
+            </button> 
+            <br/><br/>
             <button type="button" onClick={handleDeleteUser}>
               Delete
             </button>
           </>
         )}
-      </form>
+   
+    </div>
     </div>
   );
 };
