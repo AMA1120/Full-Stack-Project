@@ -31,7 +31,7 @@ function Cart() {
       <div>
         <div className='container2 m-auto mt-5 table-responsive'>
           <table className='table table-hover'>
-            <thead className='text-success'>
+            <thead className='text-success fs-4'>
               <tr>
                 <th scope='col'>#</th>
                 <th scope='col'>Name</th>
