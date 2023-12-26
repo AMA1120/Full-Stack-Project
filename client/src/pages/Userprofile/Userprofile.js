@@ -143,22 +143,22 @@ const Userprofile = () => {
         </table>
         {isEditing ? (
           <> <br/>
-            <button type="button" onClick={handleSaveEdit}>
+            <button type="button-user" onClick={handleSaveEdit}>
               Save
             </button> 
             <br/><br/>
-            <button type="button" onClick={handleCancelEdit}>
+            <button type="button-user" onClick={handleCancelEdit}>
               Cancel
             </button>
           </>
         ) : (
           <>
           <br/>
-            <button type="button" onClick={handleEditClick}>
+            <button type="button-user" onClick={handleEditClick}>
               Edit
             </button> 
             <br/><br/>
-            <button type="button" onClick={handleDeleteUser}>
+            <button type="button-user" onClick={handleDeleteUser}>
               Delete
             </button>
           </>
