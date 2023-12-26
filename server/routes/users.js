@@ -168,7 +168,42 @@ router.delete("/deleteuser", async (req, res) => {
 });
 
 
+//update
 
+router.put("/updateuser/:userId", async (req, res) => {
+  const { token, updatedUserDetails } = req.body;
+  const userId = req.params.userId;
+
+  try {
+    // Verify the token using the JWT_SECRET
+    const decodedUser = jwt.verify(token, JWT_SECRET);
+    console.log("Decoded user:", decodedUser);
+
+    // Assuming you have a 'users' collection or model
+    const updatedUser = await User.findOneAndUpdate(
+      { _id: userId, uname: decodedUser.uname }, // Ensure both user ID and username match
+      {
+        $set: {
+          fullName: updatedUserDetails.fullName,
+          teleno: updatedUserDetails.teleno,
+          city: updatedUserDetails.city,
+          email: updatedUserDetails.email,
+          uname: updatedUserDetails.newUname || decodedUser.uname
+        }
+      },
+      { new: true } // Return the updated document
+    );
+
+    if (updatedUser) {
+      res.json({ status: "ok", message: "User updated successfully", data: updatedUser });
+    } else {
+      res.json({ status: "error", data: "User not found or unauthorized" });
+    }
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ status: "error", data: error.message });
+  }
+});
 
 
 
