@@ -1,14 +1,18 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import Navbar from "../../components/Navbar/Navbar";
 import Footer from "../../components/Footer/Footer";
 import Promotion from "../../components/Promotion/Promotion";
+import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import "./home.css";
 import axios from "axios";
 
 function Home() {
   const [foods, setFoods] = useState([]);
-
+  const navigate = useNavigate();
+  const [qty, setQty] = useState(1);
+  const priceRef = useRef();
+  
   useEffect(() => {
     // Fetch data from the backend API
     const fetchData = async () => {
@@ -22,6 +26,16 @@ function Home() {
 
     fetchData();
   }, []); // Empty dependency array ensures the effect runs only once when the component mounts
+
+  const handleClick = () => {
+    if (!localStorage.getItem("token")) {
+      navigate("/login");
+    }
+  };
+
+  const handleQty = (e) => {
+    setQty(parseInt(e.target.value, 10));
+  };
 
   return (
     <>
@@ -66,11 +80,31 @@ function Home() {
                           float: "right",
                         }}
                       >
-                        {food.price}
+                        {food.price} 
                       </strong>
                     </h5>
                     <p className="card-text">
                       <strong></strong> {food.discription}
+                      {""}
+                      <strong
+                        style={{
+                          color: "#ffcc00",
+                          fontSize: "17px",
+                          float: "right",
+                        }}
+                      >
+                        <select
+                          onChange={handleQty}
+                          onClick={handleClick}
+                        >
+                          {Array.from(Array(6), (e, i) => (
+                            <option key={i + 1} value={i + 1}>
+                              {" "}
+                              {i + 1}{" "}
+                            </option>
+                          ))}
+                        </select>
+                      </strong>
                     </p>
                   </div>
 
