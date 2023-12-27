@@ -14,6 +14,7 @@ import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import '../node_modules/bootstrap/dist/js/bootstrap.bundle';
 import './App.css';
 import { CartProvider } from './components/ContextReducer.js';
+import Chat from './components/Chatroom/Chat.js'
 
 
 function App() {
@@ -31,7 +32,7 @@ function App() {
           <Route path="/payment" element={<Payment />}></Route>
           <Route path="/userprofile" element={<Userprofile />}></Route>
           <Route path="/logout" element={<Logout />}></Route>
-          
+          <Route path="/chatroom" element={<Chat />}></Route>
         </Routes>
       </BrowserRouter>
       </CartProvider>
