@@ -37,7 +37,6 @@ function Home() {
     setQty(parseInt(e.target.value, 10));
   };
 
-  
   return (
     <>
       <Navbar />
@@ -97,7 +96,6 @@ function Home() {
                         <select
                           onChange={handleQty}
                           onClick={handleClick}
-                          
                         >
                           {Array.from(Array(6), (e, i) => (
                             <option key={i + 1} value={i + 1}>

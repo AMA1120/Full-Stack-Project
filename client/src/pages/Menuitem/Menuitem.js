@@ -13,8 +13,6 @@ function Menuitem() {
     const fetchData = async () => {
       try {
         const responseFoodItems = await axios.get("http://localhost:4000/foodData");
-
-
         setFoodItems(responseFoodItems.data.foodItems);
         setfoodCategory(responseFoodItems.data.foodCategory);
       } catch (error) {
