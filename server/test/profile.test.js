@@ -1,6 +1,9 @@
 const request = require("supertest");
 const app = require("../app"); // Adjust the path accordingly
 
+// Mock authentication token
+const authToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmFtZSI6InU1IiwiaWF0IjoxNzAzNTY2NDE5fQ.l9qvRFDz3ijmyvfL7yxHn9PM97NwWjVT819FgK0lAQY';
+
 describe("User Profile API Tests", () => {
   let authToken;
 
@@ -38,4 +41,17 @@ describe("User Profile API Tests", () => {
     expect(response.body.status).toBe();
     expect(response.body.message).toBe();
   });
+});
+
+
+// Test updating user profile
+
+test("UPDATE /updateuser should update user profile", async () => {
+  const response = await request(app)
+    .put("/updateuser")
+    .send({ token: authToken });
+
+  expect(response.status).toBe(404);
+  expect(response.body.status).toBe();
+  expect(response.body.message).toBe();
 });
