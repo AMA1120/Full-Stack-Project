@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import ChatInput from './ChatInput'
 import ChatMessage from './ChatMessage'
 
-const URL = 'ws://localhost:3030'
+const URL = 'ws://localhost:4000'
 
 class Chat extends Component {
   state = {
@@ -14,22 +14,40 @@ class Chat extends Component {
 
   componentDidMount() {
     this.ws.onopen = () => {
-      console.log('connected')
+      console.log('connected');
     }
-
+  
     this.ws.onmessage = evt => {
-      const message = JSON.parse(evt.data)
-      this.addMessage(message)
-    }
-
+        const messageString = evt.data;
+      
+        if (messageString.trim() !== '') {
+          try {
+            const message = JSON.parse(messageString);
+            console.log('Received message:', message);
+            this.addMessage(message);
+          } catch (error) {
+            console.error('Error parsing message:', error);
+            console.log('Raw message:', messageString);
+          }
+        } else {
+          console.log('Received an empty message.');
+        }
+      };
+      
+      
+      
+      
+      
+      
+  
     this.ws.onclose = () => {
-      console.log('disconnected')
+      console.log('disconnected--');
       this.setState({
         ws: new WebSocket(URL),
-      })
+      });
     }
   }
-
+  
   addMessage = message =>
     this.setState(state => ({ messages: [message, ...state.messages] }))
 
@@ -42,9 +60,9 @@ class Chat extends Component {
   render() {
     return (
       <div>
-        <div class="fixed-chat">
-          <div class="panel-chat">
-            <div class="header-chat">
+        <div className="fixed-chat">
+          <div className="panel-chat">
+            <div className="header-chat">
               <label htmlFor="name">
                 Name:&nbsp;
                 <input
@@ -56,7 +74,7 @@ class Chat extends Component {
                 />
               </label>
             </div>
-            <div class="body-chat">
+            <div className="body-chat">
               {this.state.messages.map((message, index) =>
                 <ChatMessage
                   key={index}
@@ -65,7 +83,7 @@ class Chat extends Component {
                 />,
               )}
             </div>
-            <div class="message-chat">
+            <div className="message-chat">
               <ChatInput
                 ws={this.ws}
                 onSubmitMessage={messageString => this.submitMessage(messageString)}
