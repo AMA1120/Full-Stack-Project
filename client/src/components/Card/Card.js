@@ -103,7 +103,7 @@ export default function Card(props) {
               </div>
             </div>
             <hr></hr>
-            <button className={'btn btn-success justify-center ms-2'} onClick={handleAddToCart}>Add to Cart</button>
+            <button className={'btn btn-warning justify-center ms-2'} onClick={handleAddToCart}>Add to Cart</button>
           </div>
         </div>
       </div>
