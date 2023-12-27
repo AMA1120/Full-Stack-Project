@@ -2,7 +2,8 @@ const request = require("supertest");
 const app = require("../app"); // Adjust the path accordingly
 
 // Mock authentication token
-const authToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmFtZSI6InU1IiwiaWF0IjoxNzAzNTY2NDE5fQ.l9qvRFDz3ijmyvfL7yxHn9PM97NwWjVT819FgK0lAQY';
+const authToken =
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmFtZSI6InU1IiwiaWF0IjoxNzAzNTY2NDE5fQ.l9qvRFDz3ijmyvfL7yxHn9PM97NwWjVT819FgK0lAQY";
 
 describe("User Profile API Tests", () => {
   let authToken;
@@ -21,15 +22,11 @@ describe("User Profile API Tests", () => {
       .send({ token: authToken });
 
     // Adjust the expected status code and value based on your API design
-    expect(response.status).toBe(404); 
+    expect(response.status).toBe(404);
 
     // Check if the response body has the expected structure
     expect(response.body.status).toBe();
-
-    
   });
-
-
 
   // Test deleting user profile
   test("DELETE /deleteuser should delete user profile", async () => {
@@ -42,7 +39,6 @@ describe("User Profile API Tests", () => {
     expect(response.body.message).toBe();
   });
 });
-
 
 // Test updating user profile
 

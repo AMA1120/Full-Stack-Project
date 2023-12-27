@@ -134,7 +134,7 @@ router.post("/userprofile", async (req, res) => {
       return res.status(404).json({ status: "error", error: "User not found" });
     }
   } catch (error) {
-    console.error(error);
+    //console.error(error);
     return res.status(500).json({ status: "error", error: error.message });
   }
 });
@@ -160,7 +160,7 @@ router.delete("/deleteuser", async (req, res) => {
       res.json({ status: "error", data: "User not found" });
     }
   } catch (error) {
-    console.error(error);
+    //console.error(error);
 
     // Return a proper JSON response with an error message
     res.status(500).json({ status: "error", data: error.message });
