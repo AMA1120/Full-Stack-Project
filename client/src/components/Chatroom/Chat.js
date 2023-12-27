@@ -1,56 +1,47 @@
+import React, { Component } from 'react'
+import ChatInput from './ChatInput'
+import ChatMessage from './ChatMessage'
 
-import React, { Component } from 'react';
-import ChatInput from './ChatInput';
-import ChatMessage from './ChatMessage';
-
-const URL = 'ws://localhost:5000'; // Update with your WebSocket server URL
+const URL = 'ws://localhost:3030'
 
 class Chat extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      name: 'Ichlas',
-      messages: [],
-      ws: new WebSocket(URL),
-    };
+  state = {
+    name: 'User1',
+    messages: [],
   }
+
+  ws = new WebSocket(URL)
 
   componentDidMount() {
-    const { ws } = this.state;
+    this.ws.onopen = () => {
+      console.log('connected')
+    }
 
-    ws.onopen = () => {
-      console.log('connected');
-    };
+    this.ws.onmessage = evt => {
+      const message = JSON.parse(evt.data)
+      this.addMessage(message)
+    }
 
-    ws.onmessage = (evt) => {
-      if (typeof evt.data === 'string') {
-        const message = JSON.parse(evt.data);
-        this.addMessage(message);
-      }
-    };
-
-    ws.onclose = () => {
-      console.log('disconnected');
+    this.ws.onclose = () => {
+      console.log('disconnected')
       this.setState({
         ws: new WebSocket(URL),
-      });
-    };
+      })
+    }
   }
 
-  addMessage = (message) =>
-    this.setState((state) => ({ messages: [message, ...state.messages] }));
+  addMessage = message =>
+    this.setState(state => ({ messages: [message, ...state.messages] }))
 
-  submitMessage = (messageString) => {
-    const { ws, name } = this.state;
-    const message = { name, message: messageString };
-    ws.send(JSON.stringify(message));
-    this.addMessage(message);
-  };
+  submitMessage = messageString => {
+    const message = { name: this.state.name, message: messageString }
+    this.ws.send(JSON.stringify(message))
+    this.addMessage(message)
+  }
 
   render() {
     return (
-        <div>
+      <div>
         <div class="fixed-chat">
           <div class="panel-chat">
             <div class="header-chat">
@@ -83,8 +74,8 @@ class Chat extends Component {
           </div>
         </div>
       </div>
-    );
+    )
   }
 }
 
-export default Chat;
+export default Chat
