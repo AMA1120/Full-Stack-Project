@@ -27,13 +27,22 @@ const wss = new WebSocket.Server({ server });
 // WebSocket server code
 wss.on('connection', function connection(ws) {
   ws.on('message', function incoming(data) {
-    wss.clients.forEach(function each(client) {
-      if (client !== ws && client.readyState === WebSocket.OPEN) {
-        // Ensure data is stringified before sending
-        client.send(JSON.stringify(data));
+    try {
+      const message = JSON.parse(data);
+      if (typeof message === 'object') {
+        wss.clients.forEach(function each(client) {
+          if (client !== ws && client.readyState === WebSocket.OPEN) {
+            client.send(JSON.stringify(message));
+          }
+        });
+      } else {
+        console.warn('Received a non-JSON message:', data);
       }
-    });
+    } catch (error) {
+      console.error('Error parsing incoming message:', error);
+    }
   });
+  
 });
 
 // Start the combined server on port 4000
