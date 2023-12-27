@@ -1,0 +1,29 @@
+version: "3"
+services:
+  client-frontend:
+    image: client:local
+    ports:
+      - "8000:80"
+    container_name: client-container
+    networks:
+      - my_network
+
+  dashboard-frontend:
+    image: dashboard:local
+    ports:
+      - "5000:80"
+    container_name: dashboard-container
+    networks:
+      - my_network
+
+  server-backend:
+    image: server:local
+    ports:
+      - "4000:4000"
+    container_name: server-container
+    networks:
+      - my_network
+
+networks:
+  my_network:
+    driver: bridge
