@@ -1,37 +1,132 @@
 
-import React, { Component } from 'react';
-import ChatInput from './ChatInput';
-import ChatMessage from './ChatMessage';
+// import React, { Component } from 'react';
+// import ChatInput from './ChatInput';
+// import ChatMessage from './ChatMessage';
 
-const URL = 'ws://localhost:5000'; // Update with your WebSocket server URL
+// const URL = 'ws://localhost:5000'; // Update with your WebSocket server URL
+
+// class Chat extends Component {
+//   constructor(props) {
+//     super(props);
+
+//     this.state = {
+//       name: 'Ichlas',
+//       messages: [],
+//       ws: new WebSocket(URL),
+//     };
+//   }
+
+//   componentDidMount() {
+//     const { ws } = this.state;
+
+//     ws.onopen = () => {
+//       console.log('connected');
+//     };
+
+//     ws.onmessage = (evt) => {
+//       if (typeof evt.data === 'string') {
+//         const message = JSON.parse(evt.data);
+//         this.addMessage(message);
+//       }
+//     };
+
+//     ws.onclose = () => {
+//       console.log('disconnected');
+//       this.setState({
+//         ws: new WebSocket(URL),
+//       });
+//     };
+//   }
+
+//   addMessage = (message) =>
+//     this.setState((state) => ({ messages: [message, ...state.messages] }));
+
+//   submitMessage = (messageString) => {
+//     const { ws, name } = this.state;
+//     const message = { name, message: messageString };
+//     ws.send(JSON.stringify(message));
+//     this.addMessage(message);
+//   };
+
+//   render() {
+//     return (
+//         <div>
+//         <div class="fixed-chat">
+//           <div class="panel-chat">
+//             <div class="header-chat">
+//               <label htmlFor="name">
+//                 Name:&nbsp;
+//                 <input
+//                   type="text"
+//                   id={'name'}
+//                   placeholder={'Enter your name...'}
+//                   value={this.state.name}
+//                   onChange={e => this.setState({ name: e.target.value })}
+//                 />
+//               </label>
+//             </div>
+//             <div class="body-chat">
+//               {this.state.messages.map((message, index) =>
+//                 <ChatMessage
+//                   key={index}
+//                   message={message.message}
+//                   name={message.name}
+//                 />,
+//               )}
+//             </div>
+//             <div class="message-chat">
+//               <ChatInput
+//                 ws={this.ws}
+//                 onSubmitMessage={messageString => this.submitMessage(messageString)}
+//               />
+//             </div>
+//           </div>
+//         </div>
+//       </div>
+//     );
+//   }
+// }
+
+// export default Chat;
+
+import React, { Component } from "react";
+import ChatInput from "./ChatInput";
+import ChatMessage from "./ChatMessage";
+
+const URL = "ws://localhost:4000";
 
 class Chat extends Component {
-  constructor(props) {
-    super(props);
+  state = {
+    name: "User1",
+    messages: [],
+  };
 
-    this.state = {
-      name: 'Ichlas',
-      messages: [],
-      ws: new WebSocket(URL),
-    };
-  }
+  ws = new WebSocket(URL);
 
   componentDidMount() {
-    const { ws } = this.state;
-
-    ws.onopen = () => {
-      console.log('connected');
+    this.ws.onopen = () => {
+      console.log("connected");
     };
 
-    ws.onmessage = (evt) => {
-      if (typeof evt.data === 'string') {
-        const message = JSON.parse(evt.data);
-        this.addMessage(message);
+    this.ws.onmessage = (evt) => {
+      const messageString = evt.data;
+
+      if (messageString.trim() !== "") {
+        try {
+          const message = JSON.parse(messageString);
+          console.log("Received message:", message);
+          this.addMessage(message);
+        } catch (error) {
+          console.error("Error parsing message:", error);
+          console.log("Raw message:", messageString);
+        }
+      } else {
+        console.log("Received an empty message.");
       }
     };
 
-    ws.onclose = () => {
-      console.log('disconnected');
+    this.ws.onclose = () => {
+      console.log("disconnected--");
       this.setState({
         ws: new WebSocket(URL),
       });
@@ -42,42 +137,43 @@ class Chat extends Component {
     this.setState((state) => ({ messages: [message, ...state.messages] }));
 
   submitMessage = (messageString) => {
-    const { ws, name } = this.state;
-    const message = { name, message: messageString };
-    ws.send(JSON.stringify(message));
+    const message = { name: this.state.name, message: messageString };
+    this.ws.send(JSON.stringify(message));
     this.addMessage(message);
   };
 
   render() {
     return (
-        <div>
-        <div class="fixed-chat">
-          <div class="panel-chat">
-            <div class="header-chat">
+      <div>
+        <div className="fixed-chat">
+          <div className="panel-chat">
+            <div className="header-chat">
               <label htmlFor="name">
                 Name:&nbsp;
                 <input
                   type="text"
-                  id={'name'}
-                  placeholder={'Enter your name...'}
+                  id={"name"}
+                  placeholder={"Enter your name..."}
                   value={this.state.name}
-                  onChange={e => this.setState({ name: e.target.value })}
+                  onChange={(e) => this.setState({ name: e.target.value })}
                 />
               </label>
             </div>
-            <div class="body-chat">
-              {this.state.messages.map((message, index) =>
+            <div className="body-chat">
+              {this.state.messages.map((message, index) => (
                 <ChatMessage
                   key={index}
                   message={message.message}
                   name={message.name}
-                />,
-              )}
+                />
+              ))}
             </div>
-            <div class="message-chat">
+            <div className="message-chat">
               <ChatInput
                 ws={this.ws}
-                onSubmitMessage={messageString => this.submitMessage(messageString)}
+                onSubmitMessage={(messageString) =>
+                  this.submitMessage(messageString)
+                }
               />
             </div>
           </div>
