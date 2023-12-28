@@ -3,6 +3,8 @@ name: Docker Image CI
 on:
   push:
     branches: [ main ]
+  pull_request:
+    branches: [ main ]
 
 jobs:
   build:
@@ -20,6 +22,7 @@ jobs:
       with:
         image: ama1120/restaurant-ordering-system
         registry: docker.io
+        dockerfile: ./client/Dockerfile
         username: ${{ secrets.DOCKER_IMAGE_USERNAME }}
         password: ${{ secrets.DOCKER_IMAGE_PASSWORD}}
 
