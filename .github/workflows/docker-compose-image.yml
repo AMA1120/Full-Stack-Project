@@ -22,13 +22,8 @@ jobs:
       with:
         image: ama1120/restaurant-ordering-system
         registry: docker.io
-        dockerfile: ./client/Dockerfile
+        dockerfile: ./docker-compose.yml
         username: ${{ secrets.DOCKER_IMAGE_USERNAME }}
         password: ${{ secrets.DOCKER_IMAGE_PASSWORD}}
-
-    - name: Build and push Docker images
-      uses: docker/build-push-action@v3
-      with:
         context: .
-        file: ./docker-compose.yml
         push: true
