@@ -20,6 +20,7 @@ jobs:
       with:
         image: ama1120/restaurant-ordering-system
         registry: docker.io
+        dockerfile: Dockerfile.ci
         username: ${{ secrets.DOCKER_IMAGE_USERNAME }}
         password: ${{ secrets.DOCKER_IMAGE_PASSWORD}}
 
