@@ -28,6 +28,7 @@ jobs:
       uses: docker/bake-action@v4
       with:
         push: true
+        repository: ama1120/restaurant-ordering-system
 
 
     # - name: Build and push Docker images
