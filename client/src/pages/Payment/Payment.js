@@ -1,10 +1,14 @@
-import React from 'react'
-import './payment.css'
+// pages/PaymentPage.js
+import React from 'react';
+import PaymentForm from '../../components/PaymentForm/PaymentForm';
 
-function Payment() {
+const Payment = () => {
   return (
-    <div>Payment</div>
-  )
-}
+    <div>
+      
+      <PaymentForm />
+    </div>
+  );
+};
 
-export default Payment
+export default Payment;

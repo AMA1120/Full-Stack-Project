@@ -27,11 +27,6 @@ function Menuitem() {
     <div>
       <Navbar />
 
-      <div>
-        <h1>  Menu Items</h1>
-        
-      </div>
-
       <div className='container1'>
         {
           foodCategory !== ""
