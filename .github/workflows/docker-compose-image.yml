@@ -3,6 +3,8 @@ name: Docker Image CI
 on:
   push:
     branches: [ main ]
+  pull_request:
+    branches: [ main ]
 
 jobs:
   build:
@@ -16,16 +18,21 @@ jobs:
       uses: docker/setup-buildx-action@v1
 
     - name: Build and push Docker images
-      uses: mr-smithers-excellent/docker-build-push@v4
-      with:
-        image: ama1120/restaurant-ordering-system
-        registry: docker.io
-        username: ${{ secrets.DOCKER_IMAGE_USERNAME }}
-        password: ${{ secrets.DOCKER_IMAGE_PASSWORD}}
-
-    - name: Build and push Docker images
       uses: docker/build-push-action@v3
       with:
         context: .
         file: ./docker-compose.yml
         push: true
+        registry: docker.io
+        username: ${{ secrets.DOCKER_IMAGE_USERNAME }}
+        password: ${{ secrets.DOCKER_IMAGE_PASSWORD}}
+
+
+    # - name: Build and push Docker images
+    #   uses: mr-smithers-excellent/docker-build-push@v4
+    #   with:
+    #     image: ama1120/restaurant-ordering-system
+    #     registry: docker.io
+    #     dockerfile: ./docker-compose.yml
+    #     username: ${{ secrets.DOCKER_IMAGE_USERNAME }}
+    #     password: ${{ secrets.DOCKER_IMAGE_PASSWORD}}
