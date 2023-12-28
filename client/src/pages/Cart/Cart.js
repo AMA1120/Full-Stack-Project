@@ -19,10 +19,10 @@ function Cart() {
 
   const handleCheckOut = () => {
     // Display an alert
-    alert('Payment is done!');
+    //alert('Payment is done!');
 
     // Redirect to the home page after clicking "Okay" in the alert
-    window.location.href = 'http://localhost:3000/'; // Replace '/' with the actual URL of your home page
+    window.location.href = 'http://localhost:3000/payment'; // Replace '/' with the actual URL of your home page
   };
 
   return (
