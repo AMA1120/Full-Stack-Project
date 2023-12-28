@@ -25,17 +25,10 @@ jobs:
         password: "amaneth.123"
 
     - name: Build and push Docker images
-      uses: docker/bake-action@v4
+      uses: mr-smithers-excellent/docker-build-push@v4
       with:
-        push: true
-        repository: ama1120/restaurant-ordering-system
-
-
-    # - name: Build and push Docker images
-      # uses: mr-smithers-excellent/docker-build-push@v4
-      # with:
-      #   image: ama1120/restaurant-ordering-system
-      #   dockerfile: ./client/Dockerfile
-      #   registry: docker.io
-      #   username: ${{ secrets.DOCKER_IMAGE_USERNAME }}
-      #   password: ${{ secrets.DOCKER_IMAGE_PASSWORD}}
+        image: ama1120/restaurant-ordering-system
+        dockerfile: ./client/Dockerfile
+        registry: docker.io
+        username: ${{ secrets.DOCKER_IMAGE_USERNAME }}
+        password: ${{ secrets.DOCKER_IMAGE_PASSWORD}}
