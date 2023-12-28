@@ -31,6 +31,7 @@ jobs:
       uses: docker/build-push-action@v5
       with:
         context: .
+        file: ./docker-compose.yml
         push: true
         tags: |
           docker.io/ama1120/client:local
