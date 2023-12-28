@@ -67,19 +67,19 @@ const PaymentForm = () => {
       <form className="pay-form" onSubmit={handleSubmit}>
         <label className='pay-lable'>
           Payment ID:
-          <input type="text" name="paymentId" value={formData.paymentId} readOnly />
+          <input className='payfeild' type="text" name="paymentId" value={formData.paymentId} readOnly />
         </label>
         <br />
 
         <label className='pay-lable'>
           Username:
-          <input type="text" name="username" value={formData.username} onChange={handleInputChange} />
+          <input className='payfeild' type="text" name="username" value={formData.username} onChange={handleInputChange} />
         </label>
         <br />
 
         <label className='pay-lable'>
           Payment Type:
-          <select name="paymentType" value={formData.paymentType} onChange={handleInputChange}>
+          <select className='payfeild' name="paymentType" value={formData.paymentType} onChange={handleInputChange}>
             <option value="">Select Payment Type</option>
             <option value="credit_card">Credit Card</option>
             <option value="debit_card">Debit Card</option>
@@ -93,27 +93,27 @@ const PaymentForm = () => {
           <>
             <label className='pay-lable'>
               Card Number:
-              <input type="text" name="cardNumber" value={formData.cardNumber} onChange={handleInputChange} />
+              <input className='payfeild' type="text" name="cardNumber" value={formData.cardNumber} onChange={handleInputChange} />
             </label>
             <br />
 
             <label className='pay-lable'>
               Expire Date:
-              <input type="text" name="expireDate" value={formData.expireDate} onChange={handleInputChange} />
+              <input className='payfeild' type="text" name="expireDate" value={formData.expireDate} onChange={handleInputChange} />
             </label>
             <br />
           </>
         )}
 
         <label className='pay-lable'>
-          Total Cost:
-          <input type="text" name="totalCost" value={formData.totalCost} onChange={handleInputChange} />
+          Total Price:
+          <input className='payfeild' type="text" name="totalCost" value={formData.totalCost} onChange={handleInputChange} />
         </label>
         <br />
 
         <label className='pay-lable'>
           Date and Time:
-          <input type="text" name="dateAndTime" value={formData.dateAndTime} readOnly />
+          <input className='payfeild' type="text" name="dateAndTime" value={formData.dateAndTime} readOnly />
         </label>
         <br />
 

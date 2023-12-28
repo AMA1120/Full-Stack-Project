@@ -1,0 +1,14 @@
+.cartbtn {
+    /* Your existing styles */
+    background-color: #ffcc00;
+    transition: background-color 0.3s;
+    margin-top: 1.25rem;
+    border-radius: 5px; 
+    margin-left: 0.5rem;
+  }
+  
+  .cartbtn:hover {
+    background-color: black;
+  }
+
+  
