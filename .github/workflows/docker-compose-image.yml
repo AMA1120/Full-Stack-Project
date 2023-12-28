@@ -26,6 +26,10 @@ jobs:
         registry: docker.io
         username: ${{ secrets.DOCKER_IMAGE_USERNAME }}
         password: ${{ secrets.DOCKER_IMAGE_PASSWORD}}
+        tags: |
+          docker.io/ama1120/client:local
+          docker.io/ama1120/dashboard:local
+          docker.io/ama1120/server:local
 
 
     # - name: Build and push Docker images
