@@ -1,44 +1,56 @@
 /* components/PaymentForm.css */
+
 .payment-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
+  width: 500px;
+  background-color: white;
+  margin: auto;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+  padding: 10px;
 }
 
 .pay-form {
-  width: 300px; /* Adjust the width as needed */
-  padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  padding: 20px 50px 10px;
 }
 
 .pay-label {
-  display: block;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
+  font-weight: bold;
+  margin-left: 20px;
+  margin-right: 20px;
 }
 
 input,
 select {
-  width: 100%;
-  padding: 8px;
-  margin-bottom: 10px;
+  padding: 10px;
+  margin-bottom: 16px;
   border: 1px solid #ccc;
+  margin-left: 20px;
   border-radius: 4px;
 }
 
-.pay-button {
-  width: 100%;
+.payfeild{
+  margin: 1px 0 10px 0;
   padding: 10px;
+  font-size: 15px;
+  border: 1px solid #333; /* Set the border color to a darker color */
+  font-family: "Roboto", sans-serif;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
+
+.pay-button {
   background-color: #ffcc00;
   color: #fff;
+  padding: 12px;
   border: none;
   border-radius: 4px;
   cursor: pointer;
 }
 
 .pay-button:hover {
-  background-color: #45a049;
+  background-color: black;
 }
