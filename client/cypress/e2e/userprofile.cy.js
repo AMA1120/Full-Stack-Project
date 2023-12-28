@@ -36,6 +36,8 @@ describe("User Profile Page", () => {
     cy.contains("Save").click();
 
     
+
+    
   });
 
   it("allows user to cancel edit", () => {
@@ -59,6 +61,8 @@ describe("User Profile Page", () => {
     // Click on the "Delete" button
     // Click on the "Delete" button
     cy.contains("Delete").click();
+
+
 
      
   });
