@@ -60,7 +60,7 @@ p {
 .menu-container1,
 .menu-container2 {
   margin: 2px;
-  height: 35px;
+  height: 45px;
   width: 15%;
   background-color: #eaf1ec;
   border-radius: 0.25rem;
@@ -71,6 +71,15 @@ p {
   display: inline-block;
   height: 100%;
   font-size: 1.25rem;
+}
+
+.menubtn {
+  background-color: #ffcc00;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  margin-left: 0.5rem; /* Adjust this value based on your design requirements */
+  border-radius: 5px; 
 }
 
 /* Responsive styles using media queries */
