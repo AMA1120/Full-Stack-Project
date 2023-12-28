@@ -22,6 +22,16 @@ services:
     networks:
       - my_network
 
+  server-backend:
+    image: server:local
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    ports:
+      - "4000:4000"
+    container_name: server-container
+    networks:
+      - my_network
 
 networks:
   my_network:
