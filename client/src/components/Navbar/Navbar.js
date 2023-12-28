@@ -32,11 +32,8 @@ const Navbar = () => {
             <Link to="/">Home</Link>
           </li>
           <li>
-            <Link to="/menu/:foodID">Menu Items</Link>
-          </li>
-          <li>
             <Link to="/userprofile">
-              <IoPerson />
+              <IoPerson /> Userprofile
             </Link>
           </li>
           <li>
@@ -52,7 +49,7 @@ const Navbar = () => {
                     {" "}
                     {data.length}
                     <FaShoppingCart />
-                  </Badge>
+                  </Badge> 
                 </Link>{" "}
               </li>
             </div>
@@ -76,15 +73,12 @@ const Navbar = () => {
             <Link to="/">Home</Link>
           </li>
           <li>
-            <Link to="/menu/:foodID">Menu Items</Link>
-          </li>
-          <li>
           <div
               onClick={() => {
                 setCartView(true);
               }}
             >
-              <Link to="">
+              <Link to=""> 
                 {""}
                 <Badge pill bg="warning">
                   {" "}
