@@ -14,9 +14,6 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v3
-    
-    - name: Set up QEMU
-      uses: docker/setup-qemu-action@v3
 
     - name: Set up Docker Buildx
       uses: docker/setup-buildx-action@v3
@@ -28,15 +25,9 @@ jobs:
         password: ${{ secrets.DOCKER_IMAGE_PASSWORD}}
 
     - name: Build and push Docker images
-      uses: docker/build-push-action@v5
+      uses: docker/bake-action@v4
       with:
-        context: .
-        file: ./docker-compose.yml
         push: true
-        tags: |
-          docker.io/ama1120/client:local
-          docker.io/ama1120/dashboard:local
-          docker.io/ama1120/server:local
 
 
     # - name: Build and push Docker images
