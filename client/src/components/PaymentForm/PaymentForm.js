@@ -106,7 +106,7 @@ const PaymentForm = () => {
         )}
 
         <label className='pay-lable'>
-          Total Cost:
+          Total Price:
           <input className='payfeild' type="text" name="totalCost" value={formData.totalCost} onChange={handleInputChange} />
         </label>
         <br />
