@@ -64,20 +64,20 @@ const PaymentForm = () => {
 
   return (
     <div className="payment-container">
-      <form onSubmit={handleSubmit}>
-        <label>
+      <form className="pay-form" onSubmit={handleSubmit}>
+        <label className='pay-lable'>
           Payment ID:
           <input type="text" name="paymentId" value={formData.paymentId} readOnly />
         </label>
         <br />
 
-        <label>
+        <label className='pay-lable'>
           Username:
           <input type="text" name="username" value={formData.username} onChange={handleInputChange} />
         </label>
         <br />
 
-        <label>
+        <label className='pay-lable'>
           Payment Type:
           <select name="paymentType" value={formData.paymentType} onChange={handleInputChange}>
             <option value="">Select Payment Type</option>
@@ -91,13 +91,13 @@ const PaymentForm = () => {
 
         {(formData.paymentType === 'credit_card' || formData.paymentType === 'debit_card' || formData.paymentType === 'paypal') && (
           <>
-            <label>
+            <label className='pay-lable'>
               Card Number:
               <input type="text" name="cardNumber" value={formData.cardNumber} onChange={handleInputChange} />
             </label>
             <br />
 
-            <label>
+            <label className='pay-lable'>
               Expire Date:
               <input type="text" name="expireDate" value={formData.expireDate} onChange={handleInputChange} />
             </label>
@@ -105,13 +105,13 @@ const PaymentForm = () => {
           </>
         )}
 
-        <label>
+        <label className='pay-lable'>
           Total Cost:
           <input type="text" name="totalCost" value={formData.totalCost} onChange={handleInputChange} />
         </label>
         <br />
 
-        <label>
+        <label className='pay-lable'>
           Date and Time:
           <input type="text" name="dateAndTime" value={formData.dateAndTime} readOnly />
         </label>

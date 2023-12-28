@@ -7,7 +7,7 @@
   height: 100vh;
 }
 
-form {
+.pay-form {
   width: 300px; /* Adjust the width as needed */
   padding: 20px;
   border: 1px solid #ccc;
@@ -15,7 +15,7 @@ form {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-label {
+.pay-label {
   display: block;
   margin-bottom: 10px;
 }
