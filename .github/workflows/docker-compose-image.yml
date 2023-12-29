@@ -29,7 +29,8 @@ jobs:
       - name: Dependecies - client
         run: |
             npm install
-            npm ci
+        env:
+          CI: ""
         working-directory: ./client
 
       - name: Build - client
@@ -40,7 +41,6 @@ jobs:
       - name: Dependecies - server
         run: |
             npm install
-            npm ci
         working-directory: ./server
       
       - name: Login to DockerHub Registry
