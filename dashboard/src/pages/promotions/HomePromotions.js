@@ -44,10 +44,12 @@ function HomePromotions() {
               <table className="custom-promo-table">
                 <thead>
                   <tr className="table-promo-header">
-                    <th>Image</th>
+                    
                     <th>Promotion</th>
                     <th>Discription</th>
                     <th>category</th>
+                    <th>Price</th>
+                    <th>Image</th>
                     <th>Action</th>
                   </tr>
                 </thead>
@@ -57,6 +59,7 @@ function HomePromotions() {
                       <td>{promotion.promotionName}</td>
                       <td>{promotion.description}</td>
                       <td>{promotion.category}</td>
+                      <td>{promotion.price}</td>
                       <td>
                         {promotion.image && (
                           <img
