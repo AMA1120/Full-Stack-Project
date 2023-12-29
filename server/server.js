@@ -11,7 +11,7 @@ const createConnection = async () => {
   try {
     await mongoose.connect(DB_URL, {
       dbName: "test",
-      //dbName: "takeout",
+      //dbName:"takeout",
     });
     console.log("Database Connected");
   } catch (error) {
