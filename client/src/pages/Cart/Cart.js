@@ -3,10 +3,14 @@ import React from 'react';
 import { FaTrash } from 'react-icons/fa';
 import './cart.css'; // Import the external CSS file
 import { useCart, useDispatchCart } from '../../components/ContextReducer';
+import { useNavigate } from 'react-router-dom';
+
 
 function Cart() {
   let data = useCart();
   let dispatch = useDispatchCart();
+  let navigate = useNavigate();
+
   if (data.length === 0) {
     return (
       <div>
@@ -17,13 +21,18 @@ function Cart() {
 
   let totalPrice = data.reduce((total, food) => total + food.price, 0);
 
-  const handleCheckOut = () => {
-    // Display an alert
-    //alert('Payment is done!');
+  // const handleCheckOut = () => {
+  //   // Display an alert
+  //   //alert('Payment is done!');
 
-    // Redirect to the home page after clicking "Okay" in the alert
-    window.location.href = 'http://localhost:3000/payment'; // Replace '/' with the actual URL of your home page
+  //   // Redirect to the home page after clicking "Okay" in the alert
+  //   window.location.href = 'http://localhost:3000/payment'; // Replace '/' with the actual URL of your home page
+  // };
+
+  const handleCheckOut = () => {
+    navigate(`/payment?totalPrice=${totalPrice}`);
   };
+
 
   return (
     <>
@@ -69,8 +78,7 @@ function Cart() {
         <div>
           {/* Add onClick event handler to the Check Out button */}
           <button
-            className='cartbtn ' // Remove bg-success
-            // style={{ backgroundColor: '#ffcc00' }} // Add inline style for background color
+            className='cartbtn ' 
             onClick={handleCheckOut}
           >
             Check Out
