@@ -2,7 +2,7 @@ name: Run Tests - CI
 
 on:
   push:
-    branches: ["Pavithra"]
+    branches: ["main"]
 
 jobs:
   Run-Tests-CI:
