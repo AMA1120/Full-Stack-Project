@@ -69,8 +69,8 @@ function Cart() {
         <div>
           {/* Add onClick event handler to the Check Out button */}
           <button
-            className='btn mt-5' // Remove bg-success
-            style={{ backgroundColor: '#ffcc00' }} // Add inline style for background color
+            className='cartbtn ' // Remove bg-success
+            // style={{ backgroundColor: '#ffcc00' }} // Add inline style for background color
             onClick={handleCheckOut}
           >
             Check Out

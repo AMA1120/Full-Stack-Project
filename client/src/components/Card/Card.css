@@ -15,13 +15,14 @@
 /* Styles for the container with image and text */
 .menu-content {
   display: flex; /* Use flexbox to align items horizontally */
+  flex-wrap: wrap; /* Allow items to wrap to the next line on smaller screens */
 }
 
 /* Styles for the image */
 .menu img {
-  width: 60%; /* Adjust the width for the image */
-  height: 360px;
-  object-fit:cover;
+  width: 100%; /* Make the image responsive */
+  height: auto; /* Maintain aspect ratio */
+  object-fit: cover;
 }
 
 /* Styles for the card body */
@@ -46,7 +47,6 @@ p {
   font-size: 1.1em;
 }
 
-
 /* Styles for the container with selects and total price */
 .menu-container {
   width: 100%;
@@ -59,24 +59,33 @@ p {
 /* Styles for the first select */
 .menu-container1,
 .menu-container2 {
+  flex-basis: calc(15% - 20px); /* Adjusted for responsive width */
   margin: 2px;
-  height: 35px;
-  width: 15%;
+  height: 45px;
   background-color: #eaf1ec;
   border-radius: 0.25rem;
 }
 
 /* Styles for the total price container */
 .menu-container3 {
-  display: inline-block;
-  height: 100%;
+  flex-basis: 100%; /* Adjusted for responsive width */
+  height: 45px;
   font-size: 1.25rem;
+}
+
+.menubtn {
+  background-color: #ffcc00;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  margin-left: 0.5rem; /* Adjust this value based on your design requirements */
+  border-radius: 5px; 
 }
 
 /* Responsive styles using media queries */
 @media (max-width: 1200px) {
   .menu {
-    width: 30%;
+    width: 45%;
   }
 }
 
@@ -91,11 +100,9 @@ p {
     width: 100%;
   }
 
-  .menu-container {
-    justify-content: center;
-  }
-
-  .menu img {
-    width: 100%; /* Adjust the width for smaller screens */
+  .menu-container1,
+  .menu-container2,
+  .menu-container3 {
+    flex-basis: 100%; /* Adjust for full width on smaller screens */
   }
 }
