@@ -1,0 +1,33 @@
+name: Node.js CI
+
+on:
+  push:
+    branches: [ "temp" ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [12.x, 14.x, 16.x]
+
+    steps:
+    - name: Checkout Repository
+    - uses: actions/checkout@v2
+
+    - name: Use Node.js 20.9.0 
+      uses: actions/setup-node@v2
+      with:
+        node-version: Node.js 20.9.0 
+
+    - name: Install Dependencies
+      run: npm Install
+
+    - name: Run Cypress Tests
+      run: npm run cypress:run
+
+    # - run: npm ci
+    # - run: npm run build --if-present
+    # - run: npm test
