@@ -32,6 +32,9 @@ const Navbar = () => {
             <Link to="/">Home</Link>
           </li>
           <li>
+          <Link to="/chatroom">Chat with us</Link>
+          </li>
+          <li>
             <Link to="/userprofile">
               <IoPerson /> Userprofile
             </Link>
@@ -71,6 +74,9 @@ const Navbar = () => {
         <ul>
           <li>
             <Link to="/">Home</Link>
+          </li>
+          <li>
+          <Link to="/chatroom">Chat with us</Link>
           </li>
           <li>
           <div
