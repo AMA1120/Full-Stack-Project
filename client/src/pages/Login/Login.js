@@ -39,7 +39,7 @@ const Login = () => {
         // Redirect to user details page and getting the JWT token
         // window.localStorage.setItem("token", data.data);
         console.log(data.data.token);
-        window.location.href = '/Userprofile';
+        window.location.href = '/home';
 
       } else {
         setError('Invalid credentials. Please try again.');

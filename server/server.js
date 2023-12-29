@@ -10,8 +10,8 @@ const DB_URL = "mongodb+srv://pkkimansha27:resturant123@resturant.c1gnqtq.mongod
 const createConnection = async () => {
   try {
     await mongoose.connect(DB_URL, {
-      //dbName: "test",
-      dbName:"takeout",
+      dbName: "test",
+      //dbName: "takeout",
     });
     console.log("Database Connected");
   } catch (error) {

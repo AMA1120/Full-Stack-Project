@@ -1,7 +1,7 @@
-import React, { useEffect, useState, useRef } from 'react';
-import { useNavigate } from 'react-router-dom';
-import './Card.css';
-import { useDispatchCart, useCart } from '../ContextReducer';
+import React, { useEffect, useState, useRef } from "react";
+import { useNavigate } from "react-router-dom";
+import "./Card.css";
+import { useDispatchCart, useCart } from "../ContextReducer";
 
 export default function Card(props) {
   const data = useCart();
@@ -15,15 +15,15 @@ export default function Card(props) {
     if (!localStorage.getItem("token")) {
       navigate("/login");
     }
-  }
+  };
 
   const handleQty = (e) => {
     setQty(e.target.value);
-  }
+  };
 
   const handleOptions = (e) => {
     setSize(e.target.value);
-  }
+  };
 
   const handleAddToCart = async () => {
     let food = null;
@@ -36,7 +36,7 @@ export default function Card(props) {
         }
       }
     } else {
-      console.error('foodItem or _id property is undefined.');
+      console.error("foodItem or _id property is undefined.");
       return;
     }
 
@@ -45,7 +45,12 @@ export default function Card(props) {
 
     if (food !== null) {
       if (food.size === size) {
-        await dispatch({ type: "UPDATE", id: props.foodItem._id, price: finalPrice, qty: qty });
+        await dispatch({
+          type: "UPDATE",
+          id: props.foodItem._id,
+          price: finalPrice,
+          qty: qty,
+        });
         return;
       } else if (food.size !== size) {
         await dispatch({
@@ -71,39 +76,62 @@ export default function Card(props) {
       size: size,
       img: props.ImgSrc,
     });
-  }
+  };
 
   useEffect(() => {
     setSize(priceRef.current.value);
-  }, [])
+  }, []);
 
   let finalPrice = qty * parseInt(props.options[size], 10);
 
   return (
     <div>
       <div>
-        <div className="menu" >
+        <div className="menu">
           <img src={props.foodItem.img} alt="" />
           <div className="menu-body">
-            <h3 className="menu-title">{props.foodItem.name}</h3>
+            <h3 className="menu-title">{props.foodItem.name}</h3> <br/>
+            <p>
+              {" "}A delightfully light thin crust pizza, expertly
+              hand-stretched and oven-baked to golden perfection! Topped with
+              tender BBQ chicken accompanied by spicy jalapenos, crunchy onions
+              and mozzarella cheese.
+            </p> <br/>
             <hr></hr>
-            <div className='menu-container w-100'>
-              <select className='menu-container1' onChange={handleQty} onClick={handleClick}>
-                {Array.from(Array(6), (e, i) => (
-                  <option key={i + 1} value={i + 1}> {i + 1} </option>
-                ))}
-              </select>
-              <select className='menu-container2' ref={priceRef} onChange={handleOptions}>
+            <div className="menu-container w-100">
+            <select
+                className="menu-container2"
+                ref={priceRef}
+                onChange={handleOptions}
+              >
                 {Object.keys(props.options).map((i) => (
-                  <option key={i} value={i}>{i}</option>
+                  <option key={i} value={i}>
+                    {i}
+                  </option>
                 ))}
               </select>
-              <div className='menu-container3'>
-                Price: Rs{finalPrice}/-
-              </div>
+              <select
+                className="menu-container1"
+                onChange={handleQty}
+                onClick={handleClick}
+              >
+                {Array.from(Array(6), (e, i) => (
+                  <option key={i + 1} value={i + 1}>
+                    {" "}
+                    {i + 1}{" "}
+                  </option>
+                ))}
+              </select> 
+              
+              <div className="menu-container3">Price: Rs{finalPrice}/-</div>
             </div>
             <hr></hr>
-            <button className={'btn btn-success justify-center ms-2'} onClick={handleAddToCart}>Add to Cart</button>
+            <button
+              className="menubtn"
+              onClick={handleAddToCart}
+            >
+              Add to Cart
+            </button>
           </div>
         </div>
       </div>

@@ -19,10 +19,10 @@ function Cart() {
 
   const handleCheckOut = () => {
     // Display an alert
-    alert('Payment is done!');
+    //alert('Payment is done!');
 
     // Redirect to the home page after clicking "Okay" in the alert
-    window.location.href = 'http://localhost:3000/'; // Replace '/' with the actual URL of your home page
+    window.location.href = 'http://localhost:3000/payment'; // Replace '/' with the actual URL of your home page
   };
 
   return (
@@ -57,11 +57,11 @@ function Cart() {
                 </tr>
               ))}
               {/* Display total price after the last row */}
-            <tr>
-              <td colSpan="4"></td>
-              <td><strong>Total Price:</strong></td>
-              <td>{totalPrice}/-</td>
-            </tr>
+              <tr>
+                <td colSpan="4"></td>
+                <td><strong>Total Price:</strong></td>
+                <td>{totalPrice}/-</td>
+              </tr>
             </tbody>
           </table>
           {/* <div><h1 className='fs-2'>Total Price: {totalPrice}/-</h1></div> */}
@@ -69,7 +69,8 @@ function Cart() {
         <div>
           {/* Add onClick event handler to the Check Out button */}
           <button
-            className='btn bg-success mt-5'
+            className='cartbtn ' // Remove bg-success
+            // style={{ backgroundColor: '#ffcc00' }} // Add inline style for background color
             onClick={handleCheckOut}
           >
             Check Out

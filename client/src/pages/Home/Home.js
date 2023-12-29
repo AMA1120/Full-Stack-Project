@@ -27,15 +27,15 @@ function Home() {
     fetchData();
   }, []); // Empty dependency array ensures the effect runs only once when the component mounts
 
-  const handleClick = () => {
-    if (!localStorage.getItem("token")) {
-      navigate("/login");
-    }
-  };
+  // const handleClick = () => {
+  //   if (!localStorage.getItem("token")) {
+  //     navigate("/login");
+  //   }
+  // };
 
-  const handleQty = (e) => {
-    setQty(parseInt(e.target.value, 10));
-  };
+  // const handleQty = (e) => {
+  //   setQty(parseInt(e.target.value, 10));
+  // };
 
   return (
     <>
@@ -93,7 +93,7 @@ function Home() {
                           float: "right",
                         }}
                       >
-                        <select
+                        {/* <select
                           onChange={handleQty}
                           onClick={handleClick}
                         >
@@ -103,7 +103,7 @@ function Home() {
                               {i + 1}{" "}
                             </option>
                           ))}
-                        </select>
+                        </select> */}
                       </strong>
                     </p>
                   </div>
