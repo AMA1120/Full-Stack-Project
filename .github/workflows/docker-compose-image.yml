@@ -17,7 +17,8 @@ jobs:
       - name: Dependecies - Dashboard
         run: |
             npm install
-            npm ci
+        env: 
+          CI: ""
         working-directory: ./dashboard
 
       - name: Build - Dashboard
