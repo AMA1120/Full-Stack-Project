@@ -15,7 +15,7 @@ router.get("/", async (req, res) => {
 });
 
 router.post("/new", async (req, res) => {
-  const { promotionName, description, category, image } = await req.body;
+  const { promotionName, description, category, image, price } = await req.body;
 
   try {
     const savedPromotion = new Promotion({
@@ -23,6 +23,7 @@ router.post("/new", async (req, res) => {
       description,
       category,
       image,
+      price
     });
 
     await savedPromotion.save();
@@ -48,7 +49,7 @@ router.get("/getPromotions", async (req, res) => {
 // Update Promotion by ID
 router.put("/updatePromotions/:id", async (req, res) => {
   const id = req.params.id;
-  const { promotionName, description, category, image } = req.body;
+  const { promotionName, description, category, image, price} = req.body;
   try {
     const updatedPromotion = await Promotion.findByIdAndUpdate(
       id,
@@ -57,6 +58,7 @@ router.put("/updatePromotions/:id", async (req, res) => {
         description,
         category,
         image,
+        price
       },
       { new: true }
     );
