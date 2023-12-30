@@ -90,16 +90,20 @@ export default function Card(props) {
         <div className="menu">
           <img src={props.foodItem.img} alt="" />
           <div className="menu-body">
-            <h3 className="menu-title">{props.foodItem.name}</h3> <br/>
+            <h3 className="menu-title">{props.foodItem.name}</h3> <br />
             <p>
-              {" "}A delightfully light thin crust pizza, expertly
-              hand-stretched and oven-baked to golden perfection! Topped with
-              tender BBQ chicken accompanied by spicy jalapenos, crunchy onions
-              and mozzarella cheese.
-            </p> <br/>
+              {" "}
+              Indulge in a culinary symphony at our restaurant, where savoring
+              the perfect slice of expertly crafted pizza is an art, and biting
+              into bold flavors of handcrafted burgers is a delight. Every visit
+              promises an unforgettable experience, as we elevate both pizza and
+              burgers to a level beyond ordinary, creating a haven for food
+              enthusiasts seeking a symphony of taste.
+            </p>{" "}
+            <br />
             <hr></hr>
             <div className="menu-container w-100">
-            <select
+              <select
                 className="menu-container2"
                 ref={priceRef}
                 onChange={handleOptions}
@@ -121,15 +125,12 @@ export default function Card(props) {
                     {i + 1}{" "}
                   </option>
                 ))}
-              </select> 
-              
+              </select>
+
               <div className="menu-container3">Price: Rs{finalPrice}/-</div>
             </div>
             <hr></hr>
-            <button
-              className="menubtn"
-              onClick={handleAddToCart}
-            >
+            <button className="menubtn" onClick={handleAddToCart}>
               Add to Cart
             </button>
           </div>

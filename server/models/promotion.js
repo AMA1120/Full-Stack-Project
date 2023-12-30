@@ -20,6 +20,12 @@ const PromotionSchema = new mongoose.Schema(
     image: {
       type: String,
       required: [true, "Please add image"],
+  
+    },
+    
+    price: {
+      type: String,
+      required: [true, "Add a Price"],
     },
   },
   {

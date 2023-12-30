@@ -1,0 +1,38 @@
+/* menuitem.css */
+
+.container1 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
+  .row {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  
+  .fs-3 {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  
+   .col-12 {
+    width: 100%;
+  }
+  
+  .col-mb-6 {
+    width: 100%;
+  }
+  
+  .col-lg-3 {
+    width: 25%;
+  }
+  .menu-card{
+    width: 250px;
+        /* Adjust the width as needed */
+        margin: 10px;
+        /* Other existing styles for .card go here */
+  } 
+  
+  /* Add any additional styling you need for your Card component here */
+  

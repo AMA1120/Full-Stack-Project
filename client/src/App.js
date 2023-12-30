@@ -8,6 +8,7 @@ import Userprofile from './pages/Userprofile/Userprofile';
 import Register from './pages/Register/Register';
 import Login from './pages/Login/Login';
 import Logout from './components/Logout/Logout.js';
+import Promotionitem from './pages/Promotionitem/Promotionitem';
 
 import '../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
@@ -33,6 +34,7 @@ function App() {
           <Route path="/userprofile" element={<Userprofile />}></Route>
           <Route path="/logout" element={<Logout />}></Route>
           <Route path="/chatroom" element={<Chat />}></Route>
+          <Route path="/promotionitem/:id" element={<Promotionitem />}></Route>
         </Routes>
       </BrowserRouter>
       </CartProvider>

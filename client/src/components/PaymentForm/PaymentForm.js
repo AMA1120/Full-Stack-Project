@@ -1,8 +1,10 @@
 // components/PaymentForm.js
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import './PaymentForm.css'; // Import the CSS file for styling
 
 const PaymentForm = () => {
+  const location = useLocation();
   const [formData, setFormData] = useState({
     paymentId: generatePaymentId(),
     username: '',
@@ -12,6 +14,16 @@ const PaymentForm = () => {
     cardNumber: '', // New state for card number
     expireDate: '', // New state for expiration date
   });
+
+  useEffect(() => {
+    const searchParams = new URLSearchParams(location.search);
+    const totalPrice = searchParams.get('totalPrice');
+
+    setFormData((prevData) => ({
+      ...prevData,
+      totalCost: totalPrice || '',
+    }));
+  }, [location.search]);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -106,7 +118,7 @@ const PaymentForm = () => {
         )}
 
         <label className='pay-lable'>
-          Total Price:
+          Total Cost:
           <input className='payfeild' type="text" name="totalCost" value={formData.totalCost} onChange={handleInputChange} />
         </label>
         <br />

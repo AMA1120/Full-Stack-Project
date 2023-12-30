@@ -1,0 +1,155 @@
+.fixed-chat {
+    margin: 0;
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+    height: 85vh;
+    background-image: url('../../Images/chatbg4.jpg');
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat;  
+}
+
+
+
+
+.panel-chat {
+    border: 1px solid #ccc;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.header-chat {
+    background-color:#ffcc00;;
+    color: rgb(0, 0, 0);
+    padding: 10px;
+    text-align: center;
+}
+
+.body-chat {
+    flex-grow: 1;
+    overflow-y: auto;
+}
+
+.message-chat {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.current-user-message,
+.other-user-message {
+    border: 1px solid #6e706e;
+    margin-bottom: 8px;
+    text-align: left;
+    word-wrap: break-word;
+    border-radius: 4px;
+    padding: 8px;
+    
+}
+
+.current-user-message {
+    background-color: #a0faa0;
+    margin-right: 10px;
+    align-self: flex-end;
+    max-width: 30%; /* Adjust as needed */
+    margin-left: auto; /* Push to the right side */
+}
+
+.other-user-message {
+    background-color: #f0f0f0;
+    align-self: flex-start;
+    max-width: 30%; /* Adjust as needed */
+    margin-left: 10px;
+}
+
+.message-timestamp {
+    font-size: 0.8em;
+    color: #888;
+    align-self: flex-end;
+}
+
+/* Adjust the width of the chat-message to fit the content */
+.chat-message {
+    border-radius: 4px;
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.chat-message-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+
+.chat-message-body {
+    width: 100%;
+}
+
+input[type="text"] {
+    /* width: calc(100% - 16px); */
+    background-color: rgba(89, 89, 89, 0.5); 
+    color: white;
+    width: 97%;
+    padding: 8px;
+    margin: 8px 0;
+    box-sizing: border-box;
+   
+}
+
+input[type="text"]:focus {
+    outline: none;
+    border: 1px solid #4caf50;
+}
+input[type="submit"] {
+    background-color: #ffcc00;
+    color: white;
+    padding: 0px 25px 0px 25px;
+    border-radius: 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;
+    margin-right: 20px;
+    transition: background-color 0.3s ease-in-out;
+    margin-left: 10px;
+  }
+
+  input[type="submit"]:hover {
+    background-color: black;
+    border-color: black;
+}
+
+
+  .frm {
+    
+        display: flex;
+        margin: 0; 
+        padding: 0; 
+   
+  }
+
+
+@media (max-width: 1200px) {
+    .fixed-chat {
+        align-items: flex-start;
+        height: 80vh;
+    }
+
+    .panel-chat {
+        max-width: 100%;
+       
+
+    }
+
+    .current-user-message,
+    .other-user-message {
+        max-width: 30%;
+    }
+}
+

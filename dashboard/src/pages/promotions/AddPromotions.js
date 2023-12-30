@@ -10,6 +10,7 @@ function Promotions() {
   const [description, setDescription] = useState("");
   const [category, setCategory] = useState("");
   const [image, setImage] = useState("");
+  const [price, setPrice] = useState("");
   const navigate = useNavigate();
 
   const convertToBase64 = (e) => {
@@ -35,6 +36,7 @@ function Promotions() {
       description, 
       category, 
       image,
+      price
     });
     console.log(response.data);
     // const navigate = useNavigate();
@@ -95,6 +97,16 @@ function Promotions() {
                   className="form-control"
                   value={category}
                   onChange={(e) => setCategory(e.target.value)}
+                />
+              </div>
+              <div className="mb-2">
+                <label htmlFor="price">Price</label>
+                <input
+                  type="text"
+                  placeholder="Enter Price"
+                  className="form-control"
+                  value={price}
+                  onChange={(e) => setPrice(e.target.value)}
                 />
               </div>
               <button className="btn btn-success" onClick={uploadImage}>
