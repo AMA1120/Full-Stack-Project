@@ -4,10 +4,10 @@
     align-items: stretch;
     justify-content: center;
     height: 85vh;
-    background-image: url('C:\Users\pkkim\Documents\GitHub\Full-Stack-Project\client\src\Images\chatbg3.jpg');
+    background-image: url('../../Images/chatbg4.jpg');
     background-size: cover; 
     background-position: center; 
-    background-repeat: no-repeat; 
+    background-repeat: no-repeat;  
 }
 
 
