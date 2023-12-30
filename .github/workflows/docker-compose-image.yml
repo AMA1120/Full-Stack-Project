@@ -2,33 +2,65 @@ name: Docker Image CI
 
 on:
   push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+    branches: [ "main" ]
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout
-      uses: actions/checkout@v3
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: "18.16.1"  
 
-    - name: Set up Docker Buildx
-      uses: docker/setup-buildx-action@v3
+      - name: Dependecies - Dashboard
+        run: |
+            npm install
+        env: 
+          CI: ""
+        working-directory: ./dashboard
 
-    - name: Login to Docker Hub
-      uses: docker/login-action@v3
-      with:
-        username: "ama1120"
-        password: "amaneth.123"
+      - name: Build - Dashboard
+        run: |
+            npm run build
+        working-directory: ./dashboard
 
-    - name: Build and push Docker images
-      uses: mr-smithers-excellent/docker-build-push@v4
-      with:
-        image: ama1120/restaurant-ordering-system
-        dockerfile: ./client/Dockerfile
-        registry: docker.io
-        username: ${{ secrets.DOCKER_IMAGE_USERNAME }}
-        password: ${{ secrets.DOCKER_IMAGE_PASSWORD}}
+      - name: Dependecies - client
+        run: |
+            npm install
+        env:
+          CI: ""
+        working-directory: ./client
+
+      - name: Build - client
+        run: |
+            npm run build
+        working-directory: ./client
+
+      - name: Dependecies - server
+        run: |
+            npm install
+        working-directory: ./server
+      
+      - name: Login to DockerHub Registry
+        run: echo ${{ secrets.DOCKER_IMAGE_PASSWORD }} | docker login -u ${{ secrets.DOCKER_IMAGE_USERNAME }} --password-stdin
+
+      - name: Build and Push - Dashboard
+        run: |
+            docker-compose build
+
+            docker tag dashboard:local ${{ secrets.DOCKER_IMAGE_USERNAME }}/restaurant-ordering-system:dashboard
+            docker tag client:local ${{ secrets.DOCKER_IMAGE_USERNAME }}/restaurant-ordering-system:client
+            docker tag server:local ${{ secrets.DOCKER_IMAGE_USERNAME }}/restaurant-ordering-system:server
+          
+            docker push ${{ secrets.DOCKER_IMAGE_USERNAME }}/restaurant-ordering-system:dashboard
+            docker push ${{ secrets.DOCKER_IMAGE_USERNAME }}/restaurant-ordering-system:client
+            docker push ${{ secrets.DOCKER_IMAGE_USERNAME }}/restaurant-ordering-system:server
+
+            
+      
+
+
+      
+

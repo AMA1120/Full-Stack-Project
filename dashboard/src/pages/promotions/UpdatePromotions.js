@@ -10,6 +10,7 @@ function UpdatePromotions() {
   const [description, setDescription] = useState("");
   const [category, setCategory] = useState("");
   const [image, setImage] = useState("");
+  const [price, setPrice] = useState("");
   const navigate = useNavigate();
 
   const convertToBase64 = (e) => {
@@ -39,6 +40,7 @@ function UpdatePromotions() {
         setDescription(existingData.description);
         setCategory(existingData.category);
         setImage(existingData.image);
+        setPrice(existingData.price);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -55,6 +57,7 @@ function UpdatePromotions() {
         description: description,
         category: category,
         image: image,
+        price: price,
       });
 
       const response = await axios.put(
@@ -64,6 +67,7 @@ function UpdatePromotions() {
           description: description,
           category: category,
           image: image,
+          price: price,
         }
       );
 
@@ -128,6 +132,17 @@ function UpdatePromotions() {
                     value={category}
                     onChange={(e) => setCategory(e.target.value)}
                   />
+                </div>
+                <div className="mb-2">
+                  <label htmlFor="price">Price</label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="price"
+                    placeholder="Enter Price"
+                    value={price}
+                    onChange={(e) => setPrice(e.target.value)}
+                  /> 
                 </div>
                 <button type="submit" className="btn btn-success" >
                   Update

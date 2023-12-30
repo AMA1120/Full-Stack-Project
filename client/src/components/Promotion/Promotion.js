@@ -34,7 +34,7 @@ function Promotion() {
                   />
                   <div className="promo-card-footer">
                     <Link
-                      to={`/menu/${promotion._id}`}
+                      to={`/promotionitem/${promotion._id}`}
                       className="order-button"
                     >
                       Order Now
