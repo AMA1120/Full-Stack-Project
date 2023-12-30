@@ -9,7 +9,7 @@ import {
   FaPaperPlane,
 } from "react-icons/fa";
 import "./footer.css";
-import logoImage from "../../Images/chatbg3.jpg"; 
+import logoImage from "../../Images/logo2.jpeg"; // Import your logo image
 
 function Footer() {
   const iconStyle = { color: "yellow" }; // Set the color to yellow
