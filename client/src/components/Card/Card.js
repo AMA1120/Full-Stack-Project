@@ -13,7 +13,7 @@ export default function Card(props) {
 
   const handleClick = () => {
     if (!localStorage.getItem("token")) {
-      navigate("/login");
+      navigate("");
     }
   };
 
