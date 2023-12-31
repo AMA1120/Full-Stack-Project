@@ -70,11 +70,11 @@
     
     .edit-promo-button,
     .delete-promo-button {
-    padding: 10px 10px;
-    margin-right: 5px;
-    border: none;
-    border-radius: 3px;
-    cursor: pointer;
+      padding: 10px 10px;
+      margin-right: 5px;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
     }
     
     .edit-promo-button {
@@ -85,8 +85,8 @@
     }
     
     .delete-promo-button {
-    background-color: #dc3545;
-    color: #fff;
-    width: 30%;
-    height: 10%;
+      background-color: #dc3545;
+      color: #fff;
+      width: 30%;
+      height: 10%;
     }
