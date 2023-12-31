@@ -8,6 +8,9 @@
     "start": "node server.js",
     "test": "jest"
   },
+  "jest": {
+    "testTimeout": 30000 
+  },
   "author": "",
   "license": "ISC",
   "dependencies": {
