@@ -4,8 +4,8 @@ Restaurant  Ordering System
 The Restaurant Ordering System is a complete solution made to improve and speed up the process of ordering for customers and restaurant managers equally. The system provides a user-friendly interface for customers to browse menus and place orders by utilizing an innovative full-stack architecture. Administrative staff at restaurants can update menus, manage users, and keep an eye on overall business performance with the help of an effective dashboard.
 
 
+# Install Dependencies and run the project
 
-#Install Dependencies and run the project
 
 **For Frontend** - `cd client` `npm i` `npm start`
 
@@ -14,17 +14,17 @@ The Restaurant Ordering System is a complete solution made to improve and speed 
 **For Backend** - `cd server` `npm i` `npm start`
 
 
-#Technologies Used:
 
-Frontend: React.js
-Backend: Node.js, Express.js
-Database: MongoDB
-Testing: Jest, Cypress
-Containerization: Docker
+# Technologies Used:
+**Frontend**: React.js
+**Backend**: Node.js, Express.js
+**Database**: MongoDB
+**Testing**: Jest, Cypress
+**Containerization**: Docker
 
 
+# File structure:
 
-#file structure
 
 ```
 .

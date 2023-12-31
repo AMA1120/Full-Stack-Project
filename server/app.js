@@ -12,6 +12,9 @@ const promotionRoutes = require("./routes/promotion");
 const foodcrudRoutes = require("./routes/foodcrud");
 const menuRoutes = require("./routes/menuroute");
 const promotionPayRoutes = require("./routes/promotionPay");
+const adminRoutes = require("./routes/admin");
+
+
 
 app.use(cors());
 app.use(express.json());
@@ -33,5 +36,5 @@ app.use(promotionRoutes);
 app.use(foodcrudRoutes);
 app.use(menuRoutes);
 app.use(promotionPayRoutes);
-
+app.use(adminRoutes);
 module.exports = app;
