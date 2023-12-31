@@ -1,12 +1,12 @@
 import React from 'react';
 // import { useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Login from './pages/login/Login';
 import Home from './pages/home/Home';
 import Food from './pages/food/Food';
 import HomePromotions from './pages/promotions/HomePromotions';
 import AddPromotions from './pages/promotions/AddPromotions';
 import UpdatePromotions from './pages/promotions/UpdatePromotions';
-import Login from './pages/login/Login';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import CreateFood from './pages/food/CreateFood'
@@ -18,13 +18,13 @@ function App() {
     <div>
       <BrowserRouter>
         <Routes>
-          <Route index element={<Home />}/>
+          <Route index element={<Login/>}/>
+          <Route path="/login" element={<Login />} />
           <Route path="/home" element={<Home />}/>
           <Route path="/food" element={<Food />}/>
           <Route path="/homepromotions" element={<HomePromotions />}/>
           <Route path="/addpromotions" element={<AddPromotions/>}/>
           <Route path="/updatePromotions/:id" element={<UpdatePromotions/>}/>
-          <Route path="/login" element={<Login />} />
           <Route path="/create" element={<CreateFood />} />
           <Route path="/update/:id" element={<UpdateFood />}/>
         </Routes>
