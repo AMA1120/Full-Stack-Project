@@ -15,7 +15,6 @@ const promotionPayRoutes = require("./routes/promotionPay");
 const adminRoutes = require("./routes/admin");
 
 
-
 app.use(cors());
 app.use(express.json());
 
