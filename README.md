@@ -1,4 +1,6 @@
-# Full-Stack-Project
+
+# Group 34
+# PUSL3120-Full Stack Development 
 Restaurant  Ordering System
 
 The Restaurant Ordering System is a complete solution made to improve and speed up the process of ordering for customers and restaurant managers equally. The system provides a user-friendly interface for customers to browse menus and place orders by utilizing an innovative full-stack architecture. Administrative staff at restaurants can update menus, manage users, and keep an eye on overall business performance with the help of an effective dashboard.
