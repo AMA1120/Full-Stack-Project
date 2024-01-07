@@ -15,9 +15,9 @@ const promotionPayRoutes = require("./routes/promotionPay");
 const adminRoutes = require("./routes/admin");
 
 
-
 app.use(cors());
 app.use(express.json());
+
 
 //app middleware
 app.use(bodyParser.json({ limit: "50mb" }));

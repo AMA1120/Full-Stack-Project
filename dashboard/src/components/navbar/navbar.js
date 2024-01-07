@@ -8,7 +8,7 @@ function Navbar() {
   return (
     <div className="admin-dashboard">
       <div className="sidebar">
-        <div className="logo">Logo</div>
+        
         <ul className="nav-menu">
           <li>
         <Link to="/home">
